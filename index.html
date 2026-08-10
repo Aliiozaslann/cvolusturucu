@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="tr" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVPRO - Profesyonel CV Oluşturucu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    
+    <!-- SAYFA 1: AÇILIŞ VE ŞABLON EKRANI (LANDING PAGE) -->
+    <section class="landing-page active" id="landingPage">
+        
+        <!-- YENİ HERO (KARŞILAMA) ALANI -->
+        <div class="hero-section">
+            <div class="hero-container">
+                <div class="hero-left">
+                    <div class="hero-badge">
+                        <span class="pulse-dot"></span> Yapay Zeka Destekli & ATS %100 Uyumlu CV Hazırlayıcı
+                    </div>
+                    <h1>Dakikalar İçinde<br><span class="text-gradient">Profesyonel CV</span><br>Hazırlayın</h1>
+                    <p class="hero-desc">İşverenlerin ve ATS insan kaynakları sistemlerinin dikkatini çeken modern CV'ler oluşturun, AI ile içeriğinizi güçlendirin ve yüksek kalitede PDF olarak indirin.</p>
+                    
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary btn-large" id="btnStartNow">
+                            <i class="fa-solid fa-bolt"></i> Hemen CV Oluştur
+                        </button>
+                        <a href="#templatesSection" class="btn btn-outline btn-large scroll-link">
+                            <i class="fa-regular fa-window-maximize"></i> CV Şablonlarını İncele
+                        </a>
+                    </div>
+
+                    <div class="hero-features">
+                        <span><i class="fa-regular fa-square-check"></i> Ücretsiz Başla</span>
+                        <span><i class="fa-regular fa-square-check"></i> Kayıt Olmadan Dene</span>
+                        <span><i class="fa-regular fa-square-check"></i> Anında PDF İndir</span>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <!-- CV Mockup Penceresi -->
+                    <div class="mockup-window">
+                        <div class="mockup-header">
+                            <div class="window-controls">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="ats-badge-mini"><i class="fa-solid fa-check-circle"></i> ATS Skoru: 98/100</div>
+                        </div>
+                        <div class="mockup-body">
+                            <div class="m-profile">
+                                <div class="m-avatar"><i class="fa-solid fa-user"></i></div>
+                                <div class="m-info">
+                                    <h4>Ali Özaslan</h4>
+                                    <p>Java Developer</p>
+                                    <span class="m-contact">ali@example.com • İstanbul</span>
+                                </div>
+                            </div>
+                            <div class="m-section">
+                                <h5>HAKKIMDA</h5>
+                                <div class="m-line full"></div>
+                                <div class="m-line partial"></div>
+                            </div>
+                            <div class="m-section">
+                                <h5>DENEYİM</h5>
+                                <div class="m-exp">
+                                    <span class="m-company">Pera Inc. - Stajyer</span>
+                                    <span class="m-date">Temmuz 2026 - Devam Ediyor</span>
+                                </div>
+                                <div class="m-line full"></div>
+                                <div class="m-line partial-small"></div>
+                            </div>
+                            <div class="m-tags">
+                                <span>Java</span><span>Spring Boot</span><span>C#</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ŞABLON SEÇİM ALANI -->
+        <div class="templates-section" id="templatesSection">
+            <div class="landing-header">
+                <span class="badge">✓ ATS UYUMLU</span>
+                <h2>CV OLUŞTURUCU</h2>
+                <p class="subtitle">Profesyonel Şablon Seçin</p>
+                <p class="desc">Kariyerinize uygun tasarımı seçerek hemen başlayın. Tüm şablonlar tamamen ücretsizdir.</p>
+            </div>
+
+            <div class="template-grid">
+                <!-- Şablon 1: Minimal Slate -->
+                <div class="template-card" data-template="minimal-slate">
+                    <div class="card-preview slate-preview-mini">
+                        <div class="m-card-inner">
+                            <div class="m-left-col">
+                                <div class="m-circle-avatar"></div>
+                                <div class="m-title-block blue">HAKKIMDA</div>
+                                <div class="m-stub-line"></div>
+                                <div class="m-title-block">İLETİŞİM</div>
+                                <div class="m-stub-line short"></div>
+                                <div class="m-title-block">EĞİTİM</div>
+                            </div>
+                            <div class="m-right-col">
+                                <div class="m-name-title">
+                                    <span class="m-name">ZEYNEP EKİNCİ</span>
+                                    <span class="m-role">Grafik Tasarımcı</span>
+                                </div>
+                                <div class="m-title-block">DENEYİM</div>
+                                <div class="m-stub-line bold"></div>
+                                <div class="m-stub-line"></div>
+                                <div class="m-title-block teal">BECERİLER</div>
+                                <div class="m-bar-group">
+                                    <div class="m-bar teal"></div>
+                                    <div class="m-bar teal"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-meta">
+                        <span class="meta-tag">Grafik & Tasarım</span>
+                        <span class="meta-status free">✓ Ücretsiz</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Sade Minimal Slate</h3>
+                        <p>Sade, şık ve modern çizgilere sahip ATS uyumlu minimalist tasarım.</p>
+                        <button class="btn btn-select btn-gradient-purple">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Bu Tasarımla CV Oluştur
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Şablon 2: Executive Navy -->
+                <div class="template-card" data-template="corporate-navy">
+                    <div class="card-preview navy-preview-mini">
+                        <div class="m-card-inner">
+                            <div class="m-dark-sidebar">
+                                <div class="m-circle-avatar border"></div>
+                                <span class="m-mini-name">AYŞE ÖRNEK</span>
+                                <div class="m-stub-line light"></div>
+                                <div class="m-stub-line light short"></div>
+                            </div>
+                            <div class="m-light-content">
+                                <div class="m-title-block blue-underline">PROFESYONEL ÖZET</div>
+                                <div class="m-stub-line"></div>
+                                <div class="m-title-block blue-underline">İŞ DENEYİMİ</div>
+                                <div class="m-stub-line bold"></div>
+                                <div class="m-stub-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-meta">
+                        <span class="meta-tag">Sağlık & Kurumsal</span>
+                        <span class="meta-status free">✓ Ücretsiz</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Kurumsal Executive Navy</h3>
+                        <p>Yöneticiler ve kurumsal başvurular için koyu lacivert tonlu prestijli şablon.</p>
+                        <button class="btn btn-select btn-gradient-purple">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Bu Tasarımla CV Oluştur
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Şablon 3: Modern Tech Teal -->
+                <div class="template-card" data-template="modern-tech">
+                    <div class="card-preview tech-preview-mini">
+                        <div class="m-card-inner bordered-teal">
+                            <div class="m-top-bar-teal">
+                                <div class="m-avatar-square"></div>
+                                <div class="m-top-info">
+                                    <span class="m-name white">PAUL ROBINSON</span>
+                                    <span class="m-role cyan">LEAD WEB DEVELOPER</span>
+                                </div>
+                            </div>
+                            <div class="m-bottom-split">
+                                <div class="m-split-left">
+                                    <div class="m-title-block cyan">PROFILE</div>
+                                    <div class="m-stub-line"></div>
+                                    <div class="m-title-block cyan">PRO SKILLS</div>
+                                    <div class="m-bar-group">
+                                        <div class="m-bar cyan"></div>
+                                    </div>
+                                </div>
+                                <div class="m-split-right">
+                                    <div class="m-stub-line bold"></div>
+                                    <div class="m-stub-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-meta">
+                        <span class="meta-tag">Yazılım & Yönetici</span>
+                        <span class="meta-status free">✓ Ücretsiz</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Modern Tech Teal</h3>
+                        <p>Yazılımcılar ve teknoloji liderleri için çift sütunlu dikkat çekici modern tasarım.</p>
+                        <button class="btn btn-select btn-gradient-purple">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Bu Tasarımla CV Oluştur
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Şablon 4: Kreatif Magenta -->
+                <div class="template-card" data-template="creative-magenta">
+                    <div class="card-preview magenta-preview-mini">
+                        <div class="m-card-inner">
+                            <div class="m-top-header-magenta">
+                                <span class="m-name white">BERİL DENİZ</span>
+                                <span class="m-role light-pink">COMPUTER ENGINEER</span>
+                                <div class="m-avatar-top-right"></div>
+                            </div>
+                            <div class="m-magenta-body">
+                                <div class="m-mag-left">
+                                    <div class="m-title-block pink">İLETİŞİM</div>
+                                    <div class="m-stub-line pink"></div>
+                                    <div class="m-title-block pink">YABANCI DİL</div>
+                                </div>
+                                <div class="m-mag-right">
+                                    <div class="m-title-block pink">İŞ TECRÜBESİ</div>
+                                    <div class="m-stub-line"></div>
+                                    <div class="m-stub-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-meta">
+                        <span class="meta-tag">Mühendislik & Kreatif</span>
+                        <span class="meta-status free">✓ Ücretsiz</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Kreatif Magenta</h3>
+                        <p>Tasarımcılar ve kreatif sektörler için canlı renk paletine sahip dinamik şablon.</p>
+                        <button class="btn btn-select btn-gradient-purple">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Bu Tasarımla CV Oluştur
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SAYFA 2: EDİTÖR ÇALIŞMA ALANI -->
+    <main class="workspace" id="editorWorkspace">
+        <aside class="editor-panel">
+            <div class="panel-header">
+                <h2>CV Hazırlama</h2>
+                <p>8 Adımlı Canlı Düzenleyici</p>
+                <div class="warning-box">
+                    <i class="fa-solid fa-info"></i> Verileriniz tarayıcıda saklanır. Lütfen PDF olarak indirin.
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-text">
+                    <span>İlerleme</span>
+                    <span class="progress-percentage" id="progressText">Adım 1 / 8</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar" style="width: 12.5%;"></div>
+                </div>
+            </div>
+
+            <div class="step-tabs">
+                <button class="step-tab active" data-step="1">1. Kişi</button>
+                <button class="step-tab" data-step="2">2. Proje</button>
+                <button class="step-tab" data-step="3">3. Eğitim</button>
+                <button class="step-tab" data-step="4">4. Deneyim</button>
+                <button class="step-tab" data-step="5">5. Beceri</button>
+                <button class="step-tab" data-step="6">6. Sertifika</button>
+                <button class="step-tab" data-step="7">7. Dil</button>
+                <button class="step-tab" data-step="8">8. Özet</button>
+            </div>
+
+            <div class="form-section">
+                <!-- Adım 1: Kişisel Bilgiler -->
+                <div class="step-content active" id="step-1">
+                    <h3><i class="fa-regular fa-user"></i> Kişisel Bilgiler</h3>
+                    <div class="form-group">
+                        <label>Profil Fotoğrafı</label>
+                        <input type="file" id="inputPhoto" accept="image/*" style="padding: 6px; cursor: pointer;">
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Ad *</label>
+                            <input type="text" id="inputName" value="" placeholder="Deniz">
+                        </div>
+                        <div class="form-group">
+                            <label>Soyad *</label>
+                            <input type="text" id="inputSurname" value="" placeholder="Kuş">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Profesyonel Unvan *</label>
+                        <input type="text" id="inputTitle" value="" placeholder="Yazılım Mühendisi">
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>E-Posta *</label>
+                            <input type="email" id="inputEmail" value="" placeholder="denizkus@example.com">
+                            <span id="emailError" class="validation-error">Geçerli bir e-posta adresi girin (örn: isim@domain.com)</span>
+                        </div>
+                        <div class="form-group">
+                            <label>Telefon *</label>
+                            <input type="text" id="inputPhone" value="" placeholder="+90 555 123 45 67">
+                            <span id="phoneError" class="validation-error">Geçerli bir telefon numarası girin</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Şehir / Lokasyon</label>
+                        <input type="text" id="inputLocation" value="" placeholder="Adana, Türkiye">
+                    </div>
+                </div>
+
+                <!-- Adım 2: Projeler -->
+                <div class="step-content" id="step-2">
+                    <h3><i class="fa-solid fa-code"></i> Projeler</h3>
+                    <div id="projectsContainer"></div>
+                    <button class="btn btn-outline" id="btnAddProject" style="width: 100%; justify-content: center; margin-top: 10px;">
+                        <i class="fa-solid fa-plus"></i> Yeni Proje Ekle
+                    </button>
+                </div>
+
+                <!-- Adım 3: Eğitim -->
+                <div class="step-content" id="step-3">
+                    <h3><i class="fa-solid fa-graduation-cap"></i> Eğitim</h3>
+                    <div id="educationContainer"></div>
+                    <button class="btn btn-outline" id="btnAddEducation" style="width: 100%; justify-content: center; margin-top: 10px;">
+                        <i class="fa-solid fa-plus"></i> Yeni Eğitim Ekle
+                    </button>
+                </div>
+
+                <!-- Adım 4: İş Deneyimi -->
+                <div class="step-content" id="step-4">
+                    <h3><i class="fa-solid fa-briefcase"></i> İş Deneyimi</h3>
+                    <div id="experienceContainer"></div>
+                    <button class="btn btn-outline" id="btnAddExperience" style="width: 100%; justify-content: center; margin-top: 10px;">
+                        <i class="fa-solid fa-plus"></i> Yeni İş Deneyimi Ekle
+                    </button>
+                </div>
+
+                <!-- Adım 5: Beceriler -->
+                <div class="step-content" id="step-5">
+                    <h3><i class="fa-solid fa-star"></i> Beceriler</h3>
+                    <div class="form-group">
+                        <label>Beceriler (Virgülle ayırın)</label>
+                        <input type="text" id="inputSkills" value="" placeholder="JavaScript, React, Node.js, Python">
+                    </div>
+                </div>
+
+                <!-- Adım 6: Sertifikalar -->
+                <div class="step-content" id="step-6">
+                    <h3><i class="fa-solid fa-certificate"></i> Sertifikalar</h3>
+                    <div class="form-group">
+                        <label>Sertifika / Katılım (Virgülle ayırın)</label>
+                        <input type="text" id="inputCert" value="" placeholder="AWS Certified, Agile Scrum Master">
+                    </div>
+                </div>
+
+                <!-- Adım 7: Diller -->
+                <div class="step-content" id="step-7">
+                    <h3><i class="fa-solid fa-language"></i> Yabancı Diller</h3>
+                    <div class="form-group">
+                        <label>Bildiğiniz Diller (Virgülle ayırın)</label>
+                        <input type="text" id="inputLangs" value="" placeholder="Türkçe (Ana Dil), İngilizce (C1)">
+                    </div>
+                </div>
+
+                <!-- Adım 8: Özet -->
+                <div class="step-content" id="step-8">
+                    <h3><i class="fa-solid fa-align-left"></i> Hakkımda / Özet</h3>
+                    <div class="form-group">
+                        <label>Özet Metni</label>
+                        <textarea id="inputAbout" rows="5" placeholder="Modern web teknolojileri üzerine uzmanlaşmış, yenilikçi projelere imza atmayı seven yazılım mühendisi."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-navigation">
+                    <button class="btn btn-secondary" id="btnPrev" disabled>
+                        <i class="fa-solid fa-chevron-left"></i> Geri
+                    </button>
+                    <button class="btn btn-primary" id="btnNext">
+                        Devam <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- SAĞ PANEL: ÖNİZLEME -->
+        <section class="preview-panel">
+            <div class="preview-toolbar">
+                <div class="template-selector">
+                    <label>Şablon:</label>
+                    <select id="templateSelect" class="dark-select">
+                        <option value="minimal-slate">Minimal Slate</option>
+                        <option value="corporate-navy">Kurumsal Navy</option>
+                        <option value="modern-tech">Modern Tech</option>
+                        <option value="creative-magenta">Kreatif Magenta</option>
+                    </select>
+                </div>
+                <div class="zoom-controls">
+                    <span>Boyut:</span>
+                    <button class="btn btn-zoom">Sığdır</button>
+                    <button class="btn btn-zoom">75%</button>
+                    <button class="btn btn-zoom active">100%</button>
+                </div>
+            </div>
+
+            <div class="action-bar">
+                <div class="ats-score">
+                    <i class="fa-solid fa-check-circle"></i> ATS: <span class="text-green">98.4/100</span>
+                </div>
+                <button class="btn btn-primary" id="downloadPdf">
+                    <i class="fa-solid fa-download"></i> PDF İndir
+                </button>
+            </div>
+
+            <div class="canvas-container">
+                <div class="a4-paper minimal-slate" id="cvCanvas">
+                    <aside class="cv-sidebar">
+                        <div class="profile-box">
+                            <div class="avatar-placeholder" id="avatarContainer">
+                                <i class="fa-solid fa-user" id="defaultAvatarIcon"></i>
+                                <img id="renderPhoto" src="" alt="Profil" style="display: none; width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                        </div>
+
+                        <div class="cv-section">
+                            <h3>İLETİŞİM</h3>
+                            <hr>
+                            <div class="contact-list">
+                                <p id="renderPhone"><i class="fa-solid fa-phone"></i> +90 555 123 45 67</p>
+                                <p id="renderEmail"><i class="fa-solid fa-envelope"></i> denizkus@example.com</p>
+                                <p id="renderLocation"><i class="fa-solid fa-location-dot"></i> Adana, Türkiye</p>
+                            </div>
+                        </div>
+
+                        <div class="cv-section">
+                            <h3>BECERİLER</h3>
+                            <hr>
+                            <ul id="renderSkills"></ul>
+                        </div>
+
+                        <div class="cv-section">
+                            <h3>DİLLER</h3>
+                            <hr>
+                            <ul id="renderLangs"></ul>
+                        </div>
+
+                        <div class="cv-section">
+                            <h3>SERTİFİKALAR</h3>
+                            <hr>
+                            <ul id="renderCert"></ul>
+                        </div>
+                    </aside>
+
+                    <main class="cv-main-content">
+                        <header class="cv-main-header">
+                            <h1 id="renderFullName">DENİZ KUŞ</h1>
+                            <h2 id="renderTitle">Yazılım Mühendisi</h2>
+                        </header>
+
+                        <div class="cv-section">
+                            <h3>HAKKIMDA</h3>
+                            <hr>
+                            <p id="renderAbout">Modern web teknolojileri üzerine uzmanlaşmış, yenilikçi projelere imza atmayı seven yazılım mühendisi.</p>
+                        </div>
+
+                        <div class="cv-section">
+                            <h3>EĞİTİM</h3>
+                            <hr>
+                            <div id="renderEducationList"></div>
+                        </div>
+
+                        <div class="cv-section">
+                            <h3>İŞ DENEYİMİ</h3>
+                            <hr>
+                            <div id="renderExperienceList"></div>
+                        </div>
+
+                        <div class="cv-section">
+                            <h3>PROJELER</h3>
+                            <hr>
+                            <div id="renderProjectList"></div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
