@@ -98,7 +98,7 @@ body { background-color: var(--bg-dark); color: var(--text-main); height: 100vh;
 .m-tags span { background: #f1f5f9; color: #475569; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 500; }
 
 /* ==========================================
-   11.PNG BİREBİR UYUMLU ŞABLON KARTLARI
+   ŞABLON KARTLARI (LANDING PAGE MINYATÜRLERI)
    ========================================== */
 .templates-section { padding: 60px 40px; display: flex; flex-direction: column; align-items: center; background: #090d16; }
 .landing-header { text-align: center; margin-bottom: 50px; }
@@ -116,12 +116,17 @@ body { background-color: var(--bg-dark); color: var(--text-main); height: 100vh;
 .navy-preview-mini { background: #0b1329; }
 .tech-preview-mini { background: #042f2e; }
 .magenta-preview-mini { background: #4c0519; }
+.emerald-preview-mini { background: #022c22; }
+.burgundy-preview-mini { background: #310710; }
+.aurora-preview-mini { background: #2e1065; }
+.copper-preview-mini { background: #2a1205; }
 
 .m-card-inner { width: 100%; height: 100%; background: #ffffff; border-radius: 8px; padding: 10px; display: flex; gap: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); position: relative; overflow: hidden; }
 
 /* Minyatür İç Elemanlar */
 .m-circle-avatar { width: 24px; height: 24px; background: #3b82f6; border-radius: 50%; margin-bottom: 6px; }
 .m-circle-avatar.border { border: 2px solid #ffffff; }
+.m-circle-avatar.emerald { background: #059669; }
 
 .m-left-col { width: 35%; background: #f1f5f9; padding: 6px; border-radius: 4px; }
 .m-right-col { width: 65%; padding: 4px; }
@@ -129,16 +134,25 @@ body { background-color: var(--bg-dark); color: var(--text-main); height: 100vh;
 .m-name-title { margin-bottom: 8px; }
 .m-name { display: block; font-size: 8px; font-weight: 800; color: #0f172a; line-height: 1; }
 .m-name.white { color: #ffffff; }
+.m-name.emerald-dark { color: #064e3b; }
 .m-role { font-size: 6px; color: #64748b; }
 .m-role.cyan { color: #38bdf8; }
 .m-role.light-pink { color: #fbcfe8; }
+.m-role.light-purple { color: #ddd6fe; }
+.m-role.emerald-light { color: #059669; }
 
 .m-title-block { font-size: 5px; font-weight: 800; color: #475569; margin: 4px 0 2px; }
 .m-title-block.blue { color: #2563eb; }
 .m-title-block.teal { color: #0d9488; }
 .m-title-block.cyan { color: #0284c7; }
 .m-title-block.pink { color: #db2777; }
+.m-title-block.emerald { color: #059669; }
+.m-title-block.burgundy { color: #881337; }
+.m-title-block.aurora { color: #7c3aed; }
+.m-title-block.copper { color: #ea580c; }
 .m-title-block.blue-underline { color: #1e3a8a; border-bottom: 1px solid #1e3a8a; padding-bottom: 1px; }
+.m-title-block.burgundy-underline { color: #881337; border-bottom: 1px solid #881337; padding-bottom: 1px; }
+.m-title-block.copper-underline { color: #ea580c; border-bottom: 1px solid #ea580c; padding-bottom: 1px; }
 
 .m-stub-line { height: 3px; background: #cbd5e1; border-radius: 2px; margin-bottom: 3px; width: 100%; }
 .m-stub-line.short { width: 60%; }
@@ -150,23 +164,27 @@ body { background-color: var(--bg-dark); color: var(--text-main); height: 100vh;
 .m-bar { height: 4px; border-radius: 2px; flex: 1; }
 .m-bar.teal { background: #0d9488; }
 .m-bar.cyan { background: #0284c7; }
+.m-bar.emerald { background: #059669; }
 
-/* Minyatür Şablon 2 Özel */
+/* Minyatür Şablon Özel Düzenler */
 .m-dark-sidebar { width: 35%; background: #0f172a; padding: 6px; border-radius: 4px; display: flex; flex-direction: column; align-items: center; }
+.m-burgundy-sidebar { width: 35%; background: #4c0519; padding: 6px; border-radius: 4px; display: flex; flex-direction: column; align-items: center; }
+.m-copper-sidebar { width: 35%; background: #431407; padding: 6px; border-radius: 4px; display: flex; flex-direction: column; align-items: center; }
 .m-mini-name { font-size: 5px; color: #ffffff; font-weight: 700; margin-bottom: 4px; text-align: center; }
 .m-light-content { width: 65%; padding: 4px; }
 
-/* Minyatür Şablon 3 Özel */
 .bordered-teal { background: #0f172a; border: 2px solid #0d9488; flex-direction: column; padding: 6px; }
+.bordered-emerald { background: #ffffff; border: 2px solid #059669; flex-direction: column; padding: 6px; }
 .m-top-bar-teal { display: flex; gap: 6px; align-items: center; border-bottom: 1px solid #0d9488; padding-bottom: 4px; }
+.m-top-bar-emerald { display: flex; gap: 6px; align-items: center; border-bottom: 1px solid #059669; padding-bottom: 4px; }
 .m-avatar-square { width: 18px; height: 18px; background: #38bdf8; border-radius: 3px; }
 .m-bottom-split { display: flex; gap: 6px; margin-top: 4px; flex: 1; }
 .m-split-left { width: 40%; } .m-split-right { width: 60%; }
 
-/* Minyatür Şablon 4 Özel */
 .m-top-header-magenta { background: #db2777; padding: 6px; border-radius: 4px; position: relative; }
+.m-top-header-aurora { background: #7c3aed; padding: 6px; border-radius: 4px; position: relative; }
 .m-avatar-top-right { width: 16px; height: 16px; background: #ffffff; border-radius: 50%; position: absolute; right: 6px; top: 5px; }
-.m-magenta-body { display: flex; gap: 6px; margin-top: 4px; flex: 1; }
+.m-magenta-body, .m-aurora-body { display: flex; gap: 6px; margin-top: 4px; flex: 1; }
 .m-mag-left { width: 40%; } .m-mag-right { width: 60%; }
 
 /* ROZETLER (META TAGS) */
@@ -241,8 +259,10 @@ body { background-color: var(--bg-dark); color: var(--text-main); height: 100vh;
 .experience-item .date, .education-item .date { font-size: 13px; margin-bottom: 6px; font-weight: 500; }
 
 /* ==========================================
-   A4 ŞABLON STİLLERİ
+   8 A4 ŞABLON STİLLERİ (EKSİKSİZ)
    ========================================== */
+
+/* 1. Minimal Slate */
 .a4-paper.minimal-slate { background: #ffffff; color: #1e293b; }
 .minimal-slate .cv-sidebar { background: #f8fafc; border-right: 1px solid #e2e8f0; }
 .minimal-slate .cv-main-content { background: #ffffff; }
@@ -257,6 +277,7 @@ body { background-color: var(--bg-dark); color: var(--text-main); height: 100vh;
 .minimal-slate .experience-item h4 { color: #0f172a; }
 .minimal-slate .experience-item .date { color: #64748b; }
 
+/* 2. Corporate Navy */
 .a4-paper.corporate-navy { background: #2b3a4a; color: #e2e8f0; }
 .corporate-navy .cv-sidebar { background: #232f3e; border-right: 1px solid #1a232e; }
 .corporate-navy .cv-main-content { background: #2b3a4a; }
@@ -268,6 +289,7 @@ body { background-color: var(--bg-dark); color: var(--text-main); height: 100vh;
 .corporate-navy .contact-list p, .corporate-navy .cv-section p, .corporate-navy .cv-section ul, .corporate-navy .experience-item { color: #cbd5e1; }
 .corporate-navy .experience-item h4 { color: #ffffff; }
 
+/* 3. Modern Tech */
 .a4-paper.modern-tech { background: #0f172a; color: #94a3b8; }
 .modern-tech .cv-sidebar { background: #1e293b; border-right: 2px solid #38bdf8; }
 .modern-tech .cv-main-content { background: #0f172a; }
@@ -279,6 +301,7 @@ body { background-color: var(--bg-dark); color: var(--text-main); height: 100vh;
 .modern-tech .contact-list p, .modern-tech .cv-section p, .modern-tech .cv-section ul, .modern-tech .experience-item { color: #94a3b8; }
 .modern-tech .experience-item h4 { color: #f8fafc; }
 
+/* 4. Creative Magenta */
 .a4-paper.creative-magenta { background: #ffffff; color: #475569; }
 .creative-magenta .cv-sidebar { background: #fdf2f8; border-right: 2px dashed #f472b6; }
 .creative-magenta .cv-main-content { background: #ffffff; }
@@ -290,6 +313,58 @@ body { background-color: var(--bg-dark); color: var(--text-main); height: 100vh;
 .creative-magenta .cv-section hr { border-top-color: #f472b6; }
 .creative-magenta .contact-list p, .creative-magenta .cv-section p, .creative-magenta .cv-section ul, .creative-magenta .experience-item { color: #475569; }
 .creative-magenta .experience-item h4 { color: #831843; }
+
+/* 5. Elegant Emerald */
+.a4-paper.elegant-emerald { background: #ffffff; color: #1f2937; }
+.elegant-emerald .cv-sidebar { background: #ecfdf5; border-right: 2px solid #059669; }
+.elegant-emerald .cv-main-content { background: #ffffff; }
+.elegant-emerald .avatar-placeholder { border: 3px solid #059669; border-radius: 50%; width: 130px; height: 130px; color: #059669; background: #d1fae5; }
+.elegant-emerald .cv-main-header { border-bottom-color: #059669; }
+.elegant-emerald .cv-main-header h1 { color: #064e3b; }
+.elegant-emerald .cv-main-header h2 { color: #059669; }
+.elegant-emerald .cv-section h3, .elegant-emerald .contact-list i, .elegant-emerald .experience-item .date { color: #059669; }
+.elegant-emerald .cv-section hr { border-top-color: #10b981; }
+.elegant-emerald .contact-list p, .elegant-emerald .cv-section p, .elegant-emerald .cv-section ul, .elegant-emerald .experience-item { color: #374151; }
+.elegant-emerald .experience-item h4 { color: #064e3b; }
+
+/* 6. Classic Burgundy */
+.a4-paper.classic-burgundy { background: #ffffff; color: #334155; }
+.classic-burgundy .cv-sidebar { background: #fff1f2; border-right: 2px solid #9f1239; }
+.classic-burgundy .cv-main-content { background: #ffffff; }
+.classic-burgundy .avatar-placeholder { border: 2px solid #9f1239; border-radius: 8px; width: 120px; height: 140px; color: #9f1239; background: #ffe4e6; }
+.classic-burgundy .cv-main-header { border-bottom-color: #9f1239; }
+.classic-burgundy .cv-main-header h1 { color: #4c0519; }
+.classic-burgundy .cv-main-header h2 { color: #9f1239; }
+.classic-burgundy .cv-section h3, .classic-burgundy .contact-list i, .classic-burgundy .experience-item .date { color: #9f1239; }
+.classic-burgundy .cv-section hr { border-top-color: #e11d48; }
+.classic-burgundy .contact-list p, .classic-burgundy .cv-section p, .classic-burgundy .cv-section ul, .classic-burgundy .experience-item { color: #475569; }
+.classic-burgundy .experience-item h4 { color: #4c0519; }
+
+/* 7. Clean Aurora */
+.a4-paper.clean-aurora { background: #ffffff; color: #334155; }
+.clean-aurora .cv-sidebar { background: #f5f3ff; border-right: 2px solid #7c3aed; }
+.clean-aurora .cv-main-content { background: #ffffff; }
+.clean-aurora .avatar-placeholder { border: 3px solid #7c3aed; border-radius: 16px; width: 130px; height: 130px; color: #7c3aed; background: #ede9fe; }
+.clean-aurora .cv-main-header { border-bottom-color: #7c3aed; }
+.clean-aurora .cv-main-header h1 { color: #4c1d95; }
+.clean-aurora .cv-main-header h2 { color: #7c3aed; }
+.clean-aurora .cv-section h3, .clean-aurora .contact-list i, .clean-aurora .experience-item .date { color: #7c3aed; }
+.clean-aurora .cv-section hr { border-top-color: #a78bfa; }
+.clean-aurora .contact-list p, .clean-aurora .cv-section p, .clean-aurora .cv-section ul, .clean-aurora .experience-item { color: #475569; }
+.clean-aurora .experience-item h4 { color: #4c1d95; }
+
+/* 8. Professional Copper */
+.a4-paper.professional-copper { background: #ffffff; color: #292524; }
+.professional-copper .cv-sidebar { background: #fff7ed; border-right: 2px solid #ea580c; }
+.professional-copper .cv-main-content { background: #ffffff; }
+.professional-copper .avatar-placeholder { border: 2px solid #ea580c; border-radius: 6px; width: 125px; height: 145px; color: #ea580c; background: #ffedd5; }
+.professional-copper .cv-main-header { border-bottom-color: #ea580c; }
+.professional-copper .cv-main-header h1 { color: #7c2d12; }
+.professional-copper .cv-main-header h2 { color: #ea580c; }
+.professional-copper .cv-section h3, .professional-copper .contact-list i, .professional-copper .experience-item .date { color: #ea580c; }
+.professional-copper .cv-section hr { border-top-color: #f97316; }
+.professional-copper .contact-list p, .professional-copper .cv-section p, .professional-copper .cv-section ul, .professional-copper .experience-item { color: #44403c; }
+.professional-copper .experience-item h4 { color: #7c2d12; }
 
 /* RESPONSIVE YAPI */
 @media (max-width: 1200px) {

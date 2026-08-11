@@ -1,445 +1,306 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ==========================================
+    // 1. SAYFA GEÇİŞLERİ (LANDING -> WORKSPACE)
+    // ==========================================
     const landingPage = document.getElementById('landingPage');
     const editorWorkspace = document.getElementById('editorWorkspace');
-    const navLogo = document.getElementById('navLogo');
-    const btnChangeTemplate = document.getElementById('btnChangeTemplate');
-    const cvCanvas = document.getElementById('cvCanvas');
-    const templateSelect = document.getElementById('templateSelect');
     const btnStartNow = document.getElementById('btnStartNow');
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const templateSelect = document.getElementById('templateSelect');
+    const cvCanvas = document.getElementById('cvCanvas');
 
-    // ===== DİNAMİK VERİ YAPI TAŞLARI (STATE) =====
-    let dataState = { projects: [], education: [], experience: [] };
+    // Başla Butonu
+    if (btnStartNow) {
+        btnStartNow.addEventListener('click', () => {
+            landingPage.classList.remove('active');
+            editorWorkspace.classList.add('active');
+        });
+    }
 
-    // ===== YEREL HAFIZADAN GÜVENLİ YÜKLEME =====
-    const loadFromLocalStorage = () => {
-        try {
-            const rawData = localStorage.getItem('cvpro_data_v2');
-            if (rawData) {
-                const savedData = JSON.parse(rawData);
-                if (savedData.template && templateSelect) templateSelect.value = savedData.template;
-                
-                const setVal = (id, val) => { if(document.getElementById(id)) document.getElementById(id).value = val || ''; };
-                
-                setVal('inputName', savedData.name);
-                setVal('inputSurname', savedData.surname);
-                setVal('inputTitle', savedData.title);
-                setVal('inputEmail', savedData.email);
-                setVal('inputPhone', savedData.phone);
-                setVal('inputLocation', savedData.location);
-                setVal('inputSkills', savedData.skills);
-                setVal('inputCert', savedData.cert);
-                setVal('inputLangs', savedData.langs);
-                setVal('inputAbout', savedData.about);
+    // Şablon Kartlarından Seçim Yaparak Başlama (8 Şablonun Tamamı İçin)
+    document.querySelectorAll('.btn-select').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const card = e.target.closest('.template-card');
+            const templateClass = card.getAttribute('data-template');
+            
+            // Dropdown'u güncelle
+            templateSelect.value = templateClass;
+            updateTemplate(templateClass);
 
-                if (savedData.photo && savedData.photo.startsWith('data:image')) {
-                    const renderPhoto = document.getElementById('renderPhoto');
-                    const defaultAvatarIcon = document.getElementById('defaultAvatarIcon');
-                    if(renderPhoto && defaultAvatarIcon) {
-                        renderPhoto.src = savedData.photo;
-                        renderPhoto.style.display = 'block';
-                        defaultAvatarIcon.style.display = 'none';
-                    }
-                }
+            // Çalışma alanına geç
+            landingPage.classList.remove('active');
+            editorWorkspace.classList.add('active');
+        });
+    });
 
-                if(Array.isArray(savedData.projects)) dataState.projects = savedData.projects;
-                if(Array.isArray(savedData.education)) dataState.education = savedData.education;
-                if(Array.isArray(savedData.experience)) dataState.experience = savedData.experience;
-            }
-        } catch (error) {
-            console.warn("Önceki veriler hatalı, sistem temizleniyor...", error);
-            localStorage.removeItem('cvpro_data_v2');
-        }
+    // ==========================================
+    // 2. EDİTÖR ADIM YÖNETİMİ (STEPS)
+    // ==========================================
+    let currentStep = 1;
+    const totalSteps = 8;
+    const tabs = document.querySelectorAll('.step-tab');
+    const contents = document.querySelectorAll('.step-content');
+    const btnPrev = document.getElementById('btnPrev');
+    const btnNext = document.getElementById('btnNext');
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
 
-        if (dataState.projects.length === 0) dataState.projects.push({ title: '', tech: '', desc: '' });
-        if (dataState.education.length === 0) dataState.education.push({ school: '', dept: '', date: '' });
-        if (dataState.experience.length === 0) dataState.experience.push({ company: '', role: '', date: '' });
+    function updateSteps(step) {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
 
-        renderDynamicForms();
-        updateAllPreviews();
-        validateEmailAndPhone(); // Yüklemede kontrol et
-    };
+        document.querySelector(`.step-tab[data-step="${step}"]`).classList.add('active');
+        document.getElementById(`step-${step}`).classList.add('active');
 
-    // ===== YEREL HAFIZAYA KAYDETME =====
-    const saveToLocalStorage = () => {
-        if(!templateSelect) return;
-        const data = {
-            template: templateSelect.value,
-            name: document.getElementById('inputName').value,
-            surname: document.getElementById('inputSurname').value,
-            title: document.getElementById('inputTitle').value,
-            email: document.getElementById('inputEmail').value,
-            phone: document.getElementById('inputPhone').value,
-            location: document.getElementById('inputLocation').value,
-            skills: document.getElementById('inputSkills').value,
-            cert: document.getElementById('inputCert').value,
-            langs: document.getElementById('inputLangs').value,
-            about: document.getElementById('inputAbout').value,
-            photo: document.getElementById('renderPhoto').src,
-            projects: dataState.projects,
-            education: dataState.education,
-            experience: dataState.experience
-        };
-        localStorage.setItem('cvpro_data_v2', JSON.stringify(data));
-    };
-
-    // ===== REGEX İLE E-POSTA VE TELEFON DOĞRULAMA (VALIDATION) =====
-    const validateEmailAndPhone = () => {
-        const emailInput = document.getElementById('inputEmail');
-        const phoneInput = document.getElementById('inputPhone');
-        const emailError = document.getElementById('emailError');
-        const phoneError = document.getElementById('phoneError');
-
-        if (!emailInput || !phoneInput) return;
-
-        // E-posta Regex Kuralı
-        const emailVal = emailInput.value.trim();
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (emailVal !== '' && !emailRegex.test(emailVal)) {
-            emailInput.classList.add('is-invalid');
-            if(emailError) emailError.classList.add('active');
+        btnPrev.disabled = step === 1;
+        
+        if (step === totalSteps) {
+            btnNext.innerHTML = '<i class="fa-solid fa-check"></i> Tamamla';
+            btnNext.style.backgroundColor = 'var(--green)';
         } else {
-            emailInput.classList.remove('is-invalid');
-            if(emailError) emailError.classList.remove('active');
+            btnNext.innerHTML = 'Devam <i class="fa-solid fa-chevron-right"></i>';
+            btnNext.style.removeProperty('background-color');
         }
 
-        // Telefon Regex Kuralı (En az 10 hane, rakam/boşluk/artı işareti kabul eder)
-        const phoneVal = phoneInput.value.trim();
-        const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-        if (phoneVal !== '' && !phoneRegex.test(phoneVal)) {
-            phoneInput.classList.add('is-invalid');
-            if(phoneError) phoneError.classList.add('active');
-        } else {
-            phoneInput.classList.remove('is-invalid');
-            if(phoneError) phoneError.classList.remove('active');
+        const percentage = (step / totalSteps) * 100;
+        progressBar.style.width = `${percentage}%`;
+        progressText.textContent = `Adım ${step} / ${totalSteps}`;
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            currentStep = parseInt(tab.getAttribute('data-step'));
+            updateSteps(currentStep);
+        });
+    });
+
+    btnNext.addEventListener('click', () => {
+        if (currentStep < totalSteps) {
+            currentStep++;
+            updateSteps(currentStep);
+            document.querySelector('.editor-panel').scrollTo(0, 0);
         }
-    };
+    });
 
-    // ===== DİNAMİK FORMLARI ÇİZME =====
-    const renderDynamicForms = () => {
-        const projContainer = document.getElementById('projectsContainer');
-        const eduContainer = document.getElementById('educationContainer');
-        const expContainer = document.getElementById('experienceContainer');
-
-        if(projContainer) {
-            projContainer.innerHTML = dataState.projects.map((proj, index) => `
-                <div class="dynamic-group" style="background: var(--bg-dark); padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid var(--border-color);">
-                    <div class="form-group"><label>Proje Adı</label><input type="text" class="proj-title" data-index="${index}" value="${proj.title}" placeholder="Akıllı E-Ticaret Platformu"></div>
-                    <div class="form-group"><label>Teknolojiler</label><input type="text" class="proj-tech" data-index="${index}" value="${proj.tech}" placeholder="React, Node.js"></div>
-                    <div class="form-group"><label>Açıklama</label><textarea class="proj-desc" data-index="${index}" rows="2" placeholder="Gelişmiş filtreleme...">${proj.desc}</textarea></div>
-                    ${dataState.projects.length > 1 ? `<button type="button" class="btn btn-outline btn-remove-proj" data-index="${index}" style="color: #ef4444; border-color: #ef4444; margin-top: 5px;"><i class="fa-solid fa-trash"></i> Sil</button>` : ''}
-                </div>`).join('');
+    btnPrev.addEventListener('click', () => {
+        if (currentStep > 1) {
+            currentStep--;
+            updateSteps(currentStep);
+            document.querySelector('.editor-panel').scrollTo(0, 0);
         }
+    });
 
-        if(eduContainer) {
-            eduContainer.innerHTML = dataState.education.map((edu, index) => `
-                <div class="dynamic-group" style="background: var(--bg-dark); padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid var(--border-color);">
-                    <div class="form-group"><label>Okul / Üniversite</label><input type="text" class="edu-school" data-index="${index}" value="${edu.school}" placeholder="Çukurova Üniversitesi"></div>
-                    <div class="form-group"><label>Bölüm</label><input type="text" class="edu-dept" data-index="${index}" value="${edu.dept}" placeholder="Bilgisayar Mühendisliği"></div>
-                    <div class="form-group"><label>Tarih</label><input type="text" class="edu-date" data-index="${index}" value="${edu.date}" placeholder="2020 - 2024"></div>
-                    ${dataState.education.length > 1 ? `<button type="button" class="btn btn-outline btn-remove-edu" data-index="${index}" style="color: #ef4444; border-color: #ef4444; margin-top: 5px;"><i class="fa-solid fa-trash"></i> Sil</button>` : ''}
-                </div>`).join('');
-        }
+    // ==========================================
+    // 3. CANLI ÖNİZLEME (LIVE PREVIEW)
+    // ==========================================
+    const inputs = [
+        { id: 'inputTitle', renderId: 'renderTitle' },
+        { id: 'inputEmail', renderId: 'renderEmail', icon: '<i class="fa-solid fa-envelope"></i> ' },
+        { id: 'inputPhone', renderId: 'renderPhone', icon: '<i class="fa-solid fa-phone"></i> ' },
+        { id: 'inputLocation', renderId: 'renderLocation', icon: '<i class="fa-solid fa-location-dot"></i> ' },
+        { id: 'inputAbout', renderId: 'renderAbout' }
+    ];
 
-        if(expContainer) {
-            expContainer.innerHTML = dataState.experience.map((exp, index) => `
-                <div class="dynamic-group" style="background: var(--bg-dark); padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid var(--border-color);">
-                    <div class="form-group"><label>Şirket</label><input type="text" class="exp-company" data-index="${index}" value="${exp.company}" placeholder="Tech Solutions A.Ş."></div>
-                    <div class="form-group"><label>Rol</label><input type="text" class="exp-role" data-index="${index}" value="${exp.role}" placeholder="Yazılım Geliştirici"></div>
-                    <div class="form-group"><label>Tarih</label><input type="text" class="exp-date" data-index="${index}" value="${exp.date}" placeholder="2022 - Devam Ediyor"></div>
-                    ${dataState.experience.length > 1 ? `<button type="button" class="btn btn-outline btn-remove-exp" data-index="${index}" style="color: #ef4444; border-color: #ef4444; margin-top: 5px;"><i class="fa-solid fa-trash"></i> Sil</button>` : ''}
-                </div>`).join('');
-        }
-
-        attachDynamicEventListeners();
-    };
-
-    const attachDynamicEventListeners = () => {
-        const bindDynamicInput = (className, arrayName, propName) => {
-            document.querySelectorAll(`.${className}`).forEach(input => {
-                input.addEventListener('input', (e) => {
-                    const idx = e.target.dataset.index;
-                    dataState[arrayName][idx][propName] = e.target.value;
-                    updateAllPreviews();
-                    saveToLocalStorage();
-                });
-            });
-        };
-
-        bindDynamicInput('proj-title', 'projects', 'title');
-        bindDynamicInput('proj-tech', 'projects', 'tech');
-        bindDynamicInput('proj-desc', 'projects', 'desc');
-
-        bindDynamicInput('edu-school', 'education', 'school');
-        bindDynamicInput('edu-dept', 'education', 'dept');
-        bindDynamicInput('edu-date', 'education', 'date');
-
-        bindDynamicInput('exp-company', 'experience', 'company');
-        bindDynamicInput('exp-role', 'experience', 'role');
-        bindDynamicInput('exp-date', 'experience', 'date');
-
-        const bindDelete = (btnClass, arrayName) => {
-            document.querySelectorAll(`.${btnClass}`).forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const idx = e.target.closest('button').dataset.index;
-                    dataState[arrayName].splice(idx, 1);
-                    renderDynamicForms();
-                    updateAllPreviews();
-                    saveToLocalStorage();
-                });
-            });
-        };
-
-        bindDelete('btn-remove-proj', 'projects');
-        bindDelete('btn-remove-edu', 'education');
-        bindDelete('btn-remove-exp', 'experience');
-    };
-
-    if(document.getElementById('btnAddProject')) document.getElementById('btnAddProject').addEventListener('click', () => { dataState.projects.push({ title: '', tech: '', desc: '' }); renderDynamicForms(); saveToLocalStorage(); updateAllPreviews(); });
-    if(document.getElementById('btnAddEducation')) document.getElementById('btnAddEducation').addEventListener('click', () => { dataState.education.push({ school: '', dept: '', date: '' }); renderDynamicForms(); saveToLocalStorage(); updateAllPreviews(); });
-    if(document.getElementById('btnAddExperience')) document.getElementById('btnAddExperience').addEventListener('click', () => { dataState.experience.push({ company: '', role: '', date: '' }); renderDynamicForms(); saveToLocalStorage(); updateAllPreviews(); });
-
-    // ===== ÖNİZLEMELERİ (CV A4) GÜNCELLEME =====
-    const updateAllPreviews = () => {
-        const nameInput = document.getElementById('inputName');
-        const surnameInput = document.getElementById('inputSurname');
-        if(!nameInput || !surnameInput) return;
-
-        const name = nameInput.value.trim() || nameInput.placeholder;
-        const surname = surnameInput.value.trim() || surnameInput.placeholder;
-        document.getElementById('renderFullName').textContent = `${name} ${surname}`.toUpperCase();
-
-        const updateStatic = (inputId, renderId, prefix='', suffix='') => {
-            const el = document.getElementById(inputId);
-            const renderEl = document.getElementById(renderId);
-            if(el && renderEl) {
-                const val = el.value.trim() || el.placeholder;
-                renderEl.innerHTML = val ? `${prefix}${val}${suffix}` : '';
-            }
-        };
-
-        updateStatic('inputTitle', 'renderTitle');
-        updateStatic('inputEmail', 'renderEmail', '<i class="fa-solid fa-envelope"></i> ');
-        updateStatic('inputPhone', 'renderPhone', '<i class="fa-solid fa-phone"></i> ');
-        updateStatic('inputLocation', 'renderLocation', '<i class="fa-solid fa-location-dot"></i> ');
-        updateStatic('inputAbout', 'renderAbout');
-
-        const updateList = (inputId, renderId) => {
-            const el = document.getElementById(inputId);
-            const renderEl = document.getElementById(renderId);
-            if(el && renderEl) {
-                const val = el.value.trim() || el.placeholder;
-                const items = val.split(',').filter(s => s.trim() !== '');
-                renderEl.innerHTML = items.map(i => `<li>${i.trim()}</li>`).join('');
-            }
-        };
-        updateList('inputSkills', 'renderSkills');
-        updateList('inputLangs', 'renderLangs');
-        updateList('inputCert', 'renderCert');
-
-        if(document.getElementById('renderProjectList')) {
-            document.getElementById('renderProjectList').innerHTML = dataState.projects.map(p => {
-                const title = p.title.trim() || 'Akıllı E-Ticaret Platformu';
-                const tech = p.tech.trim() || 'React, Node.js, MongoDB';
-                const desc = p.desc.trim() || 'Kullanıcı dostu arayüzü ve gelişmiş filtreleme seçenekleriyle tam kapsamlı e-ticaret uygulaması.';
-                return `<div class="project-item"><h4>${title}</h4><p style="font-weight: 500; color: #475569; font-size: 13px;">Teknolojiler: ${tech}</p><p>${desc}</p></div>`;
-            }).join('');
-        }
-
-        if(document.getElementById('renderEducationList')) {
-            document.getElementById('renderEducationList').innerHTML = dataState.education.map(e => {
-                const school = e.school.trim() || 'Çukurova Üniversitesi';
-                const dept = e.dept.trim() || 'Bilgisayar Mühendisliği';
-                const date = e.date.trim() || '2020 - 2024';
-                return `<div class="education-item"><h4>${school}</h4><p>${dept}</p><p class="date">${date}</p></div>`;
-            }).join('');
-        }
-
-        if(document.getElementById('renderExperienceList')) {
-            document.getElementById('renderExperienceList').innerHTML = dataState.experience.map(e => {
-                const company = e.company.trim() || 'Tech Solutions A.Ş.';
-                const role = e.role.trim() || 'Frontend Geliştirici';
-                const date = e.date.trim() || 'Haziran 2024 - Devam Ediyor';
-                return `<div class="experience-item"><h4>${company}</h4><p>${role}</p><p class="date">${date}</p></div>`;
-            }).join('');
-        }
-    };
-
-    ['inputName', 'inputSurname', 'inputTitle', 'inputEmail', 'inputPhone', 'inputLocation', 'inputAbout', 'inputSkills', 'inputLangs', 'inputCert'].forEach(id => {
-        const el = document.getElementById(id);
-        if(el) {
-            el.addEventListener('input', () => { 
-                updateAllPreviews(); 
-                saveToLocalStorage(); 
-                if(id === 'inputEmail' || id === 'inputPhone') {
-                    validateEmailAndPhone();
-                }
+    inputs.forEach(item => {
+        const inputEl = document.getElementById(item.id);
+        const renderEl = document.getElementById(item.renderId);
+        if (inputEl && renderEl) {
+            inputEl.addEventListener('input', () => {
+                renderEl.innerHTML = (item.icon || '') + (inputEl.value || inputEl.getAttribute('placeholder'));
             });
         }
     });
 
+    // İsim & Soyisim
+    const inputName = document.getElementById('inputName');
+    const inputSurname = document.getElementById('inputSurname');
+    const renderFullName = document.getElementById('renderFullName');
+
+    function updateName() {
+        const name = inputName.value.trim() || 'DENİZ';
+        const surname = inputSurname.value.trim() || 'KUŞ';
+        renderFullName.textContent = `${name} ${surname}`.toUpperCase();
+    }
+    inputName.addEventListener('input', updateName);
+    inputSurname.addEventListener('input', updateName);
+
+    // Profil Fotoğrafı Yükleme
     const inputPhoto = document.getElementById('inputPhoto');
     const renderPhoto = document.getElementById('renderPhoto');
     const defaultAvatarIcon = document.getElementById('defaultAvatarIcon');
 
-    if (inputPhoto) {
-        inputPhoto.addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    renderPhoto.src = e.target.result;
-                    renderPhoto.style.display = 'block';
-                    defaultAvatarIcon.style.display = 'none';
-                    saveToLocalStorage(); 
-                };
-                reader.readAsDataURL(file); 
-            } else {
-                renderPhoto.src = '';
-                renderPhoto.style.display = 'none';
-                defaultAvatarIcon.style.display = 'block';
-                saveToLocalStorage(); 
-            }
-        });
-    }
-
-    // ===== EKRAN, ADIM VE ŞABLON DEĞİŞTİRME MANTIKLARI =====
-    function applyTemplate(templateName) {
-        if(!cvCanvas || !templateSelect) return;
-        cvCanvas.className = `a4-paper ${templateName}`;
-        templateSelect.value = templateName;
-        saveToLocalStorage();
-    }
-    
-    if(btnStartNow) {
-        btnStartNow.addEventListener('click', () => {
-            openEditor(templateSelect ? templateSelect.value : 'minimal-slate');
-        });
-    }
-
-    if(templateSelect) {
-        templateSelect.addEventListener('change', (e) => applyTemplate(e.target.value));
-    }
-    
-    if(btnChangeTemplate) {
-        btnChangeTemplate.addEventListener('click', () => {
-            editorWorkspace.classList.remove('active');
-            landingPage.classList.add('active');
-            if(navLinks.length >= 2) {
-                navLinks[0].classList.add('active');
-                navLinks[1].classList.remove('active');
-            }
-        });
-    }
-
-    function openEditor(templateName) {
-        if (templateName) applyTemplate(templateName);
-        if(landingPage) landingPage.classList.remove('active');
-        if(editorWorkspace) editorWorkspace.classList.add('active');
-        setTimeout(() => goToStep(1), 100);
-    }
-
-    function openLanding() {
-        if(editorWorkspace) editorWorkspace.classList.remove('active');
-        if(landingPage) landingPage.classList.add('active');
-        window.scrollTo(0,0);
-        if(navLinks.length >= 2) {
-            navLinks[0].classList.add('active');
-            navLinks[1].classList.remove('active');
-        }
-    }
-
-    // ====== KESİN TIKLAMA ÇÖZÜMÜ (EVENT DELEGATION) ======
-    document.addEventListener('click', (e) => {
-        const clickedCard = e.target.closest('.template-card');
-        if (clickedCard) {
-            e.preventDefault(); 
-            const templateName = clickedCard.getAttribute('data-template');
-            openEditor(templateName);
+    inputPhoto.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                renderPhoto.src = event.target.result;
+                renderPhoto.style.display = 'block';
+                defaultAvatarIcon.style.display = 'none';
+            };
+            reader.readAsDataURL(file);
         }
     });
 
-    if(navLogo) navLogo.addEventListener('click', openLanding);
-
-    if (navLinks.length >= 2) {
-        navLinks[0].addEventListener('click', (e) => {
-            e.preventDefault();
-            openLanding();
-        });
-
-        navLinks[1].addEventListener('click', (e) => {
-            if (editorWorkspace && editorWorkspace.classList.contains('active')) {
-                openLanding();
-            }
-            navLinks[0].classList.remove('active');
-            navLinks[1].classList.add('active');
-        });
-    }
-
-    let currentStep = 1;
-    function goToStep(step) {
-        if (step < 1 || step > 8) return;
-        currentStep = step;
-
-        document.querySelectorAll('.step-tab').forEach(t => t.classList.remove('active'));
-        const activeTab = document.querySelector(`.step-tab[data-step="${step}"]`);
-        if(activeTab) activeTab.classList.add('active');
-
-        document.querySelectorAll('.step-content').forEach(c => c.classList.remove('active'));
-        const activeContent = document.getElementById(`step-${step}`);
-        if(activeContent) activeContent.classList.add('active');
-
-        const progressBar = document.getElementById('progressBar');
-        if(progressBar) progressBar.style.width = `${(step / 8) * 100}%`;
+    // Virgülle Ayrılmış Listeler
+    function renderCommaList(inputId, renderId) {
+        const input = document.getElementById(inputId);
+        const ul = document.getElementById(renderId);
         
-        const progressText = document.getElementById('progressText');
-        if(progressText) progressText.textContent = `Adım ${step} / 8`;
-
-        const btnPrev = document.getElementById('btnPrev');
-        if(btnPrev) btnPrev.disabled = step === 1;
-        
-        const btnNext = document.getElementById('btnNext');
-        if(btnNext) btnNext.innerHTML = step === 8 ? '<i class="fa-solid fa-check"></i> Tamamlandı' : 'Devam <i class="fa-solid fa-chevron-right"></i>';
-    }
-
-    const btnNextNode = document.getElementById('btnNext');
-    if(btnNextNode) btnNextNode.addEventListener('click', () => goToStep(currentStep + 1));
-    
-    const btnPrevNode = document.getElementById('btnPrev');
-    if(btnPrevNode) btnPrevNode.addEventListener('click', () => goToStep(currentStep - 1));
-    
-    document.querySelectorAll('.step-tab').forEach(tab => tab.addEventListener('click', () => goToStep(parseInt(tab.dataset.step))));
-
-    const downloadBtn = document.getElementById('downloadPdf');
-    if(downloadBtn) {
-        downloadBtn.addEventListener('click', () => {
-            const element = document.getElementById('cvCanvas');
-            const nameInput = document.getElementById('inputName');
-            const name = (nameInput ? nameInput.value.trim() : '') || (nameInput ? nameInput.placeholder : '') || 'CV';
-            
-            const opt = {
-                margin: 0,
-                filename: `${name}_CV.pdf`,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-
-            const ogText = downloadBtn.innerHTML;
-            downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> İndiriliyor...';
-            downloadBtn.disabled = true;
-            
-            html2pdf().set(opt).from(element).save().then(() => {
-                downloadBtn.innerHTML = ogText;
-                downloadBtn.disabled = false;
-            }).catch(() => {
-                downloadBtn.innerHTML = ogText;
-                downloadBtn.disabled = false;
+        input.addEventListener('input', () => {
+            ul.innerHTML = '';
+            const items = input.value.split(',').map(item => item.trim()).filter(item => item !== '');
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                ul.appendChild(li);
             });
         });
     }
 
-    // İLK AÇILIŞ
-    loadFromLocalStorage();
-    if(templateSelect && templateSelect.value) applyTemplate(templateSelect.value);
+    renderCommaList('inputSkills', 'renderSkills');
+    renderCommaList('inputLangs', 'renderLangs');
+    renderCommaList('inputCert', 'renderCert');
+
+    // ==========================================
+    // 4. DİNAMİK ALANLAR (PROJE, EĞİTİM, DENEYİM)
+    // ==========================================
+    function setupDynamicSection(addBtnId, containerId, renderListId, placeholders, renderTemplate) {
+        const addBtn = document.getElementById(addBtnId);
+        const container = document.getElementById(containerId);
+        const renderList = document.getElementById(renderListId);
+
+        function updateRender() {
+            renderList.innerHTML = '';
+            const items = container.querySelectorAll('.dynamic-item');
+            items.forEach(item => {
+                const inputs = item.querySelectorAll('input, textarea');
+                const values = Array.from(inputs).map(inp => inp.value);
+                if (values.some(v => v.trim() !== '')) {
+                    renderList.innerHTML += renderTemplate(values);
+                }
+            });
+        }
+
+        addBtn.addEventListener('click', () => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'dynamic-item form-section';
+            itemDiv.style.marginBottom = '10px';
+            itemDiv.style.padding = '12px';
+            itemDiv.style.background = 'var(--bg-dark)';
+            itemDiv.style.position = 'relative';
+
+            let innerHTML = `<div class="form-grid">`;
+            placeholders.forEach((ph) => {
+                const isTextarea = ph.type === 'textarea';
+                innerHTML += `
+                    <div class="form-group" ${isTextarea ? 'style="grid-column: span 2;"' : ''}>
+                        <label>${ph.label}</label>
+                        <${isTextarea ? 'textarea rows="3"' : 'input type="text"'} class="dyn-input" placeholder="${ph.placeholder}"></${isTextarea ? 'textarea' : 'input'}>
+                    </div>
+                `;
+            });
+            innerHTML += `</div><button class="btn btn-outline btn-delete-item" style="color: var(--red); border-color: var(--red); width: 100%; margin-top: 5px;"><i class="fa-solid fa-trash"></i> Sil</button>`;
+            
+            itemDiv.innerHTML = innerHTML;
+            container.appendChild(itemDiv);
+
+            itemDiv.querySelector('.btn-delete-item').addEventListener('click', () => {
+                itemDiv.remove();
+                updateRender();
+            });
+
+            itemDiv.querySelectorAll('.dyn-input').forEach(input => {
+                input.addEventListener('input', updateRender);
+            });
+            
+            updateRender();
+        });
+    }
+
+    // Eğitim
+    setupDynamicSection(
+        'btnAddEducation', 'educationContainer', 'renderEducationList',
+        [
+            { label: 'Okul / Üniversite', placeholder: 'Örn: Boğaziçi Üniversitesi' },
+            { label: 'Bölüm', placeholder: 'Örn: Bilgisayar Mühendisliği' },
+            { label: 'Tarih', placeholder: 'Örn: 2018 - 2022' }
+        ],
+        (v) => `<div class="education-item"><h4>${v[0] || 'Okul Adı'}</h4><div class="date">${v[2] || 'Tarih'}</div><p>${v[1] || 'Bölüm'}</p></div>`
+    );
+
+    // İş Deneyimi
+    setupDynamicSection(
+        'btnAddExperience', 'experienceContainer', 'renderExperienceList',
+        [
+            { label: 'Şirket', placeholder: 'Örn: Google' },
+            { label: 'Pozisyon', placeholder: 'Örn: Frontend Developer' },
+            { label: 'Tarih', placeholder: 'Örn: 2022 - Günümüz' },
+            { label: 'Açıklama', placeholder: 'Yaptığınız işleri kısaca anlatın...', type: 'textarea' }
+        ],
+        (v) => `<div class="experience-item"><h4>${v[1] || 'Pozisyon'} - ${v[0] || 'Şirket'}</h4><div class="date">${v[2] || 'Tarih'}</div><p>${v[3] || 'İş açıklaması.'}</p></div>`
+    );
+
+    // Projeler
+    setupDynamicSection(
+        'btnAddProject', 'projectsContainer', 'renderProjectList',
+        [
+            { label: 'Proje Adı', placeholder: 'Örn: E-Ticaret Uygulaması' },
+            { label: 'Teknolojiler', placeholder: 'Örn: React, Node.js' },
+            { label: 'Açıklama', placeholder: 'Proje detayları...', type: 'textarea' }
+        ],
+        (v) => `<div class="project-item"><h4>${v[0] || 'Proje Adı'}</h4><div class="date">${v[1] || 'Teknolojiler'}</div><p>${v[2] || 'Proje açıklaması.'}</p></div>`
+    );
+
+    // ==========================================
+    // 5. ŞABLON DEĞİŞTİRME & ZOOM & PDF İNDİRME
+    // ==========================================
+    function updateTemplate(templateName) {
+        cvCanvas.className = `a4-paper ${templateName}`;
+    }
+
+    templateSelect.addEventListener('change', (e) => {
+        updateTemplate(e.target.value);
+    });
+
+    // Zoom Kontrolleri
+    const zoomBtns = document.querySelectorAll('.btn-zoom');
+    zoomBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            zoomBtns.forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+
+            const text = e.target.textContent;
+            if (text === '100%') {
+                cvCanvas.style.transform = 'scale(1)';
+                cvCanvas.style.transformOrigin = 'top center';
+            } else if (text === '75%') {
+                cvCanvas.style.transform = 'scale(0.75)';
+                cvCanvas.style.transformOrigin = 'top center';
+            } else if (text === 'Sığdır') {
+                const containerWidth = document.querySelector('.canvas-container').clientWidth - 60;
+                const scale = Math.min(containerWidth / 793, 1);
+                cvCanvas.style.transform = `scale(${scale})`;
+                cvCanvas.style.transformOrigin = 'top center';
+            }
+        });
+    });
+
+    // PDF İndirme
+    const downloadBtn = document.getElementById('downloadPdf');
+    downloadBtn.addEventListener('click', () => {
+        const originalTransform = cvCanvas.style.transform;
+        cvCanvas.style.transform = 'none';
+
+        const opt = {
+            margin:       0,
+            filename:     'CVPRO_Ozgecmis.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2, useCORS: true },
+            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+        html2pdf().set(opt).from(cvCanvas).save().then(() => {
+            cvCanvas.style.transform = originalTransform;
+        });
+    });
 });
