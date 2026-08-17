@@ -3,17 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CVPRO - Profesyonel CV Oluşturucu</title>
+    <title>CV Yap - Ücretsiz ve ATS Uyumlu Profesyonel CV Oluşturucu</title>
+
+    <!-- ÜST SEKME LOGOSU (FAVICON & APP ICONS) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=3">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png?v=3">
+    <link rel="shortcut icon" href="favicon.png?v=3">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png?v=3">
+    <meta name="msapplication-TileImage" content="favicon.png?v=3">
+
+    <!-- Temel SEO & Meta Etiketleri -->
+    <meta name="description" content="Dakikalar içinde ATS uyumlu, modern ve profesyonel CV hazırlayın. Tamamen ücretsiz şablonları seçin, bilgilerinizi girin ve anında yüksek kaliteli PDF olarak indirin.">
+    <meta name="keywords" content="cv hazırla, cv oluşturucu, özgeçmiş hazırlama, ats uyumlu cv, ücretsiz cv indir, pdf cv">
+    <meta name="author" content="Ali Özaslan">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://cvyap.tr/">
+
+    <!-- Güvenlik & Referrer -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Performans / Preconnect -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Open Graph (Sosyal Medya & Önizleme) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CV Yap">
+    <meta property="og:title" content="CV Yap - Ücretsiz ve ATS Uyumlu Profesyonel CV Oluşturucu">
+    <meta property="og:description" content="Dakikalar içinde ATS uyumlu, modern ve profesyonel CV hazırlayın. Ücretsiz şablonlar ile anında PDF indirin.">
+    <meta property="og:url" content="https://cvyap.tr/">
+    <meta property="og:image" content="https://cvyap.tr/favicon.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="CV Yap Logo">
+    <meta property="og:locale" content="tr_TR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CV Yap - Profesyonel CV Oluşturucu">
+    <meta name="twitter:description" content="Yapay zeka destekli, ATS %100 uyumlu profesyonel CV'nizi ücretsiz oluşturun.">
+    <meta name="twitter:image" content="https://cvyap.tr/favicon.png">
+
+    <!-- Yapısal Veri (JSON-LD) -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "WebSite",
+                    "@id": "https://cvyap.tr/#website",
+                    "url": "https://cvyap.tr/",
+                    "name": "CV Yap",
+                    "description": "ATS uyumlu ücretsiz profesyonel CV hazırlama aracı.",
+                    "inLanguage": "tr-TR"
+                },
+                {
+                    "@type": "WebApplication",
+                    "@id": "https://cvyap.tr/#webapp",
+                    "name": "CV Yap - CV Oluşturucu",
+                    "url": "https://cvyap.tr/",
+                    "applicationCategory": "BusinessApplication",
+                    "operatingSystem": "All",
+                    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "0",
+                        "priceCurrency": "TRY"
+                    },
+                    "author": {
+                        "@type": "Person",
+                        "name": "Ali Özaslan"
+                    }
+                }
+            ]
+        }
+    </script>
+
+    <!-- CSS & Kütüphaneler -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
 </head>
 <body>
 
-    <!-- SAYFA 1: AÇILIŞ VE ŞABLON EKRANI (LANDING PAGE) -->
+<!-- ÜST GEZİNME (NAVBAR) -->
+<header>
+    <nav class="main-nav" aria-label="Ana Menü" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 100;">
+        <a href="https://cvyap.tr/" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-weight: 700; font-size: 1.25rem;">
+            <img src="favicon.png" alt="CV Yap Logo" width="32" height="32" style="border-radius: 6px;">
+            <span>CV Yap</span>
+        </a>
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <a href="#templatesSection" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem;">Şablonlar</a>
+            <a href="#aboutSection" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem;">Hakkında</a>
+            <a href="#footerSection" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem;">İletişim</a>
+        </div>
+    </nav>
+</header>
+
+<!-- SAYFA 1: AÇILIŞ VE ŞABLON EKRANI (LANDING PAGE) -->
+<main>
     <section class="landing-page active" id="landingPage">
-        
-        <!-- YENİ HERO (KARŞILAMA) ALANI -->
+
+        <!-- HERO ALANI -->
         <div class="hero-section">
             <div class="hero-container">
                 <div class="hero-left">
@@ -22,50 +115,49 @@
                     </div>
                     <h1>Dakikalar İçinde<br><span class="text-gradient">Profesyonel CV</span><br>Hazırlayın</h1>
                     <p class="hero-desc">İşverenlerin ve ATS insan kaynakları sistemlerinin dikkatini çeken modern CV'ler oluşturun, AI ile içeriğinizi güçlendirin ve yüksek kalitede PDF olarak indirin.</p>
-                    
+
                     <div class="hero-buttons">
-                        <button class="btn btn-primary btn-large" id="btnStartNow">
-                            <i class="fa-solid fa-bolt"></i> Hemen CV Oluştur
+                        <button class="btn btn-primary btn-large" id="btnStartNow" aria-label="Hemen CV Oluşturmaya Başla">
+                            <i class="fa-solid fa-bolt" aria-hidden="true"></i> Hemen CV Oluştur
                         </button>
-                        <a href="#templatesSection" class="btn btn-outline btn-large scroll-link">
-                            <i class="fa-regular fa-window-maximize"></i> CV Şablonlarını İncele
+                        <a href="#templatesSection" class="btn btn-outline btn-large scroll-link" aria-label="CV Şablonlarını İncele">
+                            <i class="fa-regular fa-window-maximize" aria-hidden="true"></i> CV Şablonlarını İncele
                         </a>
                     </div>
 
                     <div class="hero-features">
-                        <span><i class="fa-regular fa-square-check"></i> Ücretsiz Başla</span>
-                        <span><i class="fa-regular fa-square-check"></i> Kayıt Olmadan Dene</span>
-                        <span><i class="fa-regular fa-square-check"></i> Anında PDF İndir</span>
+                        <span><i class="fa-regular fa-square-check" aria-hidden="true"></i> Ücretsiz Başla</span>
+                        <span><i class="fa-regular fa-square-check" aria-hidden="true"></i> Kayıt Olmadan Dene</span>
+                        <span><i class="fa-regular fa-square-check" aria-hidden="true"></i> Anında PDF İndir</span>
                     </div>
                 </div>
 
                 <div class="hero-right">
-                    <!-- CV Mockup Penceresi -->
-                    <div class="mockup-window">
+                    <div class="mockup-window" aria-label="Örnek CV Önizleme Kartı">
                         <div class="mockup-header">
                             <div class="window-controls">
                                 <span class="dot red"></span>
                                 <span class="dot yellow"></span>
                                 <span class="dot green"></span>
                             </div>
-                            <div class="ats-badge-mini"><i class="fa-solid fa-check-circle"></i> ATS Skoru: 98/100</div>
+                            <div class="ats-badge-mini"><i class="fa-solid fa-check-circle" aria-hidden="true"></i> ATS Skoru: 98/100</div>
                         </div>
                         <div class="mockup-body">
                             <div class="m-profile">
-                                <div class="m-avatar"><i class="fa-solid fa-user"></i></div>
+                                <div class="m-avatar"><i class="fa-solid fa-user" aria-hidden="true"></i></div>
                                 <div class="m-info">
-                                    <h4>Ali Özaslan</h4>
+                                    <div style="font-weight: 700; font-size: 1.1rem; color: #0f172a;">Ali Özaslan</div>
                                     <p>Java Developer</p>
                                     <span class="m-contact">ali@example.com • İstanbul</span>
                                 </div>
                             </div>
                             <div class="m-section">
-                                <h5>HAKKIMDA</h5>
+                                <div style="font-size: 0.8rem; font-weight: 700; color: #475569; letter-spacing: 1px;">HAKKIMDA</div>
                                 <div class="m-line full"></div>
                                 <div class="m-line partial"></div>
                             </div>
                             <div class="m-section">
-                                <h5>DENEYİM</h5>
+                                <div style="font-size: 0.8rem; font-weight: 700; color: #475569; letter-spacing: 1px;">DENEYİM</div>
                                 <div class="m-exp">
                                     <span class="m-company">Pera Inc. - Stajyer</span>
                                     <span class="m-date">Temmuz 2026 - Devam Ediyor</span>
@@ -83,17 +175,17 @@
         </div>
 
         <!-- ŞABLON SEÇİM ALANI (8 ŞABLON EKSİKSİZ) -->
-        <div class="templates-section" id="templatesSection">
+        <section class="templates-section" id="templatesSection" aria-label="CV Şablonları">
             <div class="landing-header">
                 <span class="badge">✓ ATS UYUMLU</span>
-                <h2>CV OLUŞTURUCU</h2>
-                <p class="subtitle">Profesyonel Şablon Seçin</p>
-                <p class="desc">Kariyerinize uygun tasarımı seçerek hemen başlayın. Tüm şablonlar tamamen ücretsizdir.</p>
+                <h2>Kariyerinize Uygun Şablonu Seçin</h2>
+                <p class="subtitle">Tüm Sektörlere Uygun Modern CV Formatları</p>
+                <p class="desc">Kariyer hedefinize en uygun tasarımı seçerek düzenlemeye başlayın. Tüm şablonlarımız tamamen ücretsizdir.</p>
             </div>
 
             <div class="template-grid">
                 <!-- Şablon 1: Minimal Slate -->
-                <div class="template-card" data-template="minimal-slate">
+                <article class="template-card" data-template="minimal-slate">
                     <div class="card-preview slate-preview-mini">
                         <div class="m-card-inner">
                             <div class="m-left-col">
@@ -127,14 +219,14 @@
                     <div class="card-info">
                         <h3>Sade Minimal Slate</h3>
                         <p>Sade, şık ve modern çizgilere sahip ATS uyumlu minimalist tasarım.</p>
-                        <button class="btn btn-select btn-gradient-purple">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i> Bu Tasarımla CV Oluştur
+                        <button class="btn btn-select btn-gradient-purple" aria-label="Sade Minimal Slate şablonunu seç">
+                            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Bu Tasarımla CV Oluştur
                         </button>
                     </div>
-                </div>
+                </article>
 
                 <!-- Şablon 2: Executive Navy -->
-                <div class="template-card" data-template="corporate-navy">
+                <article class="template-card" data-template="corporate-navy">
                     <div class="card-preview navy-preview-mini">
                         <div class="m-card-inner">
                             <div class="m-dark-sidebar">
@@ -159,14 +251,14 @@
                     <div class="card-info">
                         <h3>Kurumsal Executive Navy</h3>
                         <p>Yöneticiler ve kurumsal başvurular için koyu lacivert tonlu prestijli şablon.</p>
-                        <button class="btn btn-select btn-gradient-purple">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i> Bu Tasarımla CV Oluştur
+                        <button class="btn btn-select btn-gradient-purple" aria-label="Kurumsal Executive Navy şablonunu seç">
+                            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Bu Tasarımla CV Oluştur
                         </button>
                     </div>
-                </div>
+                </article>
 
                 <!-- Şablon 3: Modern Tech Teal -->
-                <div class="template-card" data-template="modern-tech">
+                <article class="template-card" data-template="modern-tech">
                     <div class="card-preview tech-preview-mini">
                         <div class="m-card-inner bordered-teal">
                             <div class="m-top-bar-teal">
@@ -199,14 +291,14 @@
                     <div class="card-info">
                         <h3>Modern Tech Teal</h3>
                         <p>Yazılımcılar ve teknoloji liderleri için çift sütunlu dikkat çekici modern tasarım.</p>
-                        <button class="btn btn-select btn-gradient-purple">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i> Bu Tasarımla CV Oluştur
+                        <button class="btn btn-select btn-gradient-purple" aria-label="Modern Tech Teal şablonunu seç">
+                            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Bu Tasarımla CV Oluştur
                         </button>
                     </div>
-                </div>
+                </article>
 
                 <!-- Şablon 4: Kreatif Magenta -->
-                <div class="template-card" data-template="creative-magenta">
+                <article class="template-card" data-template="creative-magenta">
                     <div class="card-preview magenta-preview-mini">
                         <div class="m-card-inner">
                             <div class="m-top-header-magenta">
@@ -235,16 +327,16 @@
                     <div class="card-info">
                         <h3>Kreatif Magenta</h3>
                         <p>Tasarımcılar ve kreatif sektörler için canlı renk paletine sahip dinamik şablon.</p>
-                        <button class="btn btn-select btn-gradient-purple">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i> Bu Tasarımla CV Oluştur
+                        <button class="btn btn-select btn-gradient-purple" aria-label="Kreatif Magenta şablonunu seç">
+                            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Bu Tasarımla CV Oluştur
                         </button>
                     </div>
-                </div>
+                </article>
 
                 <!-- Şablon 5: Elegant Emerald -->
-                <div class="template-card" data-template="elegant-emerald">
+                <article class="template-card" data-template="elegant-emerald">
                     <div class="card-preview emerald-preview-mini">
-                        <div class="m-card-inner bordered-emerald">
+                        <div class="m-card-inner border-emerald">
                             <div class="m-top-bar-emerald">
                                 <div class="m-circle-avatar emerald"></div>
                                 <div class="m-top-info">
@@ -273,14 +365,14 @@
                     <div class="card-info">
                         <h3>Elegant Emerald</h3>
                         <p>Zarif yeşil tonlarıyla finans, yönetim ve profesyonel başvurular için dengeli tasarım.</p>
-                        <button class="btn btn-select btn-gradient-purple">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i> Bu Tasarımla CV Oluştur
+                        <button class="btn btn-select btn-gradient-purple" aria-label="Elegant Emerald şablonunu seç">
+                            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Bu Tasarımla CV Oluştur
                         </button>
                     </div>
-                </div>
+                </article>
 
                 <!-- Şablon 6: Classic Burgundy -->
-                <div class="template-card" data-template="classic-burgundy">
+                <article class="template-card" data-template="classic-burgundy">
                     <div class="card-preview burgundy-preview-mini">
                         <div class="m-card-inner">
                             <div class="m-burgundy-sidebar">
@@ -294,6 +386,7 @@
                                 <div class="m-stub-line"></div>
                                 <div class="m-title-block burgundy-underline">WORK EXPERIENCE</div>
                                 <div class="m-stub-line bold"></div>
+                                <div class="m-stub-line"></div>
                             </div>
                         </div>
                     </div>
@@ -304,14 +397,14 @@
                     <div class="card-info">
                         <h3>Classic Burgundy</h3>
                         <p>Klasik çizgileri bordo detaylarla birleştiren ciddi ve güçlü kurumsal CV tasarımı.</p>
-                        <button class="btn btn-select btn-gradient-purple">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i> Bu Tasarımla CV Oluştur
+                        <button class="btn btn-select btn-gradient-purple" aria-label="Classic Burgundy şablonunu seç">
+                            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Bu Tasarımla CV Oluştur
                         </button>
                     </div>
-                </div>
+                </article>
 
                 <!-- Şablon 7: Clean Aurora -->
-                <div class="template-card" data-template="clean-aurora">
+                <article class="template-card" data-template="clean-aurora">
                     <div class="card-preview aurora-preview-mini">
                         <div class="m-card-inner">
                             <div class="m-top-header-aurora">
@@ -338,14 +431,14 @@
                     <div class="card-info">
                         <h3>Clean Aurora</h3>
                         <p>Temiz beyaz zemin, mor-mavi geçişler ve ferah yerleşimle modern bir görünüm.</p>
-                        <button class="btn btn-select btn-gradient-purple">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i> Bu Tasarımla CV Oluştur
+                        <button class="btn btn-select btn-gradient-purple" aria-label="Clean Aurora şablonunu seç">
+                            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Bu Tasarımla CV Oluştur
                         </button>
                     </div>
-                </div>
+                </article>
 
                 <!-- Şablon 8: Professional Copper -->
-                <div class="template-card" data-template="professional-copper">
+                <article class="template-card" data-template="professional-copper">
                     <div class="card-preview copper-preview-mini">
                         <div class="m-card-inner">
                             <div class="m-copper-sidebar">
@@ -368,23 +461,37 @@
                     <div class="card-info">
                         <h3>Professional Copper</h3>
                         <p>Bakır tonlu vurgu renkleriyle yönetici ve deneyimli profesyoneller için premium görünüm.</p>
-                        <button class="btn btn-select btn-gradient-purple">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i> Bu Tasarımla CV Oluştur
+                        <button class="btn btn-select btn-gradient-purple" aria-label="Professional Copper şablonunu seç">
+                            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Bu Tasarımla CV Oluştur
                         </button>
                     </div>
-                </div>
+                </article>
             </div>
-        </div>
+        </section>
+
+        <!-- HAKKINDA BÖLÜMÜ -->
+        <section id="aboutSection" style="max-width: 1000px; margin: 60px auto; padding: 40px 20px; background: rgba(30, 41, 59, 0.6); border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); color: #e2e8f0;">
+            <h2 style="font-size: 1.8rem; margin-bottom: 15px; color: #fff;">CV Yap Hakkında</h2>
+            <p style="line-height: 1.7; margin-bottom: 15px;">
+                <strong>CV Yap</strong>, iş arayanların insan kaynakları tarama sistemleri (ATS) ile %100 uyumlu, yüksek okunabilirliğe sahip modern özgeçmişler hazırlamasını sağlayan bağımsız bir kariyer platformudur.
+            </p>
+            <p style="line-height: 1.7; margin-bottom: 15px;">
+                Platform, hiçbir kullanıcı verisini sunucularda saklamaz; tüm özgeçmiş oluşturma ve PDF derleme süreçleri tarayıcınızda yerel (Client-Side) olarak güvenle çalışır.
+            </p>
+            <div style="margin-top: 20px; font-size: 0.95rem; color: #94a3b8;">
+                <strong>Platform Geliştiricisi:</strong> Ali Özaslan • Yönetim Bilişim Sistemleri & Yazılım Geliştirici
+            </div>
+        </section>
     </section>
 
     <!-- SAYFA 2: EDİTÖR ÇALIŞMA ALANI -->
-    <main class="workspace" id="editorWorkspace">
+    <section class="workspace" id="editorWorkspace" aria-label="CV Düzenleme Alanı">
         <aside class="editor-panel">
             <div class="panel-header">
                 <h2>CV Hazırlama</h2>
                 <p>8 Adımlı Canlı Düzenleyici</p>
                 <div class="warning-box">
-                    <i class="fa-solid fa-info"></i> Verileriniz tarayıcıda saklanır. Lütfen PDF olarak indirin.
+                    <i class="fa-solid fa-info" aria-hidden="true"></i> Verileriniz tarayıcıda saklanır. Lütfen PDF olarak indirin.
                 </div>
             </div>
 
@@ -398,136 +505,136 @@
                 </div>
             </div>
 
-            <div class="step-tabs">
-                <button class="step-tab active" data-step="1">1. Kişi</button>
-                <button class="step-tab" data-step="2">2. Proje</button>
-                <button class="step-tab" data-step="3">3. Eğitim</button>
-                <button class="step-tab" data-step="4">4. Deneyim</button>
-                <button class="step-tab" data-step="5">5. Beceri</button>
-                <button class="step-tab" data-step="6">6. Sertifika</button>
-                <button class="step-tab" data-step="7">7. Dil</button>
-                <button class="step-tab" data-step="8">8. Özet</button>
+            <div class="step-tabs" role="tablist">
+                <button class="step-tab active" data-step="1" role="tab" aria-selected="true">1. Kişi</button>
+                <button class="step-tab" data-step="2" role="tab" aria-selected="false">2. Proje</button>
+                <button class="step-tab" data-step="3" role="tab" aria-selected="false">3. Eğitim</button>
+                <button class="step-tab" data-step="4" role="tab" aria-selected="false">4. Deneyim</button>
+                <button class="step-tab" data-step="5" role="tab" aria-selected="false">5. Beceri</button>
+                <button class="step-tab" data-step="6" role="tab" aria-selected="false">6. Sertifika</button>
+                <button class="step-tab" data-step="7" role="tab" aria-selected="false">7. Dil</button>
+                <button class="step-tab" data-step="8" role="tab" aria-selected="false">8. Özet</button>
             </div>
 
             <div class="form-section">
                 <!-- Adım 1: Kişisel Bilgiler -->
-                <div class="step-content active" id="step-1">
-                    <h3><i class="fa-regular fa-user"></i> Kişisel Bilgiler</h3>
+                <div class="step-content active" id="step-1" role="tabpanel">
+                    <h3><i class="fa-regular fa-user" aria-hidden="true"></i> Kişisel Bilgiler</h3>
                     <div class="form-group">
-                        <label>Profil Fotoğrafı</label>
+                        <label for="inputPhoto">Profil Fotoğrafı</label>
                         <input type="file" id="inputPhoto" accept="image/*" style="padding: 6px; cursor: pointer;">
                     </div>
                     <div class="form-grid">
                         <div class="form-group">
-                            <label>Ad *</label>
+                            <label for="inputName">Ad *</label>
                             <input type="text" id="inputName" value="" placeholder="Deniz">
                         </div>
                         <div class="form-group">
-                            <label>Soyad *</label>
+                            <label for="inputSurname">Soyad *</label>
                             <input type="text" id="inputSurname" value="" placeholder="Kuş">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Profesyonel Unvan *</label>
+                        <label for="inputTitle">Profesyonel Unvan *</label>
                         <input type="text" id="inputTitle" value="" placeholder="Yazılım Mühendisi">
                     </div>
                     <div class="form-grid">
                         <div class="form-group">
-                            <label>E-Posta *</label>
+                            <label for="inputEmail">E-Posta *</label>
                             <input type="email" id="inputEmail" value="" placeholder="denizkus@example.com">
                             <span id="emailError" class="validation-error">Geçerli bir e-posta adresi girin (örn: isim@domain.com)</span>
                         </div>
                         <div class="form-group">
-                            <label>Telefon *</label>
+                            <label for="inputPhone">Telefon *</label>
                             <input type="text" id="inputPhone" value="" placeholder="+90 555 123 45 67">
                             <span id="phoneError" class="validation-error">Geçerli bir telefon numarası girin</span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Şehir / Lokasyon</label>
+                        <label for="inputLocation">Şehir / Lokasyon</label>
                         <input type="text" id="inputLocation" value="" placeholder="Adana, Türkiye">
                     </div>
                 </div>
 
                 <!-- Adım 2: Projeler -->
-                <div class="step-content" id="step-2">
-                    <h3><i class="fa-solid fa-code"></i> Projeler</h3>
+                <div class="step-content" id="step-2" role="tabpanel">
+                    <h3><i class="fa-solid fa-code" aria-hidden="true"></i> Projeler</h3>
                     <div id="projectsContainer"></div>
-                    <button class="btn btn-outline" id="btnAddProject" style="width: 100%; justify-content: center; margin-top: 10px;">
-                        <i class="fa-solid fa-plus"></i> Yeni Proje Ekle
+                    <button class="btn btn-outline" id="btnAddProject" style="width: 100%; justify-content: center; margin-top: 10px;" aria-label="Yeni Proje Ekle">
+                        <i class="fa-solid fa-plus" aria-hidden="true"></i> Yeni Proje Ekle
                     </button>
                 </div>
 
                 <!-- Adım 3: Eğitim -->
-                <div class="step-content" id="step-3">
-                    <h3><i class="fa-solid fa-graduation-cap"></i> Eğitim</h3>
+                <div class="step-content" id="step-3" role="tabpanel">
+                    <h3><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Eğitim</h3>
                     <div id="educationContainer"></div>
-                    <button class="btn btn-outline" id="btnAddEducation" style="width: 100%; justify-content: center; margin-top: 10px;">
-                        <i class="fa-solid fa-plus"></i> Yeni Eğitim Ekle
+                    <button class="btn btn-outline" id="btnAddEducation" style="width: 100%; justify-content: center; margin-top: 10px;" aria-label="Yeni Eğitim Ekle">
+                        <i class="fa-solid fa-plus" aria-hidden="true"></i> Yeni Eğitim Ekle
                     </button>
                 </div>
 
                 <!-- Adım 4: İş Deneyimi -->
-                <div class="step-content" id="step-4">
-                    <h3><i class="fa-solid fa-briefcase"></i> İş Deneyimi</h3>
+                <div class="step-content" id="step-4" role="tabpanel">
+                    <h3><i class="fa-solid fa-briefcase" aria-hidden="true"></i> İş Deneyimi</h3>
                     <div id="experienceContainer"></div>
-                    <button class="btn btn-outline" id="btnAddExperience" style="width: 100%; justify-content: center; margin-top: 10px;">
-                        <i class="fa-solid fa-plus"></i> Yeni İş Deneyimi Ekle
+                    <button class="btn btn-outline" id="btnAddExperience" style="width: 100%; justify-content: center; margin-top: 10px;" aria-label="Yeni İş Deneyimi Ekle">
+                        <i class="fa-solid fa-plus" aria-hidden="true"></i> Yeni İş Deneyimi Ekle
                     </button>
                 </div>
 
                 <!-- Adım 5: Beceriler -->
-                <div class="step-content" id="step-5">
-                    <h3><i class="fa-solid fa-star"></i> Beceriler</h3>
+                <div class="step-content" id="step-5" role="tabpanel">
+                    <h3><i class="fa-solid fa-star" aria-hidden="true"></i> Beceriler</h3>
                     <div class="form-group">
-                        <label>Beceriler (Virgülle ayırın)</label>
+                        <label for="inputSkills">Beceriler (Virgülle ayırın)</label>
                         <input type="text" id="inputSkills" value="" placeholder="JavaScript, React, Node.js, Python">
                     </div>
                 </div>
 
                 <!-- Adım 6: Sertifikalar -->
-                <div class="step-content" id="step-6">
-                    <h3><i class="fa-solid fa-certificate"></i> Sertifikalar</h3>
+                <div class="step-content" id="step-6" role="tabpanel">
+                    <h3><i class="fa-solid fa-certificate" aria-hidden="true"></i> Sertifikalar</h3>
                     <div class="form-group">
-                        <label>Sertifika / Katılım (Virgülle ayırın)</label>
+                        <label for="inputCert">Sertifika / Katılım (Virgülle ayırın)</label>
                         <input type="text" id="inputCert" value="" placeholder="AWS Certified, Agile Scrum Master">
                     </div>
                 </div>
 
                 <!-- Adım 7: Diller -->
-                <div class="step-content" id="step-7">
-                    <h3><i class="fa-solid fa-language"></i> Yabancı Diller</h3>
+                <div class="step-content" id="step-7" role="tabpanel">
+                    <h3><i class="fa-solid fa-language" aria-hidden="true"></i> Yabancı Diller</h3>
                     <div class="form-group">
-                        <label>Bildiğiniz Diller (Virgülle ayırın)</label>
+                        <label for="inputLangs">Bildiğiniz Diller (Virgülle ayırın)</label>
                         <input type="text" id="inputLangs" value="" placeholder="Türkçe (Ana Dil), İngilizce (C1)">
                     </div>
                 </div>
 
                 <!-- Adım 8: Özet -->
-                <div class="step-content" id="step-8">
-                    <h3><i class="fa-solid fa-align-left"></i> Hakkımda / Özet</h3>
+                <div class="step-content" id="step-8" role="tabpanel">
+                    <h3><i class="fa-solid fa-align-left" aria-hidden="true"></i> Hakkımda / Özet</h3>
                     <div class="form-group">
-                        <label>Özet Metni</label>
+                        <label for="inputAbout">Özet Metni</label>
                         <textarea id="inputAbout" rows="5" placeholder="Modern web teknolojileri üzerine uzmanlaşmış, yenilikçi projelere imza atmayı seven yazılım mühendisi."></textarea>
                     </div>
                 </div>
 
                 <div class="form-navigation">
-                    <button class="btn btn-secondary" id="btnPrev" disabled>
-                        <i class="fa-solid fa-chevron-left"></i> Geri
+                    <button class="btn btn-secondary" id="btnPrev" disabled aria-label="Önceki Adım">
+                        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i> Geri
                     </button>
-                    <button class="btn btn-primary" id="btnNext">
-                        Devam <i class="fa-solid fa-chevron-right"></i>
+                    <button class="btn btn-primary" id="btnNext" aria-label="Sonraki Adım">
+                        Devam <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
         </aside>
 
         <!-- SAĞ PANEL: ÖNİZLEME -->
-        <section class="preview-panel">
+        <section class="preview-panel" aria-label="Canlı Önizleme">
             <div class="preview-toolbar">
                 <div class="template-selector">
-                    <label>Şablon:</label>
+                    <label for="templateSelect">Şablon:</label>
                     <select id="templateSelect" class="dark-select">
                         <option value="minimal-slate">Minimal Slate</option>
                         <option value="corporate-navy">Kurumsal Navy</option>
@@ -541,18 +648,18 @@
                 </div>
                 <div class="zoom-controls">
                     <span>Boyut:</span>
-                    <button class="btn btn-zoom">Sığdır</button>
-                    <button class="btn btn-zoom">75%</button>
-                    <button class="btn btn-zoom active">100%</button>
+                    <button class="btn btn-zoom" aria-label="Sayfaya Sığdır">Sığdır</button>
+                    <button class="btn btn-zoom" aria-label="Yüzde 75 Boyut">75%</button>
+                    <button class="btn btn-zoom active" aria-label="Yüzde 100 Boyut">100%</button>
                 </div>
             </div>
 
             <div class="action-bar">
                 <div class="ats-score">
-                    <i class="fa-solid fa-check-circle"></i> ATS: <span class="text-green">98.4/100</span>
+                    <i class="fa-solid fa-check-circle" aria-hidden="true"></i> ATS: <span class="text-green">98.4/100</span>
                 </div>
-                <button class="btn btn-primary" id="downloadPdf">
-                    <i class="fa-solid fa-download"></i> PDF İndir
+                <button class="btn btn-primary" id="downloadPdf" aria-label="CV'yi PDF Olarak İndir">
+                    <i class="fa-solid fa-download" aria-hidden="true"></i> PDF İndir
                 </button>
             </div>
 
@@ -561,8 +668,8 @@
                     <aside class="cv-sidebar">
                         <div class="profile-box">
                             <div class="avatar-placeholder" id="avatarContainer">
-                                <i class="fa-solid fa-user" id="defaultAvatarIcon"></i>
-                                <img id="renderPhoto" src="" alt="Profil" style="display: none; width: 100%; height: 100%; object-fit: cover;">
+                                <i class="fa-solid fa-user" id="defaultAvatarIcon" aria-hidden="true"></i>
+                                <img id="renderPhoto" src="" alt="Profil Fotoğrafı Önizleme" style="display: none; width: 100%; height: 100%; object-fit: cover;">
                             </div>
                         </div>
 
@@ -570,9 +677,9 @@
                             <h3>İLETİŞİM</h3>
                             <hr>
                             <div class="contact-list">
-                                <p id="renderPhone"><i class="fa-solid fa-phone"></i> +90 555 123 45 67</p>
-                                <p id="renderEmail"><i class="fa-solid fa-envelope"></i> denizkus@example.com</p>
-                                <p id="renderLocation"><i class="fa-solid fa-location-dot"></i> Adana, Türkiye</p>
+                                <p id="renderPhone"><i class="fa-solid fa-phone" aria-hidden="true"></i> +90 555 123 45 67</p>
+                                <p id="renderEmail"><i class="fa-solid fa-envelope" aria-hidden="true"></i> denizkus@example.com</p>
+                                <p id="renderLocation"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Adana, Türkiye</p>
                             </div>
                         </div>
 
@@ -595,10 +702,10 @@
                         </div>
                     </aside>
 
-                    <main class="cv-main-content">
+                    <div class="cv-main-content">
                         <header class="cv-main-header">
-                            <h1 id="renderFullName">DENİZ KUŞ</h1>
-                            <h2 id="renderTitle">Yazılım Mühendisi</h2>
+                            <div id="renderFullName" style="font-size: 1.8rem; font-weight: 800; text-transform: uppercase;">DENİZ KUŞ</div>
+                            <div id="renderTitle" style="font-size: 1.1rem; color: #64748b; font-weight: 600;">Yazılım Mühendisi</div>
                         </header>
 
                         <div class="cv-section">
@@ -624,12 +731,46 @@
                             <hr>
                             <div id="renderProjectList"></div>
                         </div>
-                    </main>
+                    </div>
                 </div>
             </div>
         </section>
-    </main>
+    </section>
+</main>
 
-    <script src="app.js"></script>
+<!-- ALT BİLGİ (FOOTER) -->
+<footer id="footerSection" style="background: #090d16; border-top: 1px solid rgba(255,255,255,0.08); padding: 40px 5% 25px; color: #94a3b8; font-size: 0.9rem;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin-bottom: 30px;">
+        <div>
+            <div style="font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 10px;">CV Yap</div>
+            <p>Yapay zeka destekli, ATS uyumlu ücretsiz özgeçmiş hazırlama platformu.</p>
+        </div>
+        <div>
+            <div style="font-weight: 600; color: #fff; margin-bottom: 10px;">Hızlı Menü</div>
+            <ul style="list-style: none; padding: 0; line-height: 2;">
+                <li><a href="#templatesSection" style="color: #94a3b8; text-decoration: none;">CV Şablonları</a></li>
+                <li><a href="#aboutSection" style="color: #94a3b8; text-decoration: none;">Hakkımızda</a></li>
+                <li><a href="https://github.com/Aliiozaslann/cvolusturucu" target="_blank" rel="noopener noreferrer" style="color: #94a3b8; text-decoration: none;">GitHub Projesi</a></li>
+            </ul>
+        </div>
+        <div>
+            <div style="font-weight: 600; color: #fff; margin-bottom: 10px;">İletişim & Sosyal</div>
+            <ul style="list-style: none; padding: 0; line-height: 2;">
+                <li><i class="fa-regular fa-envelope" aria-hidden="true"></i> iletisim@cvyap.tr</li>
+                <li><a href="https://github.com/Aliiozaslann" target="_blank" rel="noopener noreferrer" style="color: #94a3b8; text-decoration: none;"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub Profilimiz</a></li>
+                <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" style="color: #94a3b8; text-decoration: none;"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn Paylaş</a></li>
+            </ul>
+        </div>
+        <div>
+            <div style="font-weight: 600; color: #fff; margin-bottom: 10px;">Güven & Yasal</div>
+            <p style="font-size: 0.85rem; line-height: 1.6;">Verileriniz tamamen tarayıcınızda işlenir. Gizlilik Politikası ve Açık Kaynak Lisansı kapsamında korunmaktadır.</p>
+        </div>
+    </div>
+    <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; text-align: center; font-size: 0.85rem;">
+        &copy; 2026 CV Yap. Tüm Hakları Saklıdır. | Geliştirici: Ali Özaslan
+    </div>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>

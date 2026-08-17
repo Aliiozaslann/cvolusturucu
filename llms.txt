@@ -1,0 +1,8 @@
+# CV Yap (cvyap.tr)
+> ATS %100 uyumlu, modern ve ücretsiz CV oluşturma platformu.
+
+## Özellikler
+- 8 farklı kurumsal ve modern CV şablonu
+- Yerel (Client-side) veri işleme ve tam gizlilik
+- Tek tıkla yüksek çözünürlüklü PDF dışa aktarma
+- Geliştirici: Ali Özaslan
