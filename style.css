@@ -384,3 +384,21 @@ body { background-color: var(--bg-dark); color: var(--text-main); height: 100vh;
     .template-grid { grid-template-columns: 1fr; }
     .form-grid { grid-template-columns: 1fr; }
 }
+/* Scroll (Kaydırma) Kilidini Açma */
+html, body {
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+.landing-page {
+    overflow-y: visible !important;
+    height: auto !important;
+    min-height: 100vh !important;
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+}
