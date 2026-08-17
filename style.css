@@ -191,3 +191,32 @@ main {
         align-items: flex-start;
     }
 }
+/* ==========================================================================
+   SCROLL (KAYDIRMA) KİLİDİNİ KALDIRMA & GENEL DÜZEN
+   ========================================================================== */
+
+html, body {
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+.landing-page {
+    overflow-y: visible !important;
+    height: auto !important;
+    min-height: 100vh !important;
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    overflow: visible !important;
+}
+
+/* Font Awesome Yüklenemezse İkonların Düzgün Görünmesi */
+.fa-solid, .fa-regular, .fa-brands {
+    display: inline-block;
+    font-style: normal;
+    line-height: 1;
+}
