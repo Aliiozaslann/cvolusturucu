@@ -6,10 +6,10 @@
     <title>CV Yap - Ücretsiz ve ATS Uyumlu Profesyonel CV Oluşturucu</title>
 
     <!-- Favicon & Üst Sekme Logosu -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=999">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png?v=999">
-    <link rel="shortcut icon" href="favicon.png?v=999">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png?v=999">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1001">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png?v=1001">
+    <link rel="shortcut icon" href="favicon.png?v=1001">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png?v=1001">
 
     <!-- SEO Meta Etiketleri -->
     <meta name="description" content="Dakikalar içinde ATS uyumlu, modern ve profesyonel CV hazırlayın. Tamamen ücretsiz şablonları seçin, bilgilerinizi girin ve anında yüksek kaliteli PDF olarak indirin.">
@@ -32,7 +32,7 @@
     <meta name="twitter:description" content="ATS %100 uyumlu profesyonel CV'nizi ücretsiz oluşturun.">
     <meta name="twitter:image" content="https://cvyap.tr/favicon.png">
 
-    <!-- JSON-LD -->
+    <!-- JSON-LD (FAQPage Schema Eklendi - Google Arama Zengin Sonuçları İçin) -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -60,13 +60,42 @@
                         "@type": "Person",
                         "name": "Ali Özaslan"
                     }
+                },
+                {
+                    "@type": "FAQPage",
+                    "mainEntity": [
+                        {
+                            "@type": "Question",
+                            "name": "CV Yap gerçekten tamamen ücretsiz mi?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Evet, CV Yap üzerindeki tüm şablonlar, düzenleme özellikleri ve yüksek çözünürlüklü PDF indirme seçenekleri tamamen ücretsizdir. Hiçbir gizli ücret veya abonelik bulunmaz."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Kişisel verilerim ve özgeçmişim sunucularda saklanıyor mu?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Hayır. CV Yap %100 istemci taraflı (Client-Side) çalışır. Girdiğiniz tüm veriler ve yüklediğiniz fotoğraflar sadece kendi tarayıcınızda işlenir ve hiçbir sunucuya kaydedilmez."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "ATS Uyumluluğu nedir ve neden önemlidir?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "ATS (Aday Takip Sistemi), şirketlerin iş başvurularını otomatik olarak tarayıp puanladığı yazılımlardır. Şablonlarımız, metinlerin ve bölümlerin ATS robotları tarafından %100 hatasız okunmasını sağlayacak şekilde optimize edilmiştir."
+                            }
+                        }
+                    ]
                 }
             ]
         }
     </script>
 
-    <!-- CSS & Kütüphaneler (Önbellek aşımı için versiyon eklendi) -->
-    <link rel="stylesheet" href="style.css?v=999">
+    <!-- CSS & Kütüphaneler -->
+    <link rel="stylesheet" href="style.css?v=1001">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
 </head>
@@ -74,6 +103,34 @@
 
 <!-- SAYFA 1: AÇILIŞ VE ŞABLON EKRANI (LANDING PAGE) -->
 <section class="landing-page active" id="landingPage">
+
+    <!-- YENİ ÜST HEADER & LOGO ALANI (NAVBAR) -->
+    <header style="width: 100%; border-bottom: 1px solid rgba(255, 255, 255, 0.08); background: rgba(11, 17, 32, 0.85); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100;">
+        <div style="max-width: 1280px; margin: 0 auto; padding: 14px 5%; display: flex; align-items: center; justify-content: space-between;">
+
+            <!-- Sol: Logo ve CV Yap Başlığı -->
+            <a href="https://cvyap.tr/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                <img src="favicon.png" alt="CV Yap Logo" width="36" height="36" style="border-radius: 8px; object-fit: contain; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
+                <div style="display: flex; align-items: baseline; gap: 2px;">
+                    <span style="font-size: 1.4rem; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">CV</span>
+                    <span style="font-size: 1.4rem; font-weight: 800; background: linear-gradient(135deg, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">yap</span>
+                    <span style="font-size: 0.95rem; font-weight: 700; color: #38bdf8;">.tr</span>
+                </div>
+            </a>
+
+            <!-- Sağ: Menü ve Hızlı Buton -->
+            <div style="display: flex; align-items: center; gap: 24px;">
+                <a href="#templatesSection" style="color: #cbd5e1; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: color 0.2s;">Şablonlar</a>
+                <a href="#faqSection" style="color: #cbd5e1; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: color 0.2s;">SSS</a>
+                <a href="#aboutSection" style="color: #cbd5e1; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: color 0.2s;">Hakkında</a>
+                <a href="#footerSection" style="color: #cbd5e1; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: color 0.2s;">İletişim</a>
+                <a href="#templatesSection" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; background: linear-gradient(135deg, #6366f1, #9333ea); color: #ffffff; text-decoration: none; font-size: 0.88rem; font-weight: 600; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
+                    <i class="fa-solid fa-bolt"></i> Başla
+                </a>
+            </div>
+
+        </div>
+    </header>
 
     <!-- YENİ HERO (KARŞILAMA) ALANI -->
     <div class="hero-section">
@@ -439,6 +496,80 @@
         </div>
     </div>
 
+    <!-- SIKÇA SORULAN SORULAR (SSS) BÖLÜMÜ -->
+    <div id="faqSection" style="max-width: 1200px; width: 95%; margin: 60px auto; padding: 0 15px; box-sizing: border-box;">
+        <div style="background: #0b1120; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 48px 40px; box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7); box-sizing: border-box;">
+
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 36px;">
+                    <span style="display: inline-block; background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.3); color: #818cf8; padding: 4px 14px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; margin-bottom: 12px;">
+                        YARDIM & REHBER
+                    </span>
+                <h2 style="font-size: 2.2rem; font-weight: 800; color: #ffffff; margin-bottom: 12px; letter-spacing: -0.5px;">Sıkça Sorulan Sorular</h2>
+                <p style="font-size: 1rem; color: #94a3b8; margin: 0;">CV hazırlama süreci, güvenlik ve ATS sistemleri hakkında en çok merak edilenler.</p>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 14px; max-width: 900px; margin: 0 auto;">
+
+                <!-- Soru 1 -->
+                <details style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 18px 22px; cursor: pointer; transition: 0.2s;">
+                    <summary style="font-weight: 700; color: #f1f5f9; font-size: 1.02rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        <span>CV Yap gerçekten tamamen ücretsiz mi?</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size: 0.85rem; color: #818cf8;"></i>
+                    </summary>
+                    <p style="margin-top: 14px; color: #94a3b8; font-size: 0.92rem; line-height: 1.65; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 12px;">
+                        Evet. Platformdaki tüm şablonlar, düzenleme adımları ve yüksek kalitede PDF indirme özellikleri tamamen ücretsizdir. Kredi kartı bilgisi veya gizli abonelik ücreti bulunmamaktadır.
+                    </p>
+                </details>
+
+                <!-- Soru 2 -->
+                <details style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 18px 22px; cursor: pointer; transition: 0.2s;">
+                    <summary style="font-weight: 700; color: #f1f5f9; font-size: 1.02rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Kişisel verilerim ve özgeçmişim bir sunucuda saklanıyor mu?</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size: 0.85rem; color: #818cf8;"></i>
+                    </summary>
+                    <p style="margin-top: 14px; color: #94a3b8; font-size: 0.92rem; line-height: 1.65; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 12px;">
+                        Hayır. CV Yap %100 yerel (Client-Side) mimariyle geliştirilmiştir. Girdiğiniz bilgiler ve profil fotoğrafınız yalnızca tarayıcınızın geçici belleğinde işlenir, hiçbir uzak veritabanına aktarılmaz.
+                    </p>
+                </details>
+
+                <!-- Soru 3 -->
+                <details style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 18px 22px; cursor: pointer; transition: 0.2s;">
+                    <summary style="font-weight: 700; color: #f1f5f9; font-size: 1.02rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        <span>ATS (Aday Takip Sistemi) Uyumluluğu nedir ve neden önemlidir?</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size: 0.85rem; color: #818cf8;"></i>
+                    </summary>
+                    <p style="margin-top: 14px; color: #94a3b8; font-size: 0.92rem; line-height: 1.65; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 12px;">
+                        ATS, kurumsal şirketlerin ve insan kaynakları uzmanlarının başvuru havuzunu otomatik filtrelemek için kullandığı yazılımlardır. Şablonlarımız, metin yapısı ve hiyerarşisi bozulmadan ATS botları tarafından eksiksiz okunacak standartlarda hazırlanmıştır.
+                    </p>
+                </details>
+
+                <!-- Soru 4 -->
+                <details style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 18px 22px; cursor: pointer; transition: 0.2s;">
+                    <summary style="font-weight: 700; color: #f1f5f9; font-size: 1.02rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        <span>İndirdiğim PDF dosyasında kayma veya kalite kaybı olur mu?</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size: 0.85rem; color: #818cf8;"></i>
+                    </summary>
+                    <p style="margin-top: 14px; color: #94a3b8; font-size: 0.92rem; line-height: 1.65; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 12px;">
+                        Hayır. Dışa aktarma motorumuz A4 standart ölçülerine (210mm x 297mm) ve piksel yoğunluğuna tam uyumlu şekilde derleme yapar. Hem dijital başvurularda hem de fiziksel renkli baskılarda kristal netliğinde çıktı alırsınız.
+                    </p>
+                </details>
+
+                <!-- Soru 5 -->
+                <details style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 18px 22px; cursor: pointer; transition: 0.2s;">
+                    <summary style="font-weight: 700; color: #f1f5f9; font-size: 1.02rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Hazırladığım CV'yi sonradan düzenleyebilir miyim?</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size: 0.85rem; color: #818cf8;"></i>
+                    </summary>
+                    <p style="margin-top: 14px; color: #94a3b8; font-size: 0.92rem; line-height: 1.65; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 12px;">
+                        Sekmenizi kapatmadığınız sürece tüm form adımları canlı olarak korunur ve anında şablon değiştirerek farklı tasarımlarla birden fazla PDF üretebilirsiniz.
+                    </p>
+                </details>
+
+            </div>
+
+        </div>
+    </div>
+
     <!-- HAKKINDA BÖLÜMÜ -->
     <div id="aboutSection" style="max-width: 1200px; width: 95%; margin: 60px auto 40px; padding: 0 15px; box-sizing: border-box;">
         <div style="background: #0b1120; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 48px 40px; box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7); box-sizing: border-box;">
@@ -502,6 +633,7 @@
                 <div style="font-weight: 600; color: #fff; margin-bottom: 10px;">Hızlı Menü</div>
                 <ul style="list-style: none; padding: 0; line-height: 2;">
                     <li><a href="#templatesSection" style="color: #94a3b8; text-decoration: none;">CV Şablonları</a></li>
+                    <li><a href="#faqSection" style="color: #94a3b8; text-decoration: none;">Sıkça Sorulan Sorular</a></li>
                     <li><a href="#aboutSection" style="color: #94a3b8; text-decoration: none;">Hakkımızda</a></li>
                     <li><a href="https://github.com/Aliiozaslann/cvolusturucu" target="_blank" rel="noopener noreferrer" style="color: #94a3b8; text-decoration: none;">GitHub Projesi</a></li>
                 </ul>
