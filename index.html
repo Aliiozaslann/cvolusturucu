@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Yap - Ücretsiz ve ATS Uyumlu Profesyonel CV Oluşturucu</title>
 
-    <!-- Favicon & Üst Sekme Logosu (Yeni logo.png) -->
+    <!-- Favicon (Yeni logo.png) -->
     <link rel="icon" type="image/png" sizes="32x32" href="logo.png?v=2026">
     <link rel="icon" type="image/png" sizes="16x16" href="logo.png?v=2026">
     <link rel="shortcut icon" href="logo.png?v=2026">
@@ -75,22 +75,26 @@
 <!-- SAYFA 1: AÇILIŞ VE ŞABLON EKRANI (LANDING PAGE) -->
 <section class="landing-page active" id="landingPage">
 
-    <!-- ÜST HEADER & METİN LOGO ALANI -->
+    <!-- ÜST HEADER & LOGOLU NAVBAR -->
     <header style="width: 100%; border-bottom: 1px solid rgba(255, 255, 255, 0.08); background: rgba(11, 17, 32, 0.85); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100;">
-        <div style="max-width: 1280px; margin: 0 auto; padding: 14px 5%; display: flex; align-items: center; justify-content: space-between;">
+        <div style="max-width: 1280px; margin: 0 auto; padding: 12px 5%; display: flex; align-items: center; justify-content: space-between;">
 
-            <!-- Sol: Metin Logo -->
-            <a href="https://cvyap.tr/" style="display: flex; align-items: baseline; gap: 2px; text-decoration: none;">
-                <span style="font-size: 1.5rem; font-weight: 900; color: #ffffff; letter-spacing: -0.5px;">CV</span>
-                <span style="font-size: 1.5rem; font-weight: 900; background: linear-gradient(135deg, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">yap</span>
-                <span style="font-size: 1.05rem; font-weight: 800; color: #38bdf8;">.tr</span>
+            <!-- Sol: Görsel Logo + Marka Metni -->
+            <a href="https://cvyap.tr/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                <img src="logo.png?v=2026" alt="CV Yap Logo" width="34" height="34" style="border-radius: 8px; object-fit: contain; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
+                <div style="display: flex; align-items: baseline; gap: 2px;">
+                    <span style="font-size: 1.45rem; font-weight: 900; color: #ffffff; letter-spacing: -0.5px;">CV</span>
+                    <span style="font-size: 1.45rem; font-weight: 900; background: linear-gradient(135deg, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">yap</span>
+                    <span style="font-size: 1rem; font-weight: 800; color: #38bdf8;">.tr</span>
+                </div>
             </a>
 
             <!-- Sağ: Menü ve Hızlı Buton -->
             <div style="display: flex; align-items: center; gap: 24px;">
                 <a href="#templatesSection" style="color: #cbd5e1; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: color 0.2s;">Şablonlar</a>
                 <a href="sss.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: color 0.2s;">SSS</a>
-                <a href="hakkinda.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: color 0.2s;">Hakkında</a>
+                <a href="about.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: color 0.2s;">Hakkında</a>
+                <a href="#footerSection" style="color: #cbd5e1; text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: color 0.2s;">İletişim</a>
                 <a href="#templatesSection" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; background: linear-gradient(135deg, #6366f1, #9333ea); color: #ffffff; text-decoration: none; font-size: 0.88rem; font-weight: 600; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">
                     <i class="fa-solid fa-bolt"></i> Başla
                 </a>
@@ -167,7 +171,7 @@
         </div>
     </div>
 
-    <!-- ŞABLON SEÇİM ALANI (8 ŞABLON EKSİKSİZ) -->
+    <!-- ŞABLON SEÇİM ALANI -->
     <div class="templates-section" id="templatesSection">
         <div class="landing-header">
             <span class="badge">✓ ATS UYUMLU</span>
@@ -463,7 +467,7 @@
     </div>
 
     <!-- ALT BİLGİ (FOOTER) -->
-    <footer id="footerSection" style="background: #090d16; border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 40px 5% 25px; color: #94a3b8; font-size: 0.9rem; margin-top: 40px;">
+    <footer id="footerSection" style="background: #090d16; border-top: 1px solid rgba(255,255,255,0.08); padding: 40px 5% 25px; color: #94a3b8; font-size: 0.9rem; margin-top: 40px;">
         <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin-bottom: 30px;">
             <div>
                 <div style="font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 10px;">CV Yap</div>
@@ -474,7 +478,7 @@
                 <ul style="list-style: none; padding: 0; line-height: 2;">
                     <li><a href="#templatesSection" style="color: #94a3b8; text-decoration: none;">CV Şablonları</a></li>
                     <li><a href="sss.html" style="color: #94a3b8; text-decoration: none;">Sıkça Sorulan Sorular</a></li>
-                    <li><a href="hakkinda.html" style="color: #94a3b8; text-decoration: none;">Hakkımızda</a></li>
+                    <li><a href="about.html" style="color: #94a3b8; text-decoration: none;">Hakkımızda</a></li>
                     <li><a href="https://github.com/Aliiozaslann/cvolusturucu" target="_blank" rel="noopener noreferrer" style="color: #94a3b8; text-decoration: none;">GitHub Projesi</a></li>
                 </ul>
             </div>
@@ -491,7 +495,7 @@
                 <p style="font-size: 0.85rem; line-height: 1.6;">Verileriniz tamamen tarayıcınızda işlenir. Gizlilik Politikası ve Açık Kaynak Lisansı kapsamında korunmaktadır.</p>
             </div>
         </div>
-        <div style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 20px; text-align: center; font-size: 0.85rem;">
+        <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; text-align: center; font-size: 0.85rem;">
             &copy; 2026 CV Yap. Tüm Hakları Saklıdır. | Geliştirici: Ali Özaslan
         </div>
     </footer>
