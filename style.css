@@ -5,9 +5,9 @@
     --bg-dark: #0f172a;
     --bg-card: #1e293b;
     --bg-card-dark: #0b1120;
-    --primary: #6366f1;
-    --primary-hover: #4f46e5;
-    --accent: #a855f7;
+    --primary: #8c52ff;
+    --primary-hover: #7b3fe4;
+    --accent: #6366f1;
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
     --border-color: rgba(255, 255, 255, 0.08);
@@ -29,7 +29,7 @@ html, body {
 }
 
 /* ==========================================================================
-   AÇILIŞ SAYFASI (LANDING PAGE) & HERO
+   AÇILIŞ SAYFASI (LANDING PAGE) & GENİŞ HERO ALANI
    ========================================================================== */
 .landing-page {
     display: none;
@@ -42,16 +42,18 @@ html, body {
     display: block;
 }
 
+/* Kenar boşlukları azaltıldı, genişlik 1600px yapıldı */
 .hero-section {
-    padding: 60px 5% 40px;
-    max-width: 1280px;
+    padding: 60px 4% 40px;
+    max-width: 1600px;
+    width: 96%;
     margin: 0 auto;
 }
 
 .hero-container {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 60px;
     align-items: center;
 }
 
@@ -59,12 +61,12 @@ html, body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(99, 102, 241, 0.12);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    color: #818cf8;
-    padding: 6px 14px;
+    background: rgba(140, 82, 255, 0.12);
+    border: 1px solid rgba(140, 82, 255, 0.3);
+    color: #c084fc;
+    padding: 6px 16px;
     border-radius: 999px;
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     font-weight: 600;
     margin-bottom: 20px;
 }
@@ -78,31 +80,31 @@ html, body {
 }
 
 .hero-left h1 {
-    font-size: 3rem;
+    font-size: 3.4rem;
     line-height: 1.15;
-    font-weight: 800;
-    margin-bottom: 16px;
-    letter-spacing: -0.5px;
+    font-weight: 900;
+    margin-bottom: 18px;
+    letter-spacing: -0.8px;
 }
 
 .text-gradient {
-    background: linear-gradient(135deg, #818cf8, #c084fc);
+    background: linear-gradient(135deg, #a78bfa, #c084fc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .hero-desc {
-    font-size: 1.05rem;
-    line-height: 1.65;
+    font-size: 1.12rem;
+    line-height: 1.7;
     color: var(--text-muted);
-    margin-bottom: 28px;
-    max-width: 520px;
+    margin-bottom: 32px;
+    max-width: 640px;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 14px;
-    margin-bottom: 28px;
+    gap: 16px;
+    margin-bottom: 30px;
     flex-wrap: wrap;
 }
 
@@ -111,10 +113,10 @@ html, body {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: 10px;
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: 0.98rem;
+    font-weight: 700;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.2s ease;
@@ -122,43 +124,47 @@ html, body {
 }
 
 .btn-large {
-    padding: 12px 24px;
-    font-size: 1rem;
+    padding: 14px 28px;
+    font-size: 1.05rem;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    background: #8c52ff;
     color: #ffffff;
-    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+    box-shadow: 0 4px 16px rgba(140, 82, 255, 0.4);
 }
 
 .btn-primary:hover {
-    opacity: 0.95;
-    transform: translateY(-1px);
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(140, 82, 255, 0.5);
 }
 
 .btn-outline {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.03);
     color: var(--text-main);
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .btn-outline:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-gradient-purple {
-    background: linear-gradient(135deg, #6366f1, #9333ea);
+    background: #8c52ff;
     color: #fff;
     width: 100%;
+}
+.btn-gradient-purple:hover {
+    background: #7b3fe4;
 }
 
 .hero-features {
     display: flex;
-    gap: 20px;
+    gap: 24px;
     color: var(--text-muted);
-    font-size: 0.88rem;
+    font-size: 0.92rem;
     flex-wrap: wrap;
 }
 
@@ -173,15 +179,18 @@ html, body {
    ========================================================================== */
 .mockup-window {
     background: #ffffff;
-    border-radius: 14px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
     overflow: hidden;
     color: #0f172a;
+    width: 100%;
+    max-width: 580px;
+    margin-left: auto;
 }
 
 .mockup-header {
     background: #f1f5f9;
-    padding: 10px 14px;
+    padding: 12px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -203,7 +212,7 @@ html, body {
 .dot.green { background-color: #10b981; }
 
 .ats-badge-mini {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 700;
     color: #059669;
     display: flex;
@@ -212,55 +221,58 @@ html, body {
 }
 
 .mockup-body {
-    padding: 20px;
+    padding: 24px;
 }
 
 .m-profile {
     display: flex;
-    gap: 12px;
+    gap: 14px;
     align-items: center;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 
 .m-avatar {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: #e2e8f0;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #64748b;
+    font-size: 1.2rem;
 }
 
 .m-info h4 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #0f172a;
+    font-weight: 700;
 }
 
 .m-info p {
-    font-size: 0.85rem;
-    color: #6366f1;
+    font-size: 0.9rem;
+    color: #8c52ff;
     font-weight: 600;
 }
 
 .m-contact {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: #64748b;
 }
 
 .m-section h5 {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     color: #64748b;
     letter-spacing: 0.5px;
-    margin: 10px 0 6px;
+    margin: 12px 0 6px;
+    font-weight: 700;
 }
 
 .m-line {
-    height: 6px;
+    height: 7px;
     background: #f1f5f9;
     border-radius: 4px;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
 }
 .m-line.full { width: 100%; }
 .m-line.partial { width: 70%; }
@@ -269,7 +281,7 @@ html, body {
 .m-exp {
     display: flex;
     justify-content: space-between;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: #334155;
     font-weight: 600;
     margin-bottom: 4px;
@@ -277,121 +289,123 @@ html, body {
 
 .m-tags {
     display: flex;
-    gap: 6px;
-    margin-top: 10px;
+    gap: 8px;
+    margin-top: 14px;
 }
 
 .m-tags span {
-    background: #e0e7ff;
-    color: #4338ca;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    font-weight: 600;
+    background: #f3e8ff;
+    color: #7e22ce;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
 }
 
 /* ==========================================================================
-   ŞABLON LİSTESİ (TEMPLATES GRID)
+   ŞABLON LİSTESİ (TEMPLATES GRID - TAM GENİŞLİK)
    ========================================================================== */
 .templates-section {
-    max-width: 1280px;
-    margin: 40px auto;
-    padding: 0 5%;
+    max-width: 1600px;
+    width: 96%;
+    margin: 50px auto;
+    padding: 0 2%;
 }
 
 .landing-header {
     text-align: center;
-    margin-bottom: 36px;
+    margin-bottom: 44px;
 }
 
 .landing-header .badge {
     background: rgba(16, 185, 129, 0.15);
     color: #34d399;
-    padding: 4px 12px;
+    padding: 5px 14px;
     border-radius: 999px;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     font-weight: 700;
 }
 
 .landing-header h2 {
-    font-size: 2.2rem;
-    font-weight: 800;
-    margin: 10px 0 6px;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 12px 0 6px;
 }
 
 .landing-header .subtitle {
-    color: #818cf8;
-    font-weight: 600;
-    font-size: 1.05rem;
+    color: #c084fc;
+    font-weight: 700;
+    font-size: 1.15rem;
 }
 
 .landing-header .desc {
     color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-top: 4px;
+    font-size: 1rem;
+    margin-top: 6px;
 }
 
 .template-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 24px;
 }
 
 .template-card {
     background: #0b1120;
     border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 16px;
+    border-radius: 18px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .template-card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(99, 102, 241, 0.4);
+    transform: translateY(-5px);
+    border-color: rgba(140, 82, 255, 0.5);
+    box-shadow: 0 12px 28px -8px rgba(140, 82, 255, 0.25);
 }
 
 .card-preview {
-    height: 180px;
+    height: 200px;
     background: #ffffff;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
-    padding: 12px;
+    padding: 14px;
     color: #0f172a;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .card-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
-    font-size: 0.8rem;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
 }
 
 .meta-tag {
-    color: #818cf8;
-    font-weight: 600;
+    color: #c084fc;
+    font-weight: 700;
 }
 
 .meta-status.free {
     color: #34d399;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .card-info h3 {
-    font-size: 1.05rem;
-    font-weight: 700;
-    margin-bottom: 6px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 8px;
 }
 
 .card-info p {
-    font-size: 0.82rem;
+    font-size: 0.88rem;
     color: var(--text-muted);
-    line-height: 1.45;
-    margin-bottom: 14px;
-    min-height: 38px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    min-height: 42px;
 }
 
 /* Şablon Kart İçi Minyatür Düzenleri */
@@ -412,15 +426,15 @@ html, body {
 }
 
 .m-circle-avatar {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
     background: #cbd5e1;
     margin-bottom: 8px;
 }
 
 .m-title-block {
-    font-size: 0.55rem;
+    font-size: 0.58rem;
     font-weight: 800;
     color: #64748b;
     margin-top: 6px;
@@ -436,19 +450,19 @@ html, body {
     height: 3px;
     background: #e2e8f0;
     border-radius: 2px;
-    margin: 3px 0;
+    margin: 4px 0;
 }
 .m-stub-line.short { width: 50%; }
 .m-stub-line.bold { height: 4px; background: #cbd5e1; }
 .m-stub-line.light { background: rgba(255,255,255,0.4); }
 
 .m-name-title .m-name {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     font-weight: 800;
     display: block;
 }
 .m-name-title .m-role {
-    font-size: 0.55rem;
+    font-size: 0.58rem;
     color: #64748b;
     display: block;
 }
@@ -460,7 +474,7 @@ html, body {
     border-radius: 4px;
 }
 .m-dark-sidebar .m-mini-name {
-    font-size: 0.55rem;
+    font-size: 0.58rem;
     color: #fff;
     font-weight: 700;
 }
@@ -542,9 +556,9 @@ html, body {
 }
 
 .warning-box {
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    color: #a5b4fc;
+    background: rgba(140, 82, 255, 0.1);
+    border: 1px solid rgba(140, 82, 255, 0.25);
+    color: #d8b4fe;
     padding: 8px 12px;
     border-radius: 8px;
     font-size: 0.8rem;
@@ -576,7 +590,7 @@ html, body {
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #6366f1, #a855f7);
+    background: #8c52ff;
     transition: width 0.3s ease;
 }
 
@@ -826,12 +840,18 @@ html, body {
 /* ==========================================================================
    RESPONSIVE (DUYARLI) AYARLAR
    ========================================================================== */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .template-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
+@media (max-width: 992px) {
     .hero-container {
         grid-template-columns: 1fr;
+    }
+    .mockup-window {
+        margin: 0 auto;
     }
 }
 
@@ -840,6 +860,6 @@ html, body {
         grid-template-columns: 1fr;
     }
     .hero-left h1 {
-        font-size: 2.2rem;
+        font-size: 2.3rem;
     }
 }
