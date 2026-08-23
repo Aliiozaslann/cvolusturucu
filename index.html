@@ -1,4 +1,3 @@
-
 <html lang="tr" style="scroll-behavior: smooth;">
 <head>
     <!-- Google Analytics (GA4) -->
@@ -17,10 +16,10 @@
     <title>CV Yap - Ücretsiz ve ATS Uyumlu Profesyonel CV Hazırlama Aracı</title>
 
     <!-- Favicon & App Icons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="logo.png?v=2060">
-    <link rel="icon" type="image/png" sizes="16x16" href="logo.png?v=2060">
-    <link rel="shortcut icon" href="logo.png?v=2060">
-    <link rel="apple-touch-icon" sizes="180x180" href="logo.png?v=2060">
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.png?v=2055">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.png?v=2055">
+    <link rel="shortcut icon" href="logo.png?v=2055">
+    <link rel="apple-touch-icon" sizes="180x180" href="logo.png?v=2055">
 
     <!-- TEMEL META & GOOGLE BOT ETİKETLERİ -->
     <meta name="description" content="CV Yap ile dakikalar içinde ATS uyumlu, modern ve profesyonel CV hazırlayın. Tamamen ücretsiz 8 farklı şablonu seçin, bilgilerinizi girin ve yüksek kalitede PDF olarak indirin.">
@@ -40,7 +39,7 @@
     <meta property="og:title" content="CV Yap - Ücretsiz ve ATS Uyumlu Profesyonel CV Hazırlama Aracı">
     <meta property="og:description" content="Dakikalar içinde ATS uyumlu profesyonel CV'nizi ücretsiz oluşturun, canlı önizleyin ve anında yüksek çözünürlüklü PDF olarak indirin.">
     <meta property="og:url" content="https://cvyap.tr/">
-    <meta property="og:image" content="https://cvyap.tr/logo.png?v=2060">
+    <meta property="og:image" content="https://cvyap.tr/logo.png?v=2055">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
     <meta property="og:locale" content="tr_TR">
@@ -50,7 +49,7 @@
     <meta name="twitter:site" content="@cvyap">
     <meta name="twitter:title" content="CV Yap - Ücretsiz Profesyonel CV Oluşturucu">
     <meta name="twitter:description" content="Kayıt olmadan, tamamen ücretsiz ATS uyumlu profesyonel CV hazırlayın ve PDF indirin.">
-    <meta name="twitter:image" content="https://cvyap.tr/logo.png?v=2060">
+    <meta name="twitter:image" content="https://cvyap.tr/logo.png?v=2055">
 
     <!-- JSON-LD -->
     <script type="application/ld+json">
@@ -125,8 +124,8 @@
         }
     </script>
 
-    <!-- CSS & Kütüphaneler -->
-    <link rel="stylesheet" href="style.css?v=2060">
+    <!-- CSS & Kütüphaneler (v=2056 ile kesin cache kırma) -->
+    <link rel="stylesheet" href="style.css?v=2056">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
 </head>
@@ -780,32 +779,34 @@
                         </div>
                     </div>
 
-                    <div class="cv-section">
-                        <h3>İLETİŞİM</h3>
-                        <hr>
-                        <div class="contact-list">
-                            <p id="renderPhone"><i class="fa-solid fa-phone" aria-hidden="true"></i> +90 555 123 45 67</p>
-                            <p id="renderEmail"><i class="fa-solid fa-envelope" aria-hidden="true"></i> denizkus@example.com</p>
-                            <p id="renderLocation"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Adana, Türkiye</p>
+                    <div class="cv-sidebar-sections">
+                        <div class="cv-section sidebar-contact-section">
+                            <h3>İLETİŞİM</h3>
+                            <hr>
+                            <div class="contact-list">
+                                <p id="renderPhone"><i class="fa-solid fa-phone" aria-hidden="true"></i> +90 555 123 45 67</p>
+                                <p id="renderEmail"><i class="fa-solid fa-envelope" aria-hidden="true"></i> denizkus@example.com</p>
+                                <p id="renderLocation"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Adana, Türkiye</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="cv-section">
-                        <h3>BECERİLER</h3>
-                        <hr>
-                        <ul id="renderSkills"></ul>
-                    </div>
+                        <div class="cv-section">
+                            <h3>BECERİLER</h3>
+                            <hr>
+                            <ul id="renderSkills"></ul>
+                        </div>
 
-                    <div class="cv-section">
-                        <h3>DİLLER</h3>
-                        <hr>
-                        <ul id="renderLangs"></ul>
-                    </div>
+                        <div class="cv-section">
+                            <h3>DİLLER</h3>
+                            <hr>
+                            <ul id="renderLangs"></ul>
+                        </div>
 
-                    <div class="cv-section">
-                        <h3>SERTİFİKALAR</h3>
-                        <hr>
-                        <ul id="renderCert"></ul>
+                        <div class="cv-section">
+                            <h3>SERTİFİKALAR</h3>
+                            <hr>
+                            <ul id="renderCert"></ul>
+                        </div>
                     </div>
                 </aside>
 
@@ -815,28 +816,30 @@
                         <div id="renderTitle" style="font-size: 1.1rem; color: #64748b; font-weight: 600;">Yazılım Mühendisi</div>
                     </header>
 
-                    <div class="cv-section">
+                    <div class="cv-section cv-about-section">
                         <h3>HAKKIMDA</h3>
                         <hr>
                         <p id="renderAbout">Modern web teknolojileri üzerine uzmanlaşmış, yenilikçi projelere imza atmayı seven yazılım mühendisi.</p>
                     </div>
 
-                    <div class="cv-section">
-                        <h3>EĞİTİM</h3>
-                        <hr>
-                        <div id="renderEducationList"></div>
-                    </div>
+                    <div class="cv-lower-sections">
+                        <div class="cv-section">
+                            <h3>EĞİTİM</h3>
+                            <hr>
+                            <div id="renderEducationList"></div>
+                        </div>
 
-                    <div class="cv-section">
-                        <h3>İŞ DENEYİMİ</h3>
-                        <hr>
-                        <div id="renderExperienceList"></div>
-                    </div>
+                        <div class="cv-section">
+                            <h3>İŞ DENEYİMİ</h3>
+                            <hr>
+                            <div id="renderExperienceList"></div>
+                        </div>
 
-                    <div class="cv-section">
-                        <h3>PROJELER</h3>
-                        <hr>
-                        <div id="renderProjectList"></div>
+                        <div class="cv-section">
+                            <h3>PROJELER</h3>
+                            <hr>
+                            <div id="renderProjectList"></div>
+                        </div>
                     </div>
                 </main>
             </div>

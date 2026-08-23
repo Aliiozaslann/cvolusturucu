@@ -1,3 +1,6 @@
+/* ==========================================================================
+   CV YAP - GENEL RESET & DEĞİŞKENLER
+   ========================================================================== */
 :root {
     --bg-dark: #0f172a;
     --bg-card: #1e293b;
@@ -25,7 +28,9 @@ html, body {
     overflow-y: auto;
 }
 
-/* LANDING PAGE */
+/* ==========================================================================
+   AÇILIŞ SAYFASI (LANDING PAGE)
+   ========================================================================== */
 .landing-page {
     display: none;
     width: 100%;
@@ -294,7 +299,7 @@ html, body {
     font-weight: 700;
 }
 
-/* ŞABLON GRID */
+/* Şablon Grid */
 .templates-section {
     max-width: 1600px;
     width: 96%;
@@ -508,7 +513,9 @@ html, body {
     padding: 4px 6px;
 }
 
-/* WORKSPACE & EDITOR */
+/* ==========================================================================
+   EDİTÖR ÇALIŞMA ALANI (WORKSPACE)
+   ========================================================================== */
 .workspace {
     display: none;
     width: 100vw;
@@ -670,7 +677,9 @@ html, body {
     border-top: 1px solid var(--border-color);
 }
 
-/* PREVIEW PANEL */
+/* ==========================================================================
+   ÖNİZLEME PANELİ & A4 CANVAS
+   ========================================================================== */
 .preview-panel {
     flex: 1;
     height: 100%;
@@ -739,6 +748,9 @@ html, body {
 }
 .text-green { color: #34d399; }
 
+/* ==========================================================================
+   A4 KAĞIT ÇIKTISI (KUSURSUZ TEK SAYFA - KATI PİKSEL KİLİDİ)
+   ========================================================================== */
 .canvas-container {
     flex: 1;
     overflow: auto;
@@ -748,7 +760,7 @@ html, body {
     align-items: flex-start;
 }
 
-/* A4 KAĞIT ÇIKTISI (HAKKIMDA ÜSTE ÇEKİLDİ, SİDEBAR TABANA KİLİTLENDİ) */
+/* Ana Konteyner - Zorla 1123px Kilitlendi */
 .a4-paper,
 #cvCanvas {
     width: 794px !important;
@@ -763,11 +775,11 @@ html, body {
     display: flex !important;
     flex-direction: row !important;
     box-sizing: border-box !important;
-    overflow: hidden !important;
+    overflow: hidden !important; /* Asla dışarı taşıp 2. sayfayı tetiklemez */
     margin: 0 auto;
 }
 
-/* Sol Gri Sütun - En Alta Kadar Tam Boy */
+/* Sol Gri Sütun - Zorla 1123px Kilitlendi */
 .cv-sidebar {
     width: 260px !important;
     min-width: 260px !important;
@@ -782,24 +794,31 @@ html, body {
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
+    overflow: hidden !important;
 }
 
-/* Sağ Beyaz Alan - Hakkımda İsim Kısmına Yakınlaştırıldı */
+/* Sağ Beyaz Alan - Zorla 1123px Kilitlendi */
 .cv-main-content {
-    width: 534px !important;
+    width: 534px !important; /* 794 - 260 = 534 */
     min-width: 534px !important;
     max-width: 534px !important;
     height: 1123px !important;
     min-height: 1123px !important;
     max-height: 1123px !important;
     background-color: #ffffff !important;
-    padding: 28px 24px !important;
+    padding: 30px 26px 34px !important;
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important; /* Boşlukları yaymak yerine üstten başlatır */
-    gap: 14px !important; /* Bölümler arası doğal ve dengeli aralık */
+    justify-content: flex-start !important;
     overflow-wrap: anywhere;
+}
+
+.profile-box {
+    flex: 0 0 auto;
+    padding-bottom: 18px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #cbd5e1;
 }
 
 .avatar-placeholder {
@@ -807,7 +826,7 @@ html, body {
     height: 90px;
     border-radius: 50%;
     background: #e2e8f0;
-    margin: 0 auto 16px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -817,22 +836,22 @@ html, body {
 }
 
 .cv-section h3 {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     line-height: 1.25;
     font-weight: 800;
     letter-spacing: 0.5px;
     color: #334155;
-    margin-top: 4px;
+    margin-top: 14px;
 }
 
 .cv-section hr {
     border: none;
     border-top: 1px solid #cbd5e1;
-    margin: 4px 0 8px;
+    margin: 6px 0 10px;
 }
 
 .contact-list p {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     line-height: 1.35;
     color: #475569;
     margin-bottom: 6px;
@@ -849,14 +868,17 @@ html, body {
 }
 
 .cv-sidebar ul li {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     line-height: 1.35;
     color: #475569;
     margin-bottom: 6px;
 }
 
 .cv-main-header {
-    margin-bottom: 4px;
+    flex: 0 0 auto;
+    margin-bottom: 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .cv-main-header #renderFullName {
@@ -867,11 +889,10 @@ html, body {
 }
 
 .cv-main-header #renderTitle {
-    font-size: 1.05rem !important;
+    font-size: 1.08rem !important;
     color: var(--primary);
     font-weight: 600;
     line-height: 1.35;
-    margin-top: 2px;
 }
 
 .cv-main-content .cv-section {
@@ -879,18 +900,18 @@ html, body {
 }
 
 .cv-main-content .cv-section p {
-    font-size: 0.88rem;
+    font-size: 0.92rem;
     color: #334155;
-    line-height: 1.5;
+    line-height: 1.58;
     overflow-wrap: anywhere;
 }
 
 .education-item, .experience-item, .project-item {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 .education-item h4, .experience-item h4, .project-item h4 {
-    font-size: 0.9rem;
+    font-size: 0.94rem;
     line-height: 1.35;
     font-weight: 700;
     color: #0f172a;
@@ -898,23 +919,114 @@ html, body {
 }
 
 .education-item .date, .experience-item .date, .project-item .date {
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     line-height: 1.35;
     color: #64748b;
     font-weight: 600;
 }
 
-/* RESPONSIVE */
+/* ==========================================================================
+   İKİ SÜTUNLU CV HİYERARŞİSİ VE DİKEY DENGE
+   ========================================================================== */
+
+/* Gri sütun, içerik az olsa bile dört bölüme dengeli biçimde yayılsın. */
+.cv-sidebar-sections {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.cv-sidebar-sections > .cv-section {
+    flex: 1 1 0;
+    min-height: 0;
+    margin: 0 !important;
+    padding: 14px 0 12px;
+    border-top: 1px solid rgba(148, 163, 184, 0.62);
+}
+
+.cv-sidebar-sections > .cv-section h3 {
+    margin-top: 0 !important;
+}
+
+.cv-sidebar-sections > .cv-section hr {
+    margin: 6px 0 10px !important;
+}
+
+/* İsim satırı ile Hakkımda arasında gereksiz dikey mesafe bırakma. */
+.cv-about-section {
+    flex: 0 0 auto;
+    margin-bottom: 0 !important;
+    padding: 0 0 18px;
+}
+
+.cv-main-content .cv-section h3 {
+    margin-top: 0 !important;
+}
+
+/* Eğitim, deneyim ve projeler kalan yüksekliği eşit ve düzenli kullanır. */
+.cv-lower-sections {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cv-lower-sections > .cv-section {
+    flex: 0 1 auto;
+    padding: 17px 0;
+}
+
+.cv-lower-sections > .cv-section + .cv-section {
+    border-top: 1px solid #e2e8f0;
+}
+
+.cv-main-content .cv-section hr {
+    margin: 6px 0 10px !important;
+}
+
+.cv-main-content .cv-section p,
+.education-item p,
+.experience-item p,
+.project-item p {
+    margin-top: 2px;
+}
+
+/* İletişim ikonları hizalı kalsın; sol sütun daha temiz görünsün. */
+.contact-list p i {
+    width: 14px;
+    flex: 0 0 14px;
+    text-align: center;
+    color: #64748b;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .cv-main-content {
+        padding: 26px 22px 30px !important;
+    }
+}
 @media (max-width: 1200px) {
-    .template-grid { grid-template-columns: repeat(2, 1fr); }
+    .template-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 992px) {
-    .hero-container { grid-template-columns: 1fr; }
-    .mockup-window { margin: 0 auto; }
+    .hero-container {
+        grid-template-columns: 1fr;
+    }
+    .mockup-window {
+        margin: 0 auto;
+    }
 }
 
 @media (max-width: 640px) {
-    .template-grid { grid-template-columns: 1fr; }
-    .hero-left h1 { font-size: 2.3rem; }
+    .template-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-left h1 {
+        font-size: 2.3rem;
+    }
 }
