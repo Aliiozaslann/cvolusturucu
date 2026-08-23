@@ -806,7 +806,7 @@ html, body {
     min-height: 1123px !important;
     max-height: 1123px !important;
     background-color: #ffffff !important;
-    padding: 30px 26px 34px !important;
+    padding: 24px 20px !important;
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
@@ -814,19 +814,12 @@ html, body {
     overflow-wrap: anywhere;
 }
 
-.profile-box {
-    flex: 0 0 auto;
-    padding-bottom: 18px;
-    margin-bottom: 8px;
-    border-bottom: 1px solid #cbd5e1;
-}
-
 .avatar-placeholder {
     width: 90px;
     height: 90px;
     border-radius: 50%;
     background: #e2e8f0;
-    margin: 0 auto;
+    margin: 0 auto 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -836,22 +829,22 @@ html, body {
 }
 
 .cv-section h3 {
-    font-size: 0.9rem;
+    font-size: 0.86rem;
     line-height: 1.25;
     font-weight: 800;
     letter-spacing: 0.5px;
     color: #334155;
-    margin-top: 14px;
+    margin-top: 12px;
 }
 
 .cv-section hr {
     border: none;
     border-top: 1px solid #cbd5e1;
-    margin: 6px 0 10px;
+    margin: 4px 0 8px;
 }
 
 .contact-list p {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     line-height: 1.35;
     color: #475569;
     margin-bottom: 6px;
@@ -868,7 +861,7 @@ html, body {
 }
 
 .cv-sidebar ul li {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     line-height: 1.35;
     color: #475569;
     margin-bottom: 6px;
@@ -876,42 +869,42 @@ html, body {
 
 .cv-main-header {
     flex: 0 0 auto;
-    margin-bottom: 8px;
-    padding-bottom: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
     border-bottom: 1px solid #e2e8f0;
 }
 
 .cv-main-header #renderFullName {
-    font-size: 1.85rem !important;
+    font-size: 1.8rem !important;
     font-weight: 800;
     color: #0f172a;
     line-height: 1.18;
 }
 
 .cv-main-header #renderTitle {
-    font-size: 1.08rem !important;
+    font-size: 1.05rem !important;
     color: var(--primary);
     font-weight: 600;
     line-height: 1.35;
 }
 
-.cv-main-content .cv-section {
+.cv-main-content > .cv-section {
     margin-bottom: 0 !important;
 }
 
 .cv-main-content .cv-section p {
-    font-size: 0.92rem;
+    font-size: 0.86rem;
     color: #334155;
-    line-height: 1.58;
+    line-height: 1.52;
     overflow-wrap: anywhere;
 }
 
 .education-item, .experience-item, .project-item {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .education-item h4, .experience-item h4, .project-item h4 {
-    font-size: 0.94rem;
+    font-size: 0.88rem;
     line-height: 1.35;
     font-weight: 700;
     color: #0f172a;
@@ -919,81 +912,40 @@ html, body {
 }
 
 .education-item .date, .experience-item .date, .project-item .date {
-    font-size: 0.82rem;
+    font-size: 0.76rem;
     line-height: 1.35;
     color: #64748b;
     font-weight: 600;
 }
 
 /* ==========================================================================
-   İKİ SÜTUNLU CV HİYERARŞİSİ VE DİKEY DENGE
+   KONTROLLÜ DİKEY DENGE
    ========================================================================== */
 
-/* Gri sütun, içerik az olsa bile dört bölüme dengeli biçimde yayılsın. */
-.cv-sidebar-sections {
-    flex: 1 1 auto;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.cv-sidebar-sections > .cv-section {
+/* Sol sütundaki bölümler, profil alanının altında sayfaya dengeli yayılır. */
+.cv-sidebar > .cv-section {
     flex: 1 1 0;
     min-height: 0;
     margin: 0 !important;
-    padding: 14px 0 12px;
-    border-top: 1px solid rgba(148, 163, 184, 0.62);
-}
-
-.cv-sidebar-sections > .cv-section h3 {
-    margin-top: 0 !important;
-}
-
-.cv-sidebar-sections > .cv-section hr {
-    margin: 6px 0 10px !important;
-}
-
-/* İsim satırı ile Hakkımda arasında gereksiz dikey mesafe bırakma. */
-.cv-about-section {
-    flex: 0 0 auto;
-    margin-bottom: 0 !important;
-    padding: 0 0 18px;
-}
-
-.cv-main-content .cv-section h3 {
-    margin-top: 0 !important;
-}
-
-/* Eğitim, deneyim ve projeler kalan yüksekliği eşit ve düzenli kullanır. */
-.cv-lower-sections {
-    flex: 1 1 auto;
-    min-height: 0;
+    padding: 14px 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    border-top: 1px solid rgba(148, 163, 184, 0.58);
 }
 
-.cv-lower-sections > .cv-section {
-    flex: 0 1 auto;
-    padding: 17px 0;
+.cv-sidebar > .cv-section h3 {
+    margin-top: 0 !important;
 }
 
-.cv-lower-sections > .cv-section + .cv-section {
-    border-top: 1px solid #e2e8f0;
-}
-
-.cv-main-content .cv-section hr {
+.cv-sidebar > .cv-section hr {
     margin: 6px 0 10px !important;
 }
 
-.cv-main-content .cv-section p,
-.education-item p,
-.experience-item p,
-.project-item p {
-    margin-top: 2px;
+.cv-sidebar ul {
+    margin-bottom: 0;
 }
 
-/* İletişim ikonları hizalı kalsın; sol sütun daha temiz görünsün. */
 .contact-list p i {
     width: 14px;
     flex: 0 0 14px;
@@ -1001,12 +953,33 @@ html, body {
     color: #64748b;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .cv-main-content {
-        padding: 26px 22px 30px !important;
-    }
+/* Hakkımda başlığın hemen altında kalır; diğer üç bölüm kalan alanı paylaşır. */
+.cv-main-content > .cv-section:first-of-type {
+    flex: 0 0 auto;
+    padding: 0 0 16px;
 }
+
+.cv-main-content > .cv-section:nth-of-type(n + 2) {
+    flex: 1 1 0;
+    min-height: 0;
+    padding: 14px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1px solid #e2e8f0;
+}
+
+.cv-main-content > .cv-section h3 {
+    margin-top: 0 !important;
+}
+
+/* Uzun metinler yatay taşma oluşturmadan satıra kırılır. */
+.cv-main-content,
+.cv-main-content * {
+    overflow-wrap: anywhere;
+}
+
+/* Responsive */
 @media (max-width: 1200px) {
     .template-grid {
         grid-template-columns: repeat(2, 1fr);
