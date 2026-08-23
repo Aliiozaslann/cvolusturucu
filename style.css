@@ -758,7 +758,7 @@ html, body {
 }
 
 /* ==========================================================================
-   A4 KAĞIT ÇIKTISI (TEK SAYFA & TAŞMASIZ KESİN AYAR)
+   A4 KAĞIT ÇIKTISI (TEK SAYFA & BOYDAN BOYA TABAN KİLİDİ)
    ========================================================================== */
 .a4-paper,
 #cvCanvas {
@@ -773,6 +773,7 @@ html, body {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
     display: flex !important;
     flex-direction: row !important;
+    align-items: stretch !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
     page-break-inside: avoid !important;
@@ -783,9 +784,9 @@ html, body {
     width: 260px !important;
     min-width: 260px !important;
     max-width: 260px !important;
-    height: 1120px !important;
-    min-height: 1120px !important;
-    background: #f1f5f9 !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    background-color: #f1f5f9 !important;
     padding: 24px 16px !important;
     border-right: 1px solid #cbd5e1 !important;
     box-sizing: border-box !important;
@@ -846,9 +847,9 @@ html, body {
 
 .cv-main-content {
     flex: 1 !important;
-    height: 1120px !important;
-    min-height: 1120px !important;
-    background: #ffffff !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    background-color: #ffffff !important;
     padding: 24px 20px !important;
     box-sizing: border-box !important;
     display: flex !important;

@@ -308,38 +308,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // PDF İNDİRME (KESİN TEK SAYFA ÇIKTI MOTORU)
+    // PDF İNDİRME (ZORUNLU TEK SAYFA ÇIKTI MOTORU)
     // ==========================================
     const downloadBtn = document.getElementById('downloadPdf');
     if (downloadBtn) {
         downloadBtn.addEventListener('click', () => {
             const originalTransform = cvCanvas.style.transform;
-
-            // Önizleme ölçeğini sıfırla
             cvCanvas.style.transform = 'none';
 
             const opt = {
-                margin:       0,
+                margin:       [0, 0, 0, 0],
                 filename:     'CVPRO_Ozgecmis.pdf',
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  {
                     scale: 2,
                     useCORS: true,
                     scrollY: 0,
-                    scrollX: 0,
-                    width: 794,
-                    height: 1120
+                    scrollX: 0
                 },
                 jsPDF:        {
-                    unit: 'px',
-                    format: [794, 1120],
-                    orientation: 'portrait',
-                    hotfixes: ['px_scaling']
+                    unit: 'mm',
+                    format: 'a4',
+                    orientation: 'portrait'
                 },
                 pagebreak:    { mode: 'avoid-all' }
             };
 
-            html2pdf().set(opt).from(cvCanvas).save().then(() => {
+            html2pdf().from(cvCanvas).set(opt).toPdf().get('pdf').then((pdf) => {
+                const totalPages = pdf.internal.getNumberOfPages();
+                if (totalPages > 1) {
+                    for (let i = totalPages; i > 1; i--) {
+                        pdf.deletePage(i);
+                    }
+                }
+            }).save().then(() => {
                 cvCanvas.style.transform = originalTransform;
             });
         });
