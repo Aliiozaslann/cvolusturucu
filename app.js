@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // PDF İNDİRME (ZORUNLU TEK SAYFA ÇIKTI MOTORU)
+    // PDF İNDİRME (PİKSEL GARANTİLİ 1 SAYFA KİLİDİ)
     // ==========================================
     const downloadBtn = document.getElementById('downloadPdf');
     if (downloadBtn) {
@@ -316,25 +316,37 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalTransform = cvCanvas.style.transform;
             cvCanvas.style.transform = 'none';
 
+            // JS ile Son Saniye Piksel Dayatması (Canvas'ı bozmayı engeller)
+            cvCanvas.style.height = '1123px';
+            const sidebar = cvCanvas.querySelector('.cv-sidebar');
+            const mainContent = cvCanvas.querySelector('.cv-main-content');
+            if(sidebar) sidebar.style.height = '1123px';
+            if(mainContent) mainContent.style.height = '1123px';
+
             const opt = {
-                margin:       [0, 0, 0, 0],
+                margin:       0,
                 filename:     'CVPRO_Ozgecmis.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
+                image:        { type: 'jpeg', quality: 1.0 },
                 html2canvas:  {
                     scale: 2,
                     useCORS: true,
+                    width: 794,
+                    height: 1123,
+                    windowWidth: 794,
+                    windowHeight: 1123,
                     scrollY: 0,
                     scrollX: 0
                 },
                 jsPDF:        {
-                    unit: 'mm',
-                    format: 'a4',
-                    orientation: 'portrait'
-                },
-                pagebreak:    { mode: 'avoid-all' }
+                    unit: 'px',
+                    format: [794, 1123],
+                    orientation: 'portrait',
+                    hotfixes: ['px_scaling']
+                }
             };
 
             html2pdf().from(cvCanvas).set(opt).toPdf().get('pdf').then((pdf) => {
+                // Eğer html2pdf inat edip 2. sayfa açarsa, o sayfayı ZORLA siliyoruz!
                 const totalPages = pdf.internal.getNumberOfPages();
                 if (totalPages > 1) {
                     for (let i = totalPages; i > 1; i--) {
