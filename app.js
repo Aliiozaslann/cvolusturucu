@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // 2. EDİTÖR ADIM YÖNETİMİ (STEPS)
+    // 2. EDİTÖR ADIM YÖNETİMİ & DOĞRULAMA (VALIDATION)
     // ==========================================
     let currentStep = 1;
     const totalSteps = 8;
@@ -52,6 +52,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnNext = document.getElementById('btnNext');
     const progressBar = document.getElementById('progressBar');
     const progressText = document.getElementById('progressText');
+
+    const inputEmail = document.getElementById('inputEmail');
+    const emailError = document.getElementById('emailError');
+
+    function validateStep(step) {
+        if (step === 1) {
+            const emailVal = inputEmail.value.trim();
+            // E-posta içinde @ ve en az bir nokta bulunması zorunlu
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (emailVal !== '' && !emailRegex.test(emailVal)) {
+                if (emailError) emailError.style.display = 'block';
+                inputEmail.style.borderColor = '#ef4444';
+                inputEmail.focus();
+                return false;
+            } else {
+                if (emailError) emailError.style.display = 'none';
+                inputEmail.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            }
+        }
+        return true;
+    }
 
     function updateSteps(step) {
         tabs.forEach(t => t.classList.remove('active'));
@@ -81,12 +103,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-            currentStep = parseInt(tab.getAttribute('data-step'));
-            updateSteps(currentStep);
+            const targetStep = parseInt(tab.getAttribute('data-step'));
+            if (validateStep(currentStep) || targetStep < currentStep) {
+                currentStep = targetStep;
+                updateSteps(currentStep);
+            }
         });
     });
 
     btnNext.addEventListener('click', () => {
+        if (!validateStep(currentStep)) return;
+
         if (currentStep < totalSteps) {
             currentStep++;
             updateSteps(currentStep);
@@ -105,11 +132,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // 3. CANLI ÖNİZLEME (LIVE PREVIEW)
+    // 3. CANLI ÖNİZLEME & E-POSTA KONTROLÜ
     // ==========================================
     const inputs = [
         { id: 'inputTitle', renderId: 'renderTitle' },
-        { id: 'inputEmail', renderId: 'renderEmail', icon: '<i class="fa-solid fa-envelope"></i> ' },
         { id: 'inputPhone', renderId: 'renderPhone', icon: '<i class="fa-solid fa-phone"></i> ' },
         { id: 'inputLocation', renderId: 'renderLocation', icon: '<i class="fa-solid fa-location-dot"></i> ' },
         { id: 'inputAbout', renderId: 'renderAbout' }
@@ -124,6 +150,22 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    // E-Posta Önizlemesi (Sadece @ varsa veya varsayılan hali basılır)
+    const renderEmail = document.getElementById('renderEmail');
+    if (inputEmail && renderEmail) {
+        inputEmail.addEventListener('input', () => {
+            const val = inputEmail.value.trim();
+            if (val.includes('@')) {
+                renderEmail.innerHTML = `<i class="fa-solid fa-envelope"></i> ` + val;
+                if (emailError) emailError.style.display = 'none';
+                inputEmail.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            } else if (val === '') {
+                renderEmail.innerHTML = `<i class="fa-solid fa-envelope"></i> denizkus@example.com`;
+                if (emailError) emailError.style.display = 'none';
+            }
+        });
+    }
 
     // İsim & Soyisim
     const inputName = document.getElementById('inputName');
@@ -180,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCommaList('inputCert', 'renderCert');
 
     // ==========================================
-    // 4. DİNAMİK ALANLAR (PROJE, EĞİTİM, DENEYİM)
+    // 4. DİNAMİK ALANLAR & YIL/TARİH HARF KİLİDİ
     // ==========================================
     function setupDynamicSection(addBtnId, containerId, renderListId, placeholders, renderTemplate) {
         const addBtn = document.getElementById(addBtnId);
@@ -212,10 +254,11 @@ document.addEventListener('DOMContentLoaded', () => {
             let innerHTML = `<div class="form-grid">`;
             placeholders.forEach((ph) => {
                 const isTextarea = ph.type === 'textarea';
+                const isDate = ph.isDate === true;
                 innerHTML += `
                     <div class="form-group" ${isTextarea ? 'style="grid-column: span 2;"' : ''}>
                         <label>${ph.label}</label>
-                        <${isTextarea ? 'textarea rows="3"' : 'input type="text"'} class="dyn-input" placeholder="${ph.placeholder}"></${isTextarea ? 'textarea' : 'input'}>
+                        <${isTextarea ? 'textarea rows="3"' : 'input type="text"'} class="dyn-input ${isDate ? 'date-input-lock' : ''}" placeholder="${ph.placeholder}"></${isTextarea ? 'textarea' : 'input'}>
                     </div>
                 `;
             });
@@ -223,6 +266,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             itemDiv.innerHTML = innerHTML;
             container.appendChild(itemDiv);
+
+            // Tarih / Yıl alanlarına HARF GİRİŞİNİ ENGELLE (Sadece Rakam, Tire, Boşluk ve Slash)
+            itemDiv.querySelectorAll('.date-input-lock').forEach(dateInput => {
+                dateInput.addEventListener('input', (e) => {
+                    e.target.value = e.target.value.replace(/[^0-9\s\-\/\.]/g, '');
+                });
+            });
 
             itemDiv.querySelector('.btn-delete-item').addEventListener('click', () => {
                 itemDiv.remove();
@@ -237,38 +287,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Eğitim
+    // Eğitim (Tarih kilitli)
     setupDynamicSection(
         'btnAddEducation', 'educationContainer', 'renderEducationList',
         [
             { label: 'Okul / Üniversite', placeholder: 'Örn: Boğaziçi Üniversitesi' },
             { label: 'Bölüm', placeholder: 'Örn: Bilgisayar Mühendisliği' },
-            { label: 'Tarih', placeholder: 'Örn: 2018 - 2022' }
+            { label: 'Tarih / Yıl', placeholder: 'Örn: 2018 - 2022', isDate: true }
         ],
         (v) => `<div class="education-item"><h4>${v[0] || 'Okul Adı'}</h4><div class="date">${v[2] || 'Tarih'}</div><p>${v[1] || 'Bölüm'}</p></div>`
     );
 
-    // İş Deneyimi
+    // İş Deneyimi (Tarih kilitli)
     setupDynamicSection(
         'btnAddExperience', 'experienceContainer', 'renderExperienceList',
         [
             { label: 'Şirket', placeholder: 'Örn: Google' },
             { label: 'Pozisyon', placeholder: 'Örn: Frontend Developer' },
-            { label: 'Tarih', placeholder: 'Örn: 2022 - Günümüz' },
+            { label: 'Tarih / Yıl', placeholder: 'Örn: 2022 - 2024', isDate: true },
             { label: 'Açıklama', placeholder: 'Yaptığınız işleri kısaca anlatın...', type: 'textarea' }
         ],
         (v) => `<div class="experience-item"><h4>${v[1] || 'Pozisyon'} - ${v[0] || 'Şirket'}</h4><div class="date">${v[2] || 'Tarih'}</div><p>${v[3] || 'İş açıklaması.'}</p></div>`
     );
 
-    // Projeler
+    // Projeler (Tarih/Teknoloji)
     setupDynamicSection(
         'btnAddProject', 'projectsContainer', 'renderProjectList',
         [
             { label: 'Proje Adı', placeholder: 'Örn: E-Ticaret Uygulaması' },
-            { label: 'Teknolojiler', placeholder: 'Örn: React, Node.js' },
+            { label: 'Tarih / Yıl', placeholder: 'Örn: 2024', isDate: true },
             { label: 'Açıklama', placeholder: 'Proje detayları...', type: 'textarea' }
         ],
-        (v) => `<div class="project-item"><h4>${v[0] || 'Proje Adı'}</h4><div class="date">${v[1] || 'Teknolojiler'}</div><p>${v[2] || 'Proje açıklaması.'}</p></div>`
+        (v) => `<div class="project-item"><h4>${v[0] || 'Proje Adı'}</h4><div class="date">${v[1] || 'Tarih'}</div><p>${v[2] || 'Proje açıklaması.'}</p></div>`
     );
 
     // ==========================================
@@ -308,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // PDF İNDİRME (PİKSEL GARANTİLİ 1 SAYFA KİLİDİ)
+    // PDF İNDİRME (ZORLA TEK SAYFA KİLİDİ)
     // ==========================================
     const downloadBtn = document.getElementById('downloadPdf');
     if (downloadBtn) {
@@ -316,7 +366,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalTransform = cvCanvas.style.transform;
             cvCanvas.style.transform = 'none';
 
-            // JS ile Son Saniye Piksel Dayatması (Canvas'ı bozmayı engeller)
             cvCanvas.style.height = '1123px';
             const sidebar = cvCanvas.querySelector('.cv-sidebar');
             const mainContent = cvCanvas.querySelector('.cv-main-content');
@@ -346,7 +395,6 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             html2pdf().from(cvCanvas).set(opt).toPdf().get('pdf').then((pdf) => {
-                // Eğer html2pdf inat edip 2. sayfa açarsa, o sayfayı ZORLA siliyoruz!
                 const totalPages = pdf.internal.getNumberOfPages();
                 if (totalPages > 1) {
                     for (let i = totalPages; i > 1; i--) {
