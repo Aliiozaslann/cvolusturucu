@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector(`.step-tab[data-step="${step}"]`).classList.add('active');
         document.getElementById(`step-${step}`).classList.add('active');
 
-        // 1. adımda butonu pasif yapmak yerine metnini "Ana Sayfa" yapıyoruz
         if (step === 1) {
             btnPrev.innerHTML = '<i class="fa-solid fa-house"></i> Ana Sayfa';
         } else {
@@ -74,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (step === totalSteps) {
             btnNext.innerHTML = '<i class="fa-solid fa-check"></i> Tamamla';
-            btnNext.style.backgroundColor = 'var(--green)';
+            btnNext.style.backgroundColor = '#10b981';
         } else {
             btnNext.innerHTML = 'Devam <i class="fa-solid fa-chevron-right"></i>';
             btnNext.style.removeProperty('background-color');
@@ -100,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 1. adımda tıklandığında doğrudan ana sayfaya yönlendirir
     btnPrev.addEventListener('click', () => {
         if (currentStep > 1) {
             currentStep--;
@@ -221,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
             });
-            innerHTML += `</div><button class="btn btn-outline btn-delete-item" style="color: var(--red); border-color: var(--red); width: 100%; margin-top: 5px;"><i class="fa-solid fa-trash"></i> Sil</button>`;
+            innerHTML += `</div><button class="btn btn-outline btn-delete-item" style="color: #ef4444; border-color: #ef4444; width: 100%; margin-top: 5px;"><i class="fa-solid fa-trash"></i> Sil</button>`;
 
             itemDiv.innerHTML = innerHTML;
             container.appendChild(itemDiv);
@@ -307,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // PDF İndirme
+    // PDF İndirme (Kesin Tek Sayfa Çıktı Garantili)
     const downloadBtn = document.getElementById('downloadPdf');
     downloadBtn.addEventListener('click', () => {
         const originalTransform = cvCanvas.style.transform;
@@ -317,8 +315,18 @@ document.addEventListener('DOMContentLoaded', () => {
             margin:       0,
             filename:     'CVPRO_Ozgecmis.pdf',
             image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2, useCORS: true },
-            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            html2canvas:  {
+                scale: 2,
+                useCORS: true,
+                scrollY: 0,
+                scrollX: 0
+            },
+            jsPDF:        {
+                unit: 'mm',
+                format: 'a4',
+                orientation: 'portrait'
+            },
+            pagebreak:    { mode: 'avoid-all' }
         };
 
         html2pdf().set(opt).from(cvCanvas).save().then(() => {

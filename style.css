@@ -42,7 +42,6 @@ html, body {
     display: block;
 }
 
-/* Kenar boşlukları azaltıldı, genişlik 1600px yapıldı */
 .hero-section {
     padding: 60px 4% 40px;
     max-width: 1600px;
@@ -303,7 +302,7 @@ html, body {
 }
 
 /* ==========================================================================
-   ŞABLON LİSTESİ (TEMPLATES GRID - TAM GENİŞLİK)
+   ŞABLON LİSTESİ (TEMPLATES GRID)
    ========================================================================== */
 .templates-section {
     max-width: 1600px;
@@ -408,7 +407,6 @@ html, body {
     min-height: 42px;
 }
 
-/* Şablon Kart İçi Minyatür Düzenleri */
 .m-card-inner {
     display: flex;
     height: 100%;
@@ -757,84 +755,144 @@ html, body {
 .canvas-container {
     flex: 1;
     overflow: auto;
-    padding: 40px;
+    padding: 30px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
 
 /* ==========================================================================
-   A4 KAĞIT ÇIKTISI
+   A4 KAĞIT ÇIKTISI (TEK SAYFAYA KİLİTLENDİ)
    ========================================================================== */
 .a4-paper {
-    width: 210mm;
-    min-height: 297mm;
+    width: 210mm !important;
+    height: 296mm !important;
+    min-height: 296mm !important;
+    max-height: 296mm !important;
     background: #ffffff;
     color: #0f172a;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
-    display: flex;
+    display: flex !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    page-break-inside: avoid !important;
+    page-break-after: avoid !important;
 }
 
 .cv-sidebar {
     width: 32%;
+    height: 100% !important;
+    min-height: 100% !important;
     background: #f1f5f9;
-    padding: 24px 18px;
+    padding: 24px 16px;
     border-right: 1px solid #e2e8f0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 .avatar-placeholder {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     background: #e2e8f0;
-    margin: 0 auto 20px;
+    margin: 0 auto 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.2rem;
+    font-size: 2rem;
     color: #94a3b8;
     overflow: hidden;
 }
 
 .cv-section h3 {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 800;
     letter-spacing: 0.5px;
     color: #334155;
-    margin-top: 16px;
+    margin-top: 12px;
 }
 
 .cv-section hr {
     border: none;
     border-top: 1px solid #cbd5e1;
-    margin: 4px 0 10px;
+    margin: 4px 0 8px;
 }
 
 .contact-list p {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     color: #475569;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
     display: flex;
     align-items: center;
     gap: 6px;
+    word-break: break-all;
+}
+
+.cv-sidebar ul {
+    list-style-type: square;
+    padding-left: 16px;
+    margin: 0;
+}
+
+.cv-sidebar ul li {
+    font-size: 0.75rem;
+    color: #475569;
+    margin-bottom: 4px;
 }
 
 .cv-main-content {
     width: 68%;
-    padding: 28px 24px;
+    height: 100% !important;
+    min-height: 100% !important;
+    padding: 24px 20px;
+    box-sizing: border-box;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.cv-main-header h1 {
-    font-size: 1.8rem;
+.cv-main-header {
+    margin-bottom: 12px;
+}
+
+.cv-main-header #renderFullName {
+    font-size: 1.6rem;
     font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+.cv-main-header #renderTitle {
+    font-size: 0.95rem;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.cv-main-content .cv-section {
+    margin-bottom: 10px;
+}
+
+.cv-main-content .cv-section p {
+    font-size: 0.78rem;
+    color: #334155;
+    line-height: 1.45;
+}
+
+.education-item, .experience-item, .project-item {
+    margin-bottom: 8px;
+}
+
+.education-item h4, .experience-item h4, .project-item h4 {
+    font-size: 0.82rem;
+    font-weight: 700;
     color: #0f172a;
 }
 
-.cv-main-header h2 {
-    font-size: 1rem;
-    color: var(--primary);
+.education-item .date, .experience-item .date, .project-item .date {
+    font-size: 0.72rem;
+    color: #64748b;
     font-weight: 600;
-    margin-bottom: 12px;
 }
 
 /* ==========================================================================
