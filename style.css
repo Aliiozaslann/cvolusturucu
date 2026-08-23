@@ -787,9 +787,9 @@ html, body {
     height: 1123px !important;
     min-height: 1123px !important;
     max-height: 1123px !important;
-    background-color: #f1f5f9 !important;
-    padding: 24px 16px !important;
-    border-right: 1px solid #cbd5e1 !important;
+    background-color: var(--template-sidebar-bg, #f1f5f9) !important;
+    padding: 24px 12px !important;
+    border-right: 1px solid var(--template-border, #cbd5e1) !important;
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
@@ -829,28 +829,32 @@ html, body {
 }
 
 .cv-section h3 {
-    font-size: 0.86rem;
+    font-size: 0.9rem;
     line-height: 1.25;
     font-weight: 800;
     letter-spacing: 0.5px;
-    color: #334155;
+    color: var(--template-accent, #4f46e5);
     margin-top: 12px;
 }
 
 .cv-section hr {
     border: none;
-    border-top: 1px solid #cbd5e1;
+    border-top: 1px solid var(--template-border, #cbd5e1);
     margin: 4px 0 8px;
 }
 
+.contact-list {
+    margin-left: -2px;
+}
+
 .contact-list p {
-    font-size: 0.78rem;
-    line-height: 1.35;
-    color: #475569;
-    margin-bottom: 6px;
+    font-size: 0.84rem;
+    line-height: 1.42;
+    color: var(--template-sidebar-text, #334155);
+    margin-bottom: 7px;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     word-break: break-all;
 }
 
@@ -861,17 +865,17 @@ html, body {
 }
 
 .cv-sidebar ul li {
-    font-size: 0.78rem;
-    line-height: 1.35;
-    color: #475569;
-    margin-bottom: 6px;
+    font-size: 0.84rem;
+    line-height: 1.42;
+    color: var(--template-sidebar-text, #334155);
+    margin-bottom: 7px;
 }
 
 .cv-main-header {
     flex: 0 0 auto;
     margin-bottom: 10px;
     padding-bottom: 8px;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--template-border, #e2e8f0);
 }
 
 .cv-main-header #renderFullName {
@@ -883,7 +887,7 @@ html, body {
 
 .cv-main-header #renderTitle {
     font-size: 1.05rem !important;
-    color: var(--primary);
+    color: var(--template-accent, var(--primary)) !important;
     font-weight: 600;
     line-height: 1.35;
 }
@@ -927,11 +931,11 @@ html, body {
     flex: 1 1 0;
     min-height: 0;
     margin: 0 !important;
-    padding: 14px 0;
+    padding: 12px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-top: 1px solid rgba(148, 163, 184, 0.58);
+    border-top: 1px solid var(--template-border, rgba(148, 163, 184, 0.58));
 }
 
 .cv-sidebar > .cv-section h3 {
@@ -966,7 +970,7 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid var(--template-border, #e2e8f0);
 }
 
 .cv-main-content > .cv-section h3 {
@@ -977,6 +981,75 @@ html, body {
 .cv-main-content,
 .cv-main-content * {
     overflow-wrap: anywhere;
+}
+
+/* ==========================================================================
+   SEKİZ AKTİF CV ŞABLONU
+   ========================================================================== */
+
+/* Her seçim gerçek A4 önizlemesini de temalandırır; kart önizlemesiyle sınırlı kalmaz. */
+.a4-paper {
+    --template-accent: #4f46e5;
+    --template-sidebar-bg: #f1f5f9;
+    --template-sidebar-text: #334155;
+    --template-border: #cbd5e1;
+}
+
+.a4-paper.minimal-slate {
+    --template-accent: #4f46e5;
+    --template-sidebar-bg: #f1f5f9;
+    --template-border: #cbd5e1;
+}
+
+.a4-paper.corporate-navy {
+    --template-accent: #1d4ed8;
+    --template-sidebar-bg: #eff6ff;
+    --template-border: #bfdbfe;
+}
+
+.a4-paper.modern-tech {
+    --template-accent: #0f766e;
+    --template-sidebar-bg: #ecfdf5;
+    --template-border: #99f6e4;
+}
+
+.a4-paper.creative-magenta {
+    --template-accent: #be185d;
+    --template-sidebar-bg: #fff1f2;
+    --template-border: #fbcfe8;
+}
+
+.a4-paper.elegant-emerald {
+    --template-accent: #047857;
+    --template-sidebar-bg: #ecfdf5;
+    --template-border: #a7f3d0;
+}
+
+.a4-paper.classic-burgundy {
+    --template-accent: #9f1239;
+    --template-sidebar-bg: #fff1f2;
+    --template-border: #fecdd3;
+}
+
+.a4-paper.clean-aurora {
+    --template-accent: #7c3aed;
+    --template-sidebar-bg: #f5f3ff;
+    --template-border: #ddd6fe;
+}
+
+.a4-paper.professional-copper {
+    --template-accent: #b45309;
+    --template-sidebar-bg: #fffbeb;
+    --template-border: #fde68a;
+}
+
+/* Şablon rengi ana bölüm ayraçlerinde de tutarlı kalsın. */
+.a4-paper .cv-main-content > .cv-section {
+    border-top-color: var(--template-border, #e2e8f0);
+}
+
+.a4-paper .cv-main-header {
+    border-bottom-color: var(--template-border, #e2e8f0);
 }
 
 /* Responsive */

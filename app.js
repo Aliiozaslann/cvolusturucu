@@ -274,8 +274,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // 5. ŞABLON DEĞİŞTİRME & ZOOM & PDF İNDİRME
     // ==========================================
+    const supportedTemplates = new Set([
+        'minimal-slate',
+        'corporate-navy',
+        'modern-tech',
+        'creative-magenta',
+        'elegant-emerald',
+        'classic-burgundy',
+        'clean-aurora',
+        'professional-copper'
+    ]);
+
     function updateTemplate(templateName) {
-        cvCanvas.className = `a4-paper ${templateName}`;
+        const selectedTemplate = supportedTemplates.has(templateName)
+            ? templateName
+            : 'minimal-slate';
+
+        cvCanvas.className = `a4-paper ${selectedTemplate}`;
+        if (templateSelect) templateSelect.value = selectedTemplate;
     }
 
     if (templateSelect) {
