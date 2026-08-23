@@ -1,34 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
-    // 1. SAYFA GEÇİŞLERİ (LANDING -> WORKSPACE)
+    // 1. SAYFA GEÇİŞLERİ (LANDING <-> WORKSPACE)
     // ==========================================
     const landingPage = document.getElementById('landingPage');
     const editorWorkspace = document.getElementById('editorWorkspace');
     const btnStartNow = document.getElementById('btnStartNow');
     const templateSelect = document.getElementById('templateSelect');
     const cvCanvas = document.getElementById('cvCanvas');
+    const btnBackToHome = document.getElementById('btnBackToHome');
+
+    function showLandingPage() {
+        editorWorkspace.classList.remove('active');
+        landingPage.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showEditorWorkspace() {
+        landingPage.classList.remove('active');
+        editorWorkspace.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
     // Başla Butonu
     if (btnStartNow) {
-        btnStartNow.addEventListener('click', () => {
-            landingPage.classList.remove('active');
-            editorWorkspace.classList.add('active');
-        });
+        btnStartNow.addEventListener('click', showEditorWorkspace);
     }
 
-    // Şablon Kartlarından Seçim Yaparak Başlama (8 Şablonun Tamamı İçin)
+    // Üstteki "Ana Sayfaya Dön" Butonu
+    if (btnBackToHome) {
+        btnBackToHome.addEventListener('click', showLandingPage);
+    }
+
+    // Şablon Kartlarından Seçim Yaparak Başlama
     document.querySelectorAll('.btn-select').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const card = e.target.closest('.template-card');
             const templateClass = card.getAttribute('data-template');
-            
+
             // Dropdown'u güncelle
             templateSelect.value = templateClass;
             updateTemplate(templateClass);
 
             // Çalışma alanına geç
-            landingPage.classList.remove('active');
-            editorWorkspace.classList.add('active');
+            showEditorWorkspace();
         });
     });
 
@@ -51,8 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector(`.step-tab[data-step="${step}"]`).classList.add('active');
         document.getElementById(`step-${step}`).classList.add('active');
 
-        btnPrev.disabled = step === 1;
-        
+        // 1. adımda butonu pasif yapmak yerine metnini "Ana Sayfa" yapıyoruz
+        if (step === 1) {
+            btnPrev.innerHTML = '<i class="fa-solid fa-house"></i> Ana Sayfa';
+        } else {
+            btnPrev.innerHTML = '<i class="fa-solid fa-chevron-left"></i> Geri';
+        }
+
         if (step === totalSteps) {
             btnNext.innerHTML = '<i class="fa-solid fa-check"></i> Tamamla';
             btnNext.style.backgroundColor = 'var(--green)';
@@ -81,11 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 1. adımda tıklandığında doğrudan ana sayfaya yönlendirir
     btnPrev.addEventListener('click', () => {
         if (currentStep > 1) {
             currentStep--;
             updateSteps(currentStep);
             document.querySelector('.editor-panel').scrollTo(0, 0);
+        } else if (currentStep === 1) {
+            showLandingPage();
         }
     });
 
@@ -145,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderCommaList(inputId, renderId) {
         const input = document.getElementById(inputId);
         const ul = document.getElementById(renderId);
-        
+
         input.addEventListener('input', () => {
             ul.innerHTML = '';
             const items = input.value.split(',').map(item => item.trim()).filter(item => item !== '');
@@ -200,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
             });
             innerHTML += `</div><button class="btn btn-outline btn-delete-item" style="color: var(--red); border-color: var(--red); width: 100%; margin-top: 5px;"><i class="fa-solid fa-trash"></i> Sil</button>`;
-            
+
             itemDiv.innerHTML = innerHTML;
             container.appendChild(itemDiv);
 
@@ -212,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
             itemDiv.querySelectorAll('.dyn-input').forEach(input => {
                 input.addEventListener('input', updateRender);
             });
-            
+
             updateRender();
         });
     }

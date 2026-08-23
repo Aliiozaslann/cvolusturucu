@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- GOOGLE SEO TITLE (Tam Eşleşme Anahtar Kelimeler) -->
+    <!-- GOOGLE SEO TITLE -->
     <title>CV Yap - Ücretsiz ve ATS Uyumlu Profesyonel CV Hazırlama Aracı</title>
 
     <!-- Favicon & App Icons -->
@@ -34,7 +34,7 @@
     <meta name="geo.region" content="TR">
     <meta name="geo.placename" content="Turkey">
 
-    <!-- OPEN GRAPH (Facebook, WhatsApp, LinkedIn Paylaşım Önizlemesi) -->
+    <!-- OPEN GRAPH -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="CVYAP">
     <meta property="og:title" content="CV Yap - Ücretsiz ve ATS Uyumlu Profesyonel CV Hazırlama Aracı">
@@ -52,7 +52,7 @@
     <meta name="twitter:description" content="Kayıt olmadan, tamamen ücretsiz ATS uyumlu profesyonel CV hazırlayın ve PDF indirin.">
     <meta name="twitter:image" content="https://cvyap.tr/logo.png?v=2028">
 
-    <!-- GOOGLE GELİŞMİŞ YAPISAL VERİ (JSON-LD - Schema.org) -->
+    <!-- JSON-LD -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -226,7 +226,7 @@
         </div>
     </main>
 
-    <!-- ŞABLON SEÇİM ALANI (SEO Başlıkları Güçlendirildi) -->
+    <!-- ŞABLON SEÇİM ALANI -->
     <section class="templates-section" id="templatesSection" aria-label="Ücretsiz Profesyonel CV Şablonları">
         <div class="landing-header">
             <span class="badge">✓ ATS %100 UYUMLU FORMATLAR</span>
@@ -521,7 +521,7 @@
         </div>
     </section>
 
-    <!-- GOOGLE İÇİN SEO REHBER ALANI (Alt Bilgi Öncesi İçerik Zenginleştirme) -->
+    <!-- GOOGLE İÇİN SEO REHBER ALANI -->
     <section style="max-width: 1600px; width: 96%; margin: 60px auto 40px; padding: 0 2%; color: #94a3b8; font-size: 0.95rem; line-height: 1.7;" aria-label="CV Hazırlama Rehberi">
         <div style="background: rgba(11, 17, 32, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 18px; padding: 36px 30px;">
             <h2 style="font-size: 1.6rem; color: #ffffff; margin-bottom: 14px; font-weight: 800;">Neden CV Yap ile Özgeçmiş Hazırlamalısınız?</h2>
@@ -586,6 +586,15 @@
 <main class="workspace" id="editorWorkspace">
     <aside class="editor-panel">
         <div class="panel-header">
+            <!-- ANA SAYFAYA DÖNÜŞ BUTONU -->
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+                <button type="button" id="btnBackToHome" style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); color: #cbd5e1; padding: 6px 14px; border-radius: 8px; font-size: 0.84rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: 0.2s;">
+                    <i class="fa-solid fa-arrow-left"></i> Ana Sayfaya Dön
+                </button>
+                <span style="font-size: 1.15rem; font-weight: 900; letter-spacing: -0.5px;">
+                    <span style="color: #ffffff;">CV</span><span style="color: #8c52ff;">YAP</span>
+                </span>
+            </div>
             <h2>CV Hazırlama</h2>
             <p>8 Adımlı Canlı Düzenleyici</p>
             <div class="warning-box">
@@ -718,7 +727,7 @@
             </div>
 
             <div class="form-navigation">
-                <button class="btn btn-secondary" id="btnPrev" disabled>
+                <button class="btn btn-secondary" id="btnPrev">
                     <i class="fa-solid fa-chevron-left" aria-hidden="true"></i> Geri
                 </button>
                 <button class="btn btn-primary" id="btnNext">
