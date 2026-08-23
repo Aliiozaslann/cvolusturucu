@@ -29,7 +29,7 @@ html, body {
 }
 
 /* ==========================================================================
-   AÇILIŞ SAYFASI (LANDING PAGE) & GENİŞ HERO ALANI
+   AÇILIŞ SAYFASI (LANDING PAGE)
    ========================================================================== */
 .landing-page {
     display: none;
@@ -173,9 +173,7 @@ html, body {
     gap: 6px;
 }
 
-/* ==========================================================================
-   HERO MOCKUP PENCERESİ
-   ========================================================================== */
+/* Mockup */
 .mockup-window {
     background: #ffffff;
     border-radius: 16px;
@@ -301,9 +299,7 @@ html, body {
     font-weight: 700;
 }
 
-/* ==========================================================================
-   ŞABLON LİSTESİ (TEMPLATES GRID)
-   ========================================================================== */
+/* Şablon Grid */
 .templates-section {
     max-width: 1600px;
     width: 96%;
@@ -762,17 +758,21 @@ html, body {
 }
 
 /* ==========================================================================
-   A4 KAĞIT ÇIKTISI (TEK SAYFAYA KİLİTLENDİ)
+   A4 KAĞIT ÇIKTISI (TEK SAYFA & TAŞMASIZ KESİN AYAR)
    ========================================================================== */
-.a4-paper {
-    width: 210mm !important;
-    height: 296mm !important;
-    min-height: 296mm !important;
-    max-height: 296mm !important;
-    background: #ffffff;
+.a4-paper,
+#cvCanvas {
+    width: 794px !important;
+    min-width: 794px !important;
+    max-width: 794px !important;
+    height: 1120px !important;
+    min-height: 1120px !important;
+    max-height: 1120px !important;
+    background: #ffffff !important;
     color: #0f172a;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
     display: flex !important;
+    flex-direction: row !important;
     box-sizing: border-box !important;
     overflow: hidden !important;
     page-break-inside: avoid !important;
@@ -780,15 +780,18 @@ html, body {
 }
 
 .cv-sidebar {
-    width: 32%;
-    height: 100% !important;
-    min-height: 100% !important;
-    background: #f1f5f9;
-    padding: 24px 16px;
-    border-right: 1px solid #e2e8f0;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+    width: 260px !important;
+    min-width: 260px !important;
+    max-width: 260px !important;
+    height: 1120px !important;
+    min-height: 1120px !important;
+    background: #f1f5f9 !important;
+    padding: 24px 16px !important;
+    border-right: 1px solid #cbd5e1 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
 }
 
 .avatar-placeholder {
@@ -842,14 +845,15 @@ html, body {
 }
 
 .cv-main-content {
-    width: 68%;
-    height: 100% !important;
-    min-height: 100% !important;
-    padding: 24px 20px;
-    box-sizing: border-box;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+    flex: 1 !important;
+    height: 1120px !important;
+    min-height: 1120px !important;
+    background: #ffffff !important;
+    padding: 24px 20px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
 }
 
 .cv-main-header {
@@ -870,7 +874,7 @@ html, body {
 }
 
 .cv-main-content .cv-section {
-    margin-bottom: 10px;
+    margin-bottom: 10px !important;
 }
 
 .cv-main-content .cv-section p {
@@ -895,9 +899,7 @@ html, body {
     font-weight: 600;
 }
 
-/* ==========================================================================
-   RESPONSIVE (DUYARLI) AYARLAR
-   ========================================================================== */
+/* Responsive */
 @media (max-width: 1200px) {
     .template-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -920,55 +922,4 @@ html, body {
     .hero-left h1 {
         font-size: 2.3rem;
     }
-}
-/* ==========================================================================
-   CV CANVAS & TAM BOY YÜKSEKLİK VE DENGELİ DAĞILIM DÜZELTMESİ
-   ========================================================================== */
-#cvCanvas {
-    width: 210mm !important;
-    min-height: 296mm !important;
-    height: 296mm !important;
-    max-height: 296mm !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: stretch !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-    background-color: #ffffff !important;
-}
-
-/* Sol Gri Paneli Tabanın Sonuna Kadar Kilitler */
-#cvCanvas .cv-sidebar {
-    width: 32% !important;
-    height: 100% !important;
-    min-height: 100% !important;
-    background-color: #f1f5f9 !important;
-    border-right: 1px solid #cbd5e1 !important;
-    padding: 24px 16px !important;
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-}
-
-/* Sağ Beyaz Alanı Eşitler */
-#cvCanvas .cv-main-content {
-    width: 68% !important;
-    height: 100% !important;
-    min-height: 100% !important;
-    background-color: #ffffff !important;
-    padding: 24px 20px !important;
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-}
-
-/* Sayfa İçi Yazıların Rahat Yayılması */
-#cvCanvas .cv-section {
-    margin-bottom: 12px !important;
-}
-
-#cvCanvas .cv-section:last-child {
-    margin-bottom: 0 !important;
 }

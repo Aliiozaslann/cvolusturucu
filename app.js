@@ -21,27 +21,22 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Başla Butonu
     if (btnStartNow) {
         btnStartNow.addEventListener('click', showEditorWorkspace);
     }
 
-    // Üstteki "Ana Sayfaya Dön" Butonu
     if (btnBackToHome) {
         btnBackToHome.addEventListener('click', showLandingPage);
     }
 
-    // Şablon Kartlarından Seçim Yaparak Başlama
+    // Şablon Kartlarından Seçim
     document.querySelectorAll('.btn-select').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const card = e.target.closest('.template-card');
             const templateClass = card.getAttribute('data-template');
 
-            // Dropdown'u güncelle
             templateSelect.value = templateClass;
             updateTemplate(templateClass);
-
-            // Çalışma alanına geç
             showEditorWorkspace();
         });
     });
@@ -143,28 +138,31 @@ document.addEventListener('DOMContentLoaded', () => {
     inputName.addEventListener('input', updateName);
     inputSurname.addEventListener('input', updateName);
 
-    // Profil Fotoğrafı Yükleme
+    // Profil Fotoğrafı
     const inputPhoto = document.getElementById('inputPhoto');
     const renderPhoto = document.getElementById('renderPhoto');
     const defaultAvatarIcon = document.getElementById('defaultAvatarIcon');
 
-    inputPhoto.addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(event) {
-                renderPhoto.src = event.target.result;
-                renderPhoto.style.display = 'block';
-                defaultAvatarIcon.style.display = 'none';
-            };
-            reader.readAsDataURL(file);
-        }
-    });
+    if (inputPhoto) {
+        inputPhoto.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    renderPhoto.src = event.target.result;
+                    renderPhoto.style.display = 'block';
+                    defaultAvatarIcon.style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
 
     // Virgülle Ayrılmış Listeler
     function renderCommaList(inputId, renderId) {
         const input = document.getElementById(inputId);
         const ul = document.getElementById(renderId);
+        if (!input || !ul) return;
 
         input.addEventListener('input', () => {
             ul.innerHTML = '';
@@ -188,6 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const addBtn = document.getElementById(addBtnId);
         const container = document.getElementById(containerId);
         const renderList = document.getElementById(renderListId);
+
+        if (!addBtn || !container || !renderList) return;
 
         function updateRender() {
             renderList.innerHTML = '';
@@ -278,9 +278,11 @@ document.addEventListener('DOMContentLoaded', () => {
         cvCanvas.className = `a4-paper ${templateName}`;
     }
 
-    templateSelect.addEventListener('change', (e) => {
-        updateTemplate(e.target.value);
-    });
+    if (templateSelect) {
+        templateSelect.addEventListener('change', (e) => {
+            updateTemplate(e.target.value);
+        });
+    }
 
     // Zoom Kontrolleri
     const zoomBtns = document.querySelectorAll('.btn-zoom');
@@ -298,39 +300,48 @@ document.addEventListener('DOMContentLoaded', () => {
                 cvCanvas.style.transformOrigin = 'top center';
             } else if (text === 'Sığdır') {
                 const containerWidth = document.querySelector('.canvas-container').clientWidth - 60;
-                const scale = Math.min(containerWidth / 793, 1);
+                const scale = Math.min(containerWidth / 794, 1);
                 cvCanvas.style.transform = `scale(${scale})`;
                 cvCanvas.style.transformOrigin = 'top center';
             }
         });
     });
 
-    // PDF İndirme (Kesin Tek Sayfa Çıktı Garantili)
+    // ==========================================
+    // PDF İNDİRME (KESİN TEK SAYFA ÇIKTI MOTORU)
+    // ==========================================
     const downloadBtn = document.getElementById('downloadPdf');
-    downloadBtn.addEventListener('click', () => {
-        const originalTransform = cvCanvas.style.transform;
-        cvCanvas.style.transform = 'none';
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+            const originalTransform = cvCanvas.style.transform;
 
-        const opt = {
-            margin:       0,
-            filename:     'CVPRO_Ozgecmis.pdf',
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  {
-                scale: 2,
-                useCORS: true,
-                scrollY: 0,
-                scrollX: 0
-            },
-            jsPDF:        {
-                unit: 'mm',
-                format: 'a4',
-                orientation: 'portrait'
-            },
-            pagebreak:    { mode: 'avoid-all' }
-        };
+            // Önizleme ölçeğini sıfırla
+            cvCanvas.style.transform = 'none';
 
-        html2pdf().set(opt).from(cvCanvas).save().then(() => {
-            cvCanvas.style.transform = originalTransform;
+            const opt = {
+                margin:       0,
+                filename:     'CVPRO_Ozgecmis.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  {
+                    scale: 2,
+                    useCORS: true,
+                    scrollY: 0,
+                    scrollX: 0,
+                    width: 794,
+                    height: 1120
+                },
+                jsPDF:        {
+                    unit: 'px',
+                    format: [794, 1120],
+                    orientation: 'portrait',
+                    hotfixes: ['px_scaling']
+                },
+                pagebreak:    { mode: 'avoid-all' }
+            };
+
+            html2pdf().set(opt).from(cvCanvas).save().then(() => {
+                cvCanvas.style.transform = originalTransform;
+            });
         });
-    });
+    }
 });
