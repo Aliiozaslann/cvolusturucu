@@ -1,5 +1,5 @@
 --- /home/ubuntu/cvhazirla-baseline/about.html	2026-08-24 11:14:46.601587477 +0000
-+++ about.html	2026-08-24 15:04:29.431602148 +0000
++++ about.html	2026-08-24 15:19:13.357397755 +0000
 @@ -15,10 +15,13 @@
      <title>Hakkımızda | CVYAP</title>
  
@@ -18,7 +18,7 @@
  
      <!-- SEO Meta Etiketleri -->
      <meta name="description" content="CVYAP hakkında bilgi edinin. Misyonumuz, ATS uyumlu CV hazırlama altyapımız ve yerel veri gizliliği standartlarımız.">
-@@ -26,30 +29,24 @@
+@@ -26,30 +29,23 @@
      <link rel="canonical" href="https://cvyap.tr/about.html">
  
      <!-- CSS & Font Awesome -->
@@ -54,7 +54,6 @@
 -
 +        <nav class="site-nav" aria-label="CVYAP ana menü">
 +            <a href="sablonlar.html" class="site-nav-link">CV Şablonları</a>
-+            <a href="index.html#editorWorkspace" class="site-nav-link site-nav-link-primary">CV Oluştur</a>
 +            <a href="kariyer-rehberi.html" class="site-nav-link">Kariyer Rehberi</a>
 +            <a href="about.html" class="site-nav-link" aria-current="page">Hakkında</a>
 +            <a href="sss.html" class="site-nav-link">SSS</a>

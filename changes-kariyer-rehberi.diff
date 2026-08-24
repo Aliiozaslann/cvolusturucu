@@ -1,6 +1,6 @@
 --- /dev/null	2026-08-13 05:50:18.342405456 +0000
-+++ kariyer-rehberi.html	2026-08-24 15:03:35.946517738 +0000
-@@ -0,0 +1,85 @@
++++ kariyer-rehberi.html	2026-08-24 15:19:31.177758906 +0000
+@@ -0,0 +1,84 @@
 +<!DOCTYPE html>
 +<html lang="tr" style="scroll-behavior: smooth;">
 +<head>
@@ -55,7 +55,6 @@
 +            </a>
 +            <nav class="site-nav" aria-label="CVYAP ana menü">
 +                <a href="sablonlar.html" class="site-nav-link">CV Şablonları</a>
-+                <a href="index.html#editorWorkspace" class="site-nav-link site-nav-link-primary">CV Oluştur</a>
 +                <a href="kariyer-rehberi.html" class="site-nav-link" aria-current="page">Kariyer Rehberi</a>
 +                <a href="about.html" class="site-nav-link">Hakkında</a>
 +                <a href="sss.html" class="site-nav-link">SSS</a>

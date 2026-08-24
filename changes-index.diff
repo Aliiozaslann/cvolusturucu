@@ -1,5 +1,5 @@
 --- /home/ubuntu/cvhazirla-baseline/index.html	2026-08-24 11:14:46.601587477 +0000
-+++ index.html	2026-08-24 15:04:49.180002853 +0000
++++ index.html	2026-08-24 15:19:05.729243139 +0000
 @@ -14,13 +14,16 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
@@ -92,7 +92,7 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
      <script src="html2pdf.bundle.min.js" defer></script>
  </head>
-@@ -135,26 +156,20 @@
+@@ -135,26 +156,19 @@
  <!-- SAYFA 1: AÇILIŞ VE ŞABLON EKRANI (LANDING PAGE) -->
  <section class="landing-page active" id="landingPage">
  
@@ -121,7 +121,6 @@
 -                </button>
 +            <nav class="site-nav" aria-label="CVYAP ana menü">
 +                <a href="sablonlar.html" class="site-nav-link">CV Şablonları</a>
-+                <a href="#editorWorkspace" id="quickStartBtn" class="site-nav-link site-nav-link-primary">CV Oluştur</a>
 +                <a href="kariyer-rehberi.html" class="site-nav-link">Kariyer Rehberi</a>
 +                <a href="about.html" class="site-nav-link">Hakkında</a>
 +                <a href="sss.html" class="site-nav-link">SSS</a>
@@ -130,7 +129,7 @@
          </div>
      </header>
  
-@@ -844,6 +859,6 @@
+@@ -844,6 +858,6 @@
      </section>
  </main>
  

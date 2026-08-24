@@ -29,3 +29,9 @@ Temiz sayfa yüklemesinden sonra `typeof window.html2pdf` sonucu `function` oldu
 Desktop render'da yalnızca tek üst header göründü: solda tek CVYAP metin logosu, sağda beş site bağlantısı. Eski ikinci yatay bar yok.
 
 390px mobil render'da logo üstte tek kez göründü; beş bağlantı aynı header içindeki yatay kaydırılabilir nav içinde kaldı. Menü ikinci bir bağımsız bar oluşturmadı ve hero içeriğiyle çakışmadı.
+
+## Üst CV Oluştur butonu kaldırıldı
+
+Final desktop render'da logo ile aynı hizada bulunan üst `CV Oluştur` butonu görünmüyor. Tek header içinde dört bağlantı kaldı: `CV Şablonları`, `Kariyer Rehberi`, `Hakkında` ve `SSS`. Hero alanındaki büyük `Hemen CV Oluştur` butonu korunuyor.
+
+Final mobil render'da da aynı dört bağlantı tek üst menü satırında görünüyor; ikinci menü oluşmuyor ve hero CTA çalışmaya devam ediyor.

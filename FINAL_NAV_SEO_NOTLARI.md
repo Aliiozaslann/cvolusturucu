@@ -1,34 +1,31 @@
 # CVYAP Tek Menü ve Google Görünürlüğü Handoff
 
-## Yapılan düzeltme
+## Son header düzeni
 
-Ekrandaki iki ayrı yatay menü kaldırıldı. `index.html`, `about.html`, `sss.html`, `sablonlar.html` ve `kariyer-rehberi.html` dosyalarının her birinde yalnızca bir adet `.site-header` bulunuyor. Header içinde tek bir CVYAP metin logosu var; daha önce metnin yanında görünen tekrar eden kare logo görseli header'dan çıkarıldı.
+Logo ile aynı hizada duran üst `CV Oluştur` butonu kaldırıldı. Sayfanın üstünde artık yalnızca tek bir header ve tek bir navigasyon satırı bulunuyor. Header içinde tekrar eden kare logo görseli de kaldırıldı; tek görünen marka alanı `CVYAP` metin logosudur. Favicon, sosyal paylaşım görseli ve JSON-LD içindeki logo dosyası korunmuştur; bunlar sayfa header'ının yanında ikinci bir logo olarak gösterilmez.
 
-Favicon, `logo.png`, web manifest ve yapılandırılmış veri içindeki logo korunuyor. Bunlar tarayıcı sekmesi, sosyal paylaşım ve Google marka sinyalleri içindir; web sayfasındaki header'ın yanında ikinci bir logo olarak gösterilmez.
+Hero bölümündeki büyük `Hemen CV Oluştur` butonu korunuyor. Bu nedenle ziyaretçi CV oluşturma işlevine ulaşmaya devam ediyor.
 
-## Beş site bölümü
-
-Tek üst menü şu beş crawlable HTML bağlantısını içerir:
+## Dört görünür üst sekme
 
 | Menü | Hedef |
 |---|---|
 | CV Şablonları | `sablonlar.html` |
-| CV Oluştur | `index.html#editorWorkspace` |
 | Kariyer Rehberi | `kariyer-rehberi.html` |
 | Hakkında | `about.html` |
 | SSS | `sss.html` |
 
-`CV Oluştur` bağlantısı taranabilir bir `<a href>` olarak bırakıldı ve JavaScript ile mevcut 8 adımlı editörü açıyor. `?template=...` bağlantıları da korunarak şablon seçimleri doğrudan editöre taşınıyor.
+Bu dört bağlantı standart HTML `<a href="...">` olarak bırakıldı. Böylece kullanıcı menüsü sade kaldı ve Google'ın keşfedebileceği gerçek iç bağlantılar korunmuş oldu. İletişim bağlantısı footer içinde tutuluyor.
 
 ## Google görünürlüğü
 
-Ana sayfada WebSite adı `CVYAP` olarak tekilleştirildi; `CV Yap`, `CV Hazırla` ve `CV Oluşturucu` alternatif adlar olarak bırakıldı. Yeni sayfaların benzersiz title, description, canonical, JSON-LD ve sitemap kayıtları bulunuyor. Google'ın site adını ve sitelinkleri otomatik seçtiği unutulmamalıdır; belirli 4–5 bağlantı zorla gösterilemez. Ancak açıklayıcı dahili bağlantılar, benzersiz sayfalar ve sitemap ile keşif sinyalleri güçlendirilmiştir.
+Ana sayfada WebSite adı `CVYAP` olarak tekilleştirildi; `CV Yap`, `CV Hazırla` ve `CV Oluşturucu` alternatif adlar olarak bırakıldı. `sablonlar.html` ve `kariyer-rehberi.html` benzersiz title, description, canonical ve JSON-LD bilgileriyle eklendi. Bu sayfalar sitemap içinde de yer alıyor.
 
-Yayın sonrası `https://cvyap.tr/` ve yeni sayfalar için Google Search Console URL Denetleme aracından yeniden dizine ekleme isteği gönderilmelidir.
+Google arama sonuçlarında hangi site adını ve hangi sitelinkleri göstereceğini otomatik seçer; belirli 4–5 bağlantı kodla zorunlu olarak gösterilemez. Site yapısı, açıklayıcı iç bağlantılar, benzersiz sayfalar, canonical ve sitemap sinyalleri Google keşfi için güçlendirilmiştir.
 
 ## Doğrulama
 
-Teknik doğrulama başarılıdır: her sayfada tek header, text-only logo, beş HTML menü bağlantısı, CVYAP WebSite + Organization JSON-LD, yeni sayfaların sitemap kayıtları ve JavaScript sözdizimi kontrol edildi. 1440px masaüstü ve 390px mobil render'larında yalnızca tek menü görünür; mobilde beş bağlantı aynı header içindeki yatay kaydırılabilir nav içinde kalır.
+Teknik doğrulama başarılıdır: her indexable sayfada tek header, text-only logo ve dört üst menü bağlantısı bulunuyor. 1440px masaüstü ve 390px mobil render'larında yalnızca tek menü görünüyor. Hero içindeki büyük CV oluşturma butonu görünür ve kullanılabilir durumda.
 
 ## References
 

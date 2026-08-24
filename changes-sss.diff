@@ -1,5 +1,5 @@
 --- /home/ubuntu/cvhazirla-baseline/sss.html	2026-08-24 11:14:46.601587477 +0000
-+++ sss.html	2026-08-24 15:04:35.583726878 +0000
++++ sss.html	2026-08-24 15:19:19.881529973 +0000
 @@ -15,10 +15,13 @@
      <title>Sıkça Sorulan Sorular | CVYAP</title>
  
@@ -18,7 +18,7 @@
  
      <!-- SEO Meta Etiketleri -->
      <meta name="description" content="CV hazırlama, ATS uyumluluğu, gizlilik ve iş başvuruları hakkında en çok merak edilen 15 soru ve yanıtı.">
-@@ -26,31 +29,24 @@
+@@ -26,31 +29,23 @@
      <link rel="canonical" href="https://cvyap.tr/sss.html">
  
      <!-- CSS & Font Awesome -->
@@ -55,7 +55,6 @@
 -
 +        <nav class="site-nav" aria-label="CVYAP ana menü">
 +            <a href="sablonlar.html" class="site-nav-link">CV Şablonları</a>
-+            <a href="index.html#editorWorkspace" class="site-nav-link site-nav-link-primary">CV Oluştur</a>
 +            <a href="kariyer-rehberi.html" class="site-nav-link">Kariyer Rehberi</a>
 +            <a href="about.html" class="site-nav-link">Hakkında</a>
 +            <a href="sss.html" class="site-nav-link" aria-current="page">SSS</a>
