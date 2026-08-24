@@ -1,5 +1,5 @@
 --- /home/ubuntu/cvhazirla-baseline/sss.html	2026-08-24 11:14:46.601587477 +0000
-+++ sss.html	2026-08-24 11:20:59.317199895 +0000
++++ sss.html	2026-08-24 15:04:35.583726878 +0000
 @@ -15,10 +15,13 @@
      <title>Sıkça Sorulan Sorular | CVYAP</title>
  
@@ -8,52 +8,58 @@
 -    <link rel="icon" type="image/png" sizes="16x16" href="logo.png?v=2028">
 -    <link rel="shortcut icon" href="logo.png?v=2028">
 -    <link rel="apple-touch-icon" sizes="180x180" href="logo.png?v=2028">
-+    <link rel="icon" type="image/png" sizes="512x512" href="logo.png?v=2063">
-+    <link rel="icon" type="image/png" sizes="32x32" href="logo.png?v=2063">
-+    <link rel="icon" type="image/png" sizes="16x16" href="logo.png?v=2063">
-+    <link rel="shortcut icon" href="favicon.ico?v=2063">
-+    <link rel="apple-touch-icon" sizes="180x180" href="logo.png?v=2063">
++    <link rel="icon" type="image/png" sizes="512x512" href="logo.png?v=2065">
++    <link rel="icon" type="image/png" sizes="32x32" href="logo.png?v=2065">
++    <link rel="icon" type="image/png" sizes="16x16" href="logo.png?v=2065">
++    <link rel="shortcut icon" href="favicon.ico?v=2065">
++    <link rel="apple-touch-icon" sizes="180x180" href="logo.png?v=2065">
 +    <link rel="manifest" href="site.webmanifest">
 +    <meta name="theme-color" content="#0b1120">
  
      <!-- SEO Meta Etiketleri -->
      <meta name="description" content="CV hazırlama, ATS uyumluluğu, gizlilik ve iş başvuruları hakkında en çok merak edilen 15 soru ve yanıtı.">
-@@ -26,7 +29,7 @@
+@@ -26,31 +29,24 @@
      <link rel="canonical" href="https://cvyap.tr/sss.html">
  
      <!-- CSS & Font Awesome -->
 -    <link rel="stylesheet" href="style.css?v=2028">
-+    <link rel="stylesheet" href="style.css?v=2063">
++    <link rel="stylesheet" href="style.css?v=2065">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
  </head>
  <body style="background-color: #0f172a; color: #f8fafc; min-height: 100vh; display: flex; flex-direction: column;">
-@@ -36,9 +39,9 @@
-     <div style="max-width: 1600px; width: 96%; margin: 0 auto; padding: 14px 2%; display: flex; align-items: center; justify-content: space-between;">
  
-         <!-- Sol: CVYAP Logosu -->
+-<!-- ÜST NAVBAR (1600px GENİŞLİK) -->
+-<header style="width: 100%; border-bottom: 1px solid rgba(255, 255, 255, 0.08); background: rgba(11, 17, 32, 0.85); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100;">
+-    <div style="max-width: 1600px; width: 96%; margin: 0 auto; padding: 14px 2%; display: flex; align-items: center; justify-content: space-between;">
+-
+-        <!-- Sol: CVYAP Logosu -->
 -        <a href="index.html" style="display: flex; align-items: center; text-decoration: none; letter-spacing: -1px; line-height: 1;">
 -            <span style="font-size: 1.9rem; font-weight: 900; color: #ffffff; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">CV</span>
 -            <span style="font-size: 1.9rem; font-weight: 900; color: #8c52ff; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">YAP</span>
-+        <a href="index.html" class="brand-logo-link" title="CVYAP Ana Sayfa" aria-label="CVYAP Ana Sayfa">
-+            <img src="logo.png?v=2063" width="42" height="42" class="brand-logo-image" alt="CVYAP logo">
++<!-- TEK ÜST NAVİGASYON -->
++<header class="site-header">
++    <div class="site-header-inner">
++        <a href="index.html" class="brand-logo-link brand-logo-text-only" title="CVYAP Ana Sayfa" aria-label="CVYAP Ana Sayfa">
 +            <span class="brand-logo-text"><strong>CV</strong><span>YAP</span></span>
          </a>
- 
-         <!-- Sağ: Menü (about.html bağlantılı) -->
-@@ -54,6 +57,16 @@
+-
+-        <!-- Sağ: Menü (about.html bağlantılı) -->
+-        <div style="display: flex; align-items: center; gap: 28px;">
+-            <a href="index.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: 0.2s;">Ana Sayfa</a>
+-            <a href="index.html#templatesSection" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: 0.2s;">Şablonlar</a>
+-            <a href="about.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: 0.2s;">Hakkında</a>
+-            <a href="index.html#templatesSection" style="display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; border-radius: 8px; background: #8c52ff; color: #ffffff; text-decoration: none; font-size: 0.9rem; font-weight: 700; box-shadow: 0 4px 14px rgba(140, 82, 255, 0.4);">
+-                <i class="fa-solid fa-bolt"></i> Başla
+-            </a>
+-        </div>
+-
++        <nav class="site-nav" aria-label="CVYAP ana menü">
++            <a href="sablonlar.html" class="site-nav-link">CV Şablonları</a>
++            <a href="index.html#editorWorkspace" class="site-nav-link site-nav-link-primary">CV Oluştur</a>
++            <a href="kariyer-rehberi.html" class="site-nav-link">Kariyer Rehberi</a>
++            <a href="about.html" class="site-nav-link">Hakkında</a>
++            <a href="sss.html" class="site-nav-link" aria-current="page">SSS</a>
++        </nav>
      </div>
  </header>
- 
-+<nav class="quick-tabs" aria-label="CVYAP hızlı menü">
-+    <div class="quick-tabs-inner">
-+        <a href="index.html#templatesSection">CV Şablonları</a>
-+        <a href="index.html">CV Oluştur</a>
-+        <a href="about.html">Hakkında</a>
-+        <a href="sss.html">SSS</a>
-+        <a href="index.html#footerSection">İletişim</a>
-+    </div>
-+</nav>
-+
- <!-- SSS ANA İÇERİK -->
- <main style="flex: 1; max-width: 1200px; width: 92%; margin: 60px auto; padding: 0 10px;">
  

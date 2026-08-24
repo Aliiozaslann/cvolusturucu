@@ -13,6 +13,18 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://cvyap.tr/sablonlar.html</loc>
+        <lastmod>2026-08-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://cvyap.tr/kariyer-rehberi.html</loc>
+        <lastmod>2026-08-24</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://cvyap.tr/sss.html</loc>
         <lastmod>2026-08-24</lastmod>
         <changefreq>monthly</changefreq>

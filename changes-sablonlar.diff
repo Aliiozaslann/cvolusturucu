@@ -1,0 +1,101 @@
+--- /dev/null	2026-08-13 05:50:18.342405456 +0000
++++ sablonlar.html	2026-08-24 15:03:18.266159311 +0000
+@@ -0,0 +1,98 @@
++<!DOCTYPE html>
++<html lang="tr" style="scroll-behavior: smooth;">
++<head>
++    <meta charset="UTF-8">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>CV Şablonları | 8 Ücretsiz ATS Uyumlu Tasarım | CVYAP</title>
++    <meta name="description" content="CVYAP'ın sekiz ücretsiz CV şablonunu inceleyin. Minimal, kurumsal, teknoloji, kreatif ve yönetici tasarımlarından birini seçerek ATS uyumlu CV oluşturun.">
++    <meta name="robots" content="index, follow, max-image-preview:large">
++    <link rel="canonical" href="https://cvyap.tr/sablonlar.html">
++    <link rel="icon" type="image/png" sizes="512x512" href="logo.png?v=2065">
++    <link rel="shortcut icon" href="favicon.ico?v=2065">
++    <link rel="manifest" href="site.webmanifest">
++    <meta name="theme-color" content="#0b1120">
++    <meta property="og:type" content="website">
++    <meta property="og:site_name" content="CVYAP">
++    <meta property="og:title" content="CV Şablonları | 8 Ücretsiz ATS Uyumlu Tasarım">
++    <meta property="og:description" content="Kariyerinize uygun sekiz farklı CV tasarımını inceleyin ve ücretsiz CV'nizi oluşturmaya başlayın.">
++    <meta property="og:url" content="https://cvyap.tr/sablonlar.html">
++    <meta property="og:image" content="https://cvyap.tr/logo.png?v=2065">
++    <script type="application/ld+json">
++    {
++      "@context": "https://schema.org",
++      "@graph": [
++        {
++          "@type": "WebPage",
++          "@id": "https://cvyap.tr/sablonlar.html#webpage",
++          "url": "https://cvyap.tr/sablonlar.html",
++          "name": "CV Şablonları | CVYAP",
++          "description": "CVYAP'ın sekiz ücretsiz ATS uyumlu CV şablonu.",
++          "isPartOf": {"@id": "https://cvyap.tr/#website"},
++          "inLanguage": "tr-TR"
++        },
++        {
++          "@type": "ItemList",
++          "name": "CVYAP CV Şablonları",
++          "itemListElement": [
++            {"@type":"ListItem","position":1,"name":"Minimal Slate CV","url":"https://cvyap.tr/index.html?template=minimal-slate"},
++            {"@type":"ListItem","position":2,"name":"Corporate Navy CV","url":"https://cvyap.tr/index.html?template=corporate-navy"},
++            {"@type":"ListItem","position":3,"name":"Modern Tech CV","url":"https://cvyap.tr/index.html?template=modern-tech"},
++            {"@type":"ListItem","position":4,"name":"Creative Magenta CV","url":"https://cvyap.tr/index.html?template=creative-magenta"},
++            {"@type":"ListItem","position":5,"name":"Elegant Emerald CV","url":"https://cvyap.tr/index.html?template=elegant-emerald"},
++            {"@type":"ListItem","position":6,"name":"Classic Burgundy CV","url":"https://cvyap.tr/index.html?template=classic-burgundy"},
++            {"@type":"ListItem","position":7,"name":"Clean Aurora CV","url":"https://cvyap.tr/index.html?template=clean-aurora"},
++            {"@type":"ListItem","position":8,"name":"Professional Copper CV","url":"https://cvyap.tr/index.html?template=professional-copper"}
++          ]
++        },
++        {
++          "@type": "BreadcrumbList",
++          "itemListElement": [
++            {"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://cvyap.tr/"},
++            {"@type":"ListItem","position":2,"name":"CV Şablonları","item":"https://cvyap.tr/sablonlar.html"}
++          ]
++        }
++      ]
++    }
++    </script>
++    <link rel="stylesheet" href="style.css?v=2065">
++    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
++</head>
++<body class="seo-page-body">
++    <header class="site-header">
++        <div class="site-header-inner">
++            <a href="index.html" class="brand-logo-link brand-logo-text-only" title="CVYAP Ana Sayfa" aria-label="CVYAP Ana Sayfa">
++                <span class="brand-logo-text"><strong>CV</strong><span>YAP</span></span>
++            </a>
++            <nav class="site-nav" aria-label="CVYAP ana menü">
++                <a href="sablonlar.html" class="site-nav-link" aria-current="page">CV Şablonları</a>
++                <a href="index.html#editorWorkspace" class="site-nav-link site-nav-link-primary">CV Oluştur</a>
++                <a href="kariyer-rehberi.html" class="site-nav-link">Kariyer Rehberi</a>
++                <a href="about.html" class="site-nav-link">Hakkında</a>
++                <a href="sss.html" class="site-nav-link">SSS</a>
++            </nav>
++        </div>
++    </header>
++
++    <main class="seo-page-main">
++        <section class="seo-page-hero">
++            <span class="seo-kicker"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> 8 ÜCRETSİZ TASARIM</span>
++            <h1>Kariyerinize uygun CV şablonunu seçin</h1>
++            <p>Minimal, kurumsal, teknoloji ve kreatif başvurular için tasarlanmış sekiz farklı CV düzenini inceleyin. Seçtiğiniz tasarım doğrudan canlı editörde açılır.</p>
++            <a class="seo-cta" href="index.html#editorWorkspace"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Ücretsiz CV Oluştur</a>
++        </section>
++
++        <section class="seo-card-grid" aria-label="CV şablonları">
++            <article class="seo-template-card seo-template-slate"><span class="seo-template-number">01</span><h2>Minimal Slate</h2><p>Sade çizgiler, dengeli iki kolon ve ATS dostu okunabilirlik.</p><a href="index.html?template=minimal-slate">Bu şablonla CV oluştur <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></article>
++            <article class="seo-template-card seo-template-navy"><span class="seo-template-number">02</span><h2>Corporate Navy</h2><p>Kurumsal pozisyonlar ve yönetici başvuruları için güçlü lacivert panel.</p><a href="index.html?template=corporate-navy">Bu şablonla CV oluştur <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></article>
++            <article class="seo-template-card seo-template-teal"><span class="seo-template-number">03</span><h2>Modern Tech</h2><p>Yazılım ve teknoloji uzmanları için modern, teknik ve köşeli düzen.</p><a href="index.html?template=modern-tech">Bu şablonla CV oluştur <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></article>
++            <article class="seo-template-card seo-template-magenta"><span class="seo-template-number">04</span><h2>Creative Magenta</h2><p>Tasarım ve iletişim alanları için canlı vurgu renkleriyle editoryal stil.</p><a href="index.html?template=creative-magenta">Bu şablonla CV oluştur <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></article>
++            <article class="seo-template-card seo-template-emerald"><span class="seo-template-number">05</span><h2>Elegant Emerald</h2><p>Finans, bankacılık ve yönetim başvuruları için zarif zümrüt tonları.</p><a href="index.html?template=elegant-emerald">Bu şablonla CV oluştur <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></article>
++            <article class="seo-template-card seo-template-burgundy"><span class="seo-template-number">06</span><h2>Classic Burgundy</h2><p>Hukuk ve akademi için ciddi, klasik ve güçlü bordo detaylar.</p><a href="index.html?template=classic-burgundy">Bu şablonla CV oluştur <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></article>
++            <article class="seo-template-card seo-template-aurora"><span class="seo-template-number">07</span><h2>Clean Aurora</h2><p>Ferah beyaz zemin ve mor-mavi geçişlerle modern üst profil bandı.</p><a href="index.html?template=clean-aurora">Bu şablonla CV oluştur <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></article>
++            <article class="seo-template-card seo-template-copper"><span class="seo-template-number">08</span><h2>Professional Copper</h2><p>Yönetici ve danışmanlık başvuruları için premium bakır vurgular.</p><a href="index.html?template=professional-copper">Bu şablonla CV oluştur <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></article>
++        </section>
++    </main>
++
++    <footer class="seo-page-footer"><strong>CVYAP</strong> — ATS uyumlu ücretsiz CV hazırlama platformu. <a href="about.html">Hakkımızda</a> · <a href="sss.html">SSS</a></footer>
++</body>
++</html>

@@ -15,11 +15,11 @@
     <title>Hakkımızda | CVYAP</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="512x512" href="logo.png?v=2063">
-    <link rel="icon" type="image/png" sizes="32x32" href="logo.png?v=2063">
-    <link rel="icon" type="image/png" sizes="16x16" href="logo.png?v=2063">
-    <link rel="shortcut icon" href="favicon.ico?v=2063">
-    <link rel="apple-touch-icon" sizes="180x180" href="logo.png?v=2063">
+    <link rel="icon" type="image/png" sizes="512x512" href="logo.png?v=2065">
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.png?v=2065">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.png?v=2065">
+    <link rel="shortcut icon" href="favicon.ico?v=2065">
+    <link rel="apple-touch-icon" sizes="180x180" href="logo.png?v=2065">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#0b1120">
 
@@ -29,42 +29,26 @@
     <link rel="canonical" href="https://cvyap.tr/about.html">
 
     <!-- CSS & Font Awesome -->
-    <link rel="stylesheet" href="style.css?v=2063">
+    <link rel="stylesheet" href="style.css?v=2065">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body style="background-color: #0f172a; color: #f8fafc; min-height: 100vh; display: flex; flex-direction: column;">
 
-<!-- ÜST NAVBAR -->
-<header style="width: 100%; border-bottom: 1px solid rgba(255, 255, 255, 0.08); background: rgba(11, 17, 32, 0.85); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100;">
-    <div style="max-width: 1600px; width: 96%; margin: 0 auto; padding: 14px 2%; display: flex; align-items: center; justify-content: space-between;">
-
-        <!-- Sol: CVYAP Logosu -->
-        <a href="index.html" class="brand-logo-link" title="CVYAP Ana Sayfa" aria-label="CVYAP Ana Sayfa">
-            <img src="logo.png?v=2063" width="42" height="42" class="brand-logo-image" alt="CVYAP logo">
+<!-- TEK ÜST NAVİGASYON -->
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="index.html" class="brand-logo-link brand-logo-text-only" title="CVYAP Ana Sayfa" aria-label="CVYAP Ana Sayfa">
             <span class="brand-logo-text"><strong>CV</strong><span>YAP</span></span>
         </a>
-
-        <div style="display: flex; align-items: center; gap: 28px;">
-            <a href="index.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: 0.2s;">Ana Sayfa</a>
-            <a href="index.html#templatesSection" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: 0.2s;">Şablonlar</a>
-            <a href="sss.html" style="color: #cbd5e1; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: 0.2s;">SSS</a>
-            <a href="index.html#templatesSection" style="display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; border-radius: 8px; background: #8c52ff; color: #ffffff; text-decoration: none; font-size: 0.9rem; font-weight: 700; box-shadow: 0 4px 14px rgba(140, 82, 255, 0.4);">
-                <i class="fa-solid fa-bolt"></i> Başla
-            </a>
-        </div>
-
+        <nav class="site-nav" aria-label="CVYAP ana menü">
+            <a href="sablonlar.html" class="site-nav-link">CV Şablonları</a>
+            <a href="index.html#editorWorkspace" class="site-nav-link site-nav-link-primary">CV Oluştur</a>
+            <a href="kariyer-rehberi.html" class="site-nav-link">Kariyer Rehberi</a>
+            <a href="about.html" class="site-nav-link" aria-current="page">Hakkında</a>
+            <a href="sss.html" class="site-nav-link">SSS</a>
+        </nav>
     </div>
 </header>
-
-<nav class="quick-tabs" aria-label="CVYAP hızlı menü">
-    <div class="quick-tabs-inner">
-        <a href="index.html#templatesSection">CV Şablonları</a>
-        <a href="index.html">CV Oluştur</a>
-        <a href="about.html">Hakkında</a>
-        <a href="sss.html">SSS</a>
-        <a href="index.html#footerSection">İletişim</a>
-    </div>
-</nav>
 
 <!-- HAKKINDA İÇERİK -->
 <main style="flex: 1; max-width: 1200px; width: 92%; margin: 60px auto; padding: 0 10px;">

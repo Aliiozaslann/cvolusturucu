@@ -355,9 +355,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         downloadBtn.addEventListener('click', async () => {
-            const originalTransform = cvCanvas.style.transform;
-            const originalCanvasHeight = cvCanvas.style.height;
             const originalButtonHtml = downloadBtn.innerHTML;
+            const originalCanvasStyle = cvCanvas.getAttribute('style');
+            const originalBodyOverflow = document.body.style.overflow;
 
             downloadBtn.disabled = true;
             downloadBtn.setAttribute('aria-busy', 'true');
@@ -367,38 +367,58 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 await waitForHtml2Pdf();
 
-                // PDF yakalama sırasında zoom ve responsive etkilerini devre dışı bırak.
-                cvCanvas.style.transform = 'none';
-                cvCanvas.style.height = '1123px';
+                // Aynı A4 canvas'ı geçici olarak viewport'un sıfır noktasına al.
+                // Clone/body visibility kullanmıyoruz; böylece html2canvas boş bir
+                // görünürlük ağacını değil, kullanıcının gördüğü gerçek CV'yi yakalar.
+                cvCanvas.setAttribute('style', [
+                    'position: fixed',
+                    'left: 0',
+                    'top: 0',
+                    'width: 794px',
+                    'height: 1123px',
+                    'min-width: 794px',
+                    'min-height: 1123px',
+                    'max-width: 794px',
+                    'max-height: 1123px',
+                    'margin: 0',
+                    'transform: none',
+                    'transform-origin: top left',
+                    'z-index: 2147483647',
+                    'background: #ffffff',
+                    'overflow: hidden',
+                    'visibility: visible'
+                ].join(';'));
+                document.body.style.overflow = 'hidden';
                 await nextFrame();
 
                 const opt = {
                     margin: 0,
                     filename: 'CVPRO_Ozgecmis.pdf',
                     image: { type: 'jpeg', quality: 1.0 },
+                    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
                     html2canvas: {
                         scale: 2,
                         useCORS: true,
                         allowTaint: false,
+                        backgroundColor: '#ffffff',
                         width: 794,
                         height: 1123,
                         windowWidth: 794,
                         windowHeight: 1123,
+                        x: 0,
+                        y: 0,
                         scrollY: 0,
                         scrollX: 0
                     },
                     jsPDF: {
-                        unit: 'px',
-                        format: [794, 1123],
-                        orientation: 'portrait',
-                        hotfixes: ['px_scaling']
+                        unit: 'mm',
+                        format: 'a4',
+                        orientation: 'portrait'
                     }
                 };
 
                 const worker = html2pdf().set(opt).from(cvCanvas);
                 const pdf = await worker.toPdf().get('pdf');
-
-                // İstenmeyen ikinci sayfayı sil; A4 tek sayfa kuralını koru.
                 const totalPages = pdf.internal.getNumberOfPages();
                 for (let page = totalPages; page > 1; page--) {
                     pdf.deletePage(page);
@@ -411,12 +431,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 downloadBtn.dataset.pdfStatus = 'error';
                 alert('PDF oluşturulamadı. Lütfen sayfayı yenileyip tekrar deneyin.');
             } finally {
-                cvCanvas.style.transform = originalTransform;
-                cvCanvas.style.height = originalCanvasHeight;
+                if (originalCanvasStyle === null) {
+                    cvCanvas.removeAttribute('style');
+                } else {
+                    cvCanvas.setAttribute('style', originalCanvasStyle);
+                }
+                document.body.style.overflow = originalBodyOverflow;
                 downloadBtn.disabled = false;
                 downloadBtn.removeAttribute('aria-busy');
                 downloadBtn.innerHTML = originalButtonHtml;
             }
         });
+    }
+
+    // Google tarafından taranabilir iç bağlantılar için URL üzerinden editör açma.
+    const urlParams = new URLSearchParams(window.location.search);
+    const requestedTemplate = urlParams.get('template');
+    if (requestedTemplate && supportedTemplates.has(requestedTemplate)) {
+        updateTemplate(requestedTemplate);
+    }
+    if (window.location.hash === '#editorWorkspace' || requestedTemplate) {
+        showEditorWorkspace();
     }
 });
