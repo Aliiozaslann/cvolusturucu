@@ -350,12 +350,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         downloadBtn.addEventListener('click', async () => {
-            const sidebar = cvCanvas.querySelector('.cv-sidebar');
-            const mainContent = cvCanvas.querySelector('.cv-main-content');
             const originalTransform = cvCanvas.style.transform;
             const originalCanvasHeight = cvCanvas.style.height;
-            const originalSidebarHeight = sidebar ? sidebar.style.height : '';
-            const originalMainHeight = mainContent ? mainContent.style.height : '';
             const originalButtonHtml = downloadBtn.innerHTML;
 
             downloadBtn.disabled = true;
@@ -369,8 +365,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 // PDF yakalama sırasında zoom ve responsive etkilerini devre dışı bırak.
                 cvCanvas.style.transform = 'none';
                 cvCanvas.style.height = '1123px';
-                if (sidebar) sidebar.style.height = '1123px';
-                if (mainContent) mainContent.style.height = '1123px';
                 await nextFrame();
 
                 const opt = {
@@ -414,8 +408,6 @@ document.addEventListener('DOMContentLoaded', () => {
             } finally {
                 cvCanvas.style.transform = originalTransform;
                 cvCanvas.style.height = originalCanvasHeight;
-                if (sidebar) sidebar.style.height = originalSidebarHeight;
-                if (mainContent) mainContent.style.height = originalMainHeight;
                 downloadBtn.disabled = false;
                 downloadBtn.removeAttribute('aria-busy');
                 downloadBtn.innerHTML = originalButtonHtml;
