@@ -1,0 +1,14 @@
+--- /home/ubuntu/cvhazirla-baseline/app.js	2026-08-24 11:14:46.601587477 +0000
++++ app.js	2026-08-24 11:19:01.746794551 +0000
+@@ -25,6 +25,11 @@
+         btnStartNow.addEventListener('click', showEditorWorkspace);
+     }
+ 
++    const quickStartBtn = document.getElementById('quickStartBtn');
++    if (quickStartBtn) {
++        quickStartBtn.addEventListener('click', showEditorWorkspace);
++    }
++
+     if (btnBackToHome) {
+         btnBackToHome.addEventListener('click', showLandingPage);
+     }

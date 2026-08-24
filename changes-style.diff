@@ -1,0 +1,93 @@
+--- /home/ubuntu/cvhazirla-baseline/style.css	2026-08-24 11:14:46.601587477 +0000
++++ style.css	2026-08-24 11:19:01.746794551 +0000
+@@ -1398,6 +1398,90 @@
+     border-top-color: #fcd34d;
+ }
+ 
++/* ==========================================================================
++   MARKA LOGOSU & GÖRÜNÜR SEKME NAVİGASYONU
++   ========================================================================== */
++.brand-logo-link {
++    display: inline-flex;
++    align-items: center;
++    gap: 10px;
++    text-decoration: none;
++    letter-spacing: -1px;
++    line-height: 1;
++}
++.brand-logo-image {
++    width: 42px;
++    height: 42px;
++    object-fit: cover;
++    border-radius: 10px;
++    box-shadow: 0 4px 16px rgba(140, 82, 255, 0.35);
++}
++.brand-logo-text {
++    display: inline-flex;
++    align-items: baseline;
++    font-size: 1.72rem;
++    font-weight: 900;
++    color: #ffffff;
++}
++.brand-logo-text span {
++    color: #8c52ff;
++}
++.quick-tabs {
++    position: sticky;
++    top: 71px;
++    z-index: 95;
++    width: 100%;
++    background: rgba(11, 17, 32, 0.96);
++    border-bottom: 1px solid rgba(140, 82, 255, 0.28);
++    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
++}
++.quick-tabs-inner {
++    width: min(1600px, 96%);
++    margin: 0 auto;
++    padding: 9px 2%;
++    display: flex;
++    align-items: center;
++    justify-content: center;
++    gap: 8px;
++    overflow-x: auto;
++    scrollbar-width: thin;
++}
++.quick-tabs a,
++.quick-tabs button {
++    flex: 0 0 auto;
++    border: 1px solid rgba(255, 255, 255, 0.12);
++    border-radius: 999px;
++    background: rgba(255, 255, 255, 0.04);
++    color: #cbd5e1;
++    padding: 8px 15px;
++    font: 600 0.86rem/1.1 'Segoe UI', system-ui, sans-serif;
++    text-decoration: none;
++    cursor: pointer;
++    transition: 0.2s ease;
++}
++.quick-tabs a:hover,
++.quick-tabs a:focus-visible,
++.quick-tabs button:hover,
++.quick-tabs button:focus-visible,
++.quick-tabs a.active {
++    color: #ffffff;
++    border-color: #8c52ff;
++    background: rgba(140, 82, 255, 0.22);
++    transform: translateY(-1px);
++}
++.quick-tabs a:first-child {
++    color: #ffffff;
++    background: #8c52ff;
++    border-color: #8c52ff;
++}
++@media (max-width: 760px) {
++    .brand-logo-image { width: 36px; height: 36px; }
++    .brand-logo-text { font-size: 1.35rem; }
++    .quick-tabs { top: 62px; }
++    .quick-tabs-inner { justify-content: flex-start; padding-top: 7px; padding-bottom: 7px; }
++    .quick-tabs a, .quick-tabs button { font-size: 0.78rem; padding: 7px 11px; }
++}
++
+ /* Responsive */
+ @media (max-width: 1200px) {
+     .template-grid {

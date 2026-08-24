@@ -25,6 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
         btnStartNow.addEventListener('click', showEditorWorkspace);
     }
 
+    const quickStartBtn = document.getElementById('quickStartBtn');
+    if (quickStartBtn) {
+        quickStartBtn.addEventListener('click', showEditorWorkspace);
+    }
+
     if (btnBackToHome) {
         btnBackToHome.addEventListener('click', showLandingPage);
     }

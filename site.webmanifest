@@ -1,0 +1,12 @@
+{
+  "name": "CVYAP - Ücretsiz ATS Uyumlu CV Hazırlama",
+  "short_name": "CVYAP",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1120",
+  "theme_color": "#8c52ff",
+  "description": "CVYAP ile 8 farklı şablondan ücretsiz ATS uyumlu CV hazırlayın.",
+  "icons": [
+    {"src": "logo.png?v=2063", "sizes": "2000x2000", "type": "image/png", "purpose": "any maskable"}
+  ]
+}

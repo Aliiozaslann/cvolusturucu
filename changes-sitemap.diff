@@ -1,0 +1,25 @@
+--- /home/ubuntu/cvhazirla-baseline/sitemap.xml	2026-08-24 11:14:46.601587477 +0000
++++ sitemap.xml	2026-08-24 11:19:56.519917802 +0000
+@@ -2,19 +2,19 @@
+ <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+     <url>
+         <loc>https://cvyap.tr/</loc>
+-        <lastmod>2026-08-22</lastmod>
++        <lastmod>2026-08-24</lastmod>
+         <changefreq>weekly</changefreq>
+         <priority>1.0</priority>
+     </url>
+     <url>
+         <loc>https://cvyap.tr/about.html</loc>
+-        <lastmod>2026-08-22</lastmod>
++        <lastmod>2026-08-24</lastmod>
+         <changefreq>monthly</changefreq>
+         <priority>0.8</priority>
+     </url>
+     <url>
+         <loc>https://cvyap.tr/sss.html</loc>
+-        <lastmod>2026-08-22</lastmod>
++        <lastmod>2026-08-24</lastmod>
+         <changefreq>monthly</changefreq>
+         <priority>0.8</priority>
+     </url>
