@@ -27,6 +27,10 @@ Google arama sonuçlarında hangi site adını ve hangi sitelinkleri gösterece�
 
 Teknik doğrulama başarılıdır: her indexable sayfada tek header, text-only logo ve dört üst menü bağlantısı bulunuyor. 1440px masaüstü ve 390px mobil render'larında yalnızca tek menü görünüyor. Hero içindeki büyük CV oluşturma butonu görünür ve kullanılabilir durumda.
 
+## Alt sayfalardaki CV Oluştur butonları
+
+`CV Şablonları`, `Kariyer Rehberi`, `Hakkında` ve `SSS` sayfalarında tekrar eden `CV Oluştur` CTA düğmeleri kaldırıldı. Şablon kartlarının gerçek işlevi korunarak bağlantı metinleri `Şablonu kullan` şeklinde sadeleştirildi. CV oluşturma çağrısı yalnızca ana sayfanın içerik bölümündeki `Hemen CV Oluştur` CTA'sında bırakıldı.
+
 ## References
 
 [1]: https://developers.google.com/search/docs/appearance/site-names "Google Search Central — Site names"

@@ -2,36 +2,32 @@
 
 ## Ana sayfa kontrolü
 
-Yerel tarayıcıda `index.html` açıldı. Sayfa başlığı `CVYAP | Ücretsiz ve ATS Uyumlu Profesyonel CV Hazırlama Aracı` olarak göründü. Header içinde gerçek `logo.png?v=2063` görseli ve CVYAP metin markası render edildi. Header'ın altında CV Şablonları, CV Oluştur, Hakkında, SSS ve İletişim sekmelerinden oluşan görünür hızlı menü render edildi.
+Yerel tarayıcıda `index.html` açıldı. Sayfa başlığı `CVYAP | Ücretsiz ve ATS Uyumlu Profesyonel CV Hazırlama Aracı` olarak göründü. Header içinde yalnızca CVYAP metin markası render edildi; `logo.png` header yanında ikinci bir görsel olarak kullanılmıyor. Eski ikinci `quick-tabs` şeridi görünmüyor.
 
 ## Editör akışı kontrolü
 
-Görünür hızlı menüdeki `CV Oluştur` butonuna tıklanınca mevcut `editorWorkspace` açıldı. 8 adımlı form, şablon seçimi ve PDF İndir butonu görünür kaldı; landing sayfasının mevcut çalışma akışı bozulmadı.
+Ana sayfanın içerik bölümündeki büyük `Hemen CV Oluştur` CTA'sı korunuyor. Bu buton `editorWorkspace` bölümünü açmaya devam ediyor. Sekiz adımlı form, sekiz farklı şablon seçimi ve PDF İndir akışı korunmuştur.
 
 ## Teknik kontroller
 
-`validate_seo_navigation.py` sonucu: homepage title/logo, görünür hedefli sekmeler, WebSite + Organization JSON-LD, JavaScript quick-start hook'u, favicon, web manifest, robots.txt ve sitemap.xml başarılı.
+`validate_single_nav.py` sonucu başarılıdır: her indexable sayfada tek `site-header`, text-only CVYAP logosu, dört crawlable üst navigasyon bağlantısı, WebSite + Organization JSON-LD ve sitemap bağlantıları bulunuyor. `node --check app.js` başarılıdır. `sitemap.xml` XML ayrıştırma kontrolü başarılıdır.
 
-## PDF bundle clean-reload kontrolü
+## Tek header ve dört üst bağlantı
 
-Temiz sayfa yüklemesinden sonra `typeof window.html2pdf` sonucu `function` oldu. Bu nedenle yerel `html2pdf.bundle.min.js` dosyası mevcut PDF handler tarafından yüklenebiliyor.
+`index.html`, `sablonlar.html`, `kariyer-rehberi.html`, `about.html` ve `sss.html` sayfalarında aynı sade header kullanılıyor. Üst menüde yalnızca şu dört bağlantı bulunuyor: `CV Şablonları`, `Kariyer Rehberi`, `Hakkında` ve `SSS`.
 
-## Tek menü ve yeni sayfalar doğrulaması
+## Alt sayfa CTA temizliği
 
-`index.html?navFix=2065` yerel tarayıcı testinde tek `site-header` göründü. Header logosu yalnızca CVYAP metin markası olarak render edildi; eski ikinci `quick-tabs` şeridi görünmedi. Menüde beş crawlable HTML bağlantısı bulundu: CV Şablonları, CV Oluştur, Kariyer Rehberi, Hakkında ve SSS.
+Yerel tarayıcı kontrolleriyle `sablonlar.html` ve `kariyer-rehberi.html` açıldı. Her iki sayfada da `CV Oluştur`, `Ücretsiz CV Oluştur` veya `Rehberden sonra CV oluştur` adlı CTA görünmüyor. CV Şablonları sayfasındaki sekiz işlevsel kart bağlantısı `Şablonu kullan` olarak korunmuştur; bunlar seçilen şablonu ana editörde açar. Hakkında ve SSS sayfalarında da ayrıca bir CV oluşturma butonu bulunmuyor.
 
-`/sablonlar.html` sayfası açıldı. Benzersiz sayfa başlığı, 8 şablon açıklaması ve `index.html?template=...` formatındaki açıklayıcı dahili bağlantılar render edildi. Sayfa aynı tek header'ı kullanıyor.
+## Responsive görsel kontrolü
 
-`/kariyer-rehberi.html` yerel tarayıcıda benzersiz başlık ve rehber içeriğiyle açıldı; tek header ve beş sekme göründü. Bu sayfadaki `CV Oluştur` bağlantısına tıklanınca URL `index.html#editorWorkspace` oldu ve mevcut 8 adımlı CV editörü açıldı. Editör görünümünde PDF butonu ve şablon seçimi korunuyor.
+Masaüstü render'da yalnızca tek üst header göründü: solda tek CVYAP metin logosu, sağda dört site bağlantısı. 390px mobil render'da logo üstte tek kez göründü; dört bağlantı aynı header içindeki yatay kaydırılabilir navigasyonda kaldı. Menü ikinci bir bağımsız bar oluşturmadı ve içerikle çakışmadı.
 
-## Responsive görsel kontrol
+## PDF bundle kontrolü
 
-Desktop render'da yalnızca tek üst header göründü: solda tek CVYAP metin logosu, sağda beş site bağlantısı. Eski ikinci yatay bar yok.
+Yerel `html2pdf.bundle.min.js` dosyası korunmuştur. Temiz sayfa yüklemesinden sonra PDF kütüphanesi yüklenebiliyor ve A4 tek sayfa PDF çıktısı önceki QA testinde doğrulanmıştır.
 
-390px mobil render'da logo üstte tek kez göründü; beş bağlantı aynı header içindeki yatay kaydırılabilir nav içinde kaldı. Menü ikinci bir bağımsız bar oluşturmadı ve hero içeriğiyle çakışmadı.
+## Hakkında ve SSS kontrolü
 
-## Üst CV Oluştur butonu kaldırıldı
-
-Final desktop render'da logo ile aynı hizada bulunan üst `CV Oluştur` butonu görünmüyor. Tek header içinde dört bağlantı kaldı: `CV Şablonları`, `Kariyer Rehberi`, `Hakkında` ve `SSS`. Hero alanındaki büyük `Hemen CV Oluştur` butonu korunuyor.
-
-Final mobil render'da da aynı dört bağlantı tek üst menü satırında görünüyor; ikinci menü oluşmuyor ve hero CTA çalışmaya devam ediyor.
+`about.html` ve `sss.html` sayfaları da yerel tarayıcıda açıldı. Her iki sayfada yalnızca tek header ve aynı dört üst bağlantı görünüyor; ayrıca bir `CV Oluştur` butonu render edilmiyor. SSS içindeki bilgilendirici soru metinlerinde geçen "CV oluşturabilir miyim?" ifadesi korunmuştur.
